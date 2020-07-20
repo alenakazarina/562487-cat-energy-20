@@ -8,40 +8,61 @@
 </head>
 <body class="page-body">
   <header class="page-header">
-    <img class="logo" src="img/logo.png" alt="Логотип Cat Energy">
-    <a class="home-link" href="index.html"><span>Cat</span> Energy</a>
-    <div class="page-header__menu main-menu">
-      <button class="main-menu__toggle toggle js-toggle">
-        <span class="toggle__icon">X</span>
-      </button>
-      <ul class="mobile-menu__list">
+    <a class="logo" href="index.html">
+      <img src="img/logo.svg" width="33" height="37" alt="Логотип Cat Energy">
+      <img src="img/logo-text.svg" width="101" height="18" alt="Cat Energy">
+      <span class="visually-hidden">На главную Cat Energy</span>
+    </a>
+    <nav class="navigation">
+      <button class="menu-toggle js-toggle" type="button">x</button>
+      <ul class="menu">
         <li><a class="menu-link" href="index.html">Главная</a></li>
         <li><a class="menu-link" href="catalog.html">Каталог продукции</a></li>
         <li><a class="menu-link menu-link--active">Подбор программы</a></li>
       </ul>
-    </div>
+    </nav>
   </header>
   <main class="page-main">
-    <h1 class="page-title">Подбор программы</h1>
+    <h1 class="visually-hidden">Подбор программы питания для вашего кота.</h1>
     <section class="program">
-      <h2 class="program__title">Заполните анкету, и мы подберем
-        программу питания для вашего кота</h2>
+      <h2 class="visually-hidden">Анкета кота</h2>
+      <b class="text text--special">Подбор программы</b>
+      <p class="text">Заполните анкету, и мы подберем программу питания для вашего кота</p>
       <form class="program__form form" action="https://echo.htmlacademy.ru" method="POST">
         <fieldset>
           <legend class="visually-hidden">Данные питомца</legend>
           <p class="form__field">
             <label>Имя:*
-              <input type="text" class="form__input form__input--text" name="catname" placeholder="Барсик" required>
+              <input class="form__input form__input--text"
+                type="text"
+                inputmode="text"
+                name="catname"
+                placeholder="Барсик"
+                required
+              >
             </label>
           </p>
           <p class="form__field">
             <label>Вес (кг):*
-              <input type="number" class="form__input form__input--text" name="weight" value="7" min="0" required>
+              <input class="form__input form__input--text"
+                type="number"
+                inputmode="numeric"
+                name="weight"
+                value="7"
+                min="0"
+                required
+              >
             </label>
           </p>
           <p class="form__field">
             <label>Возраст (лет):
-              <input type="number" class="form__input form__input--text" name="age" value="7" min="0">
+              <input class="form__input form__input--text"
+                type="number"
+                inputmode="numeric"
+                name="age"
+                value="7"
+                min="0"
+              >
             </label>
           </p>
         </fieldset>
@@ -70,18 +91,36 @@
           <legend>Контактные данные (владельца кота)</legend>
           <p class="form__field">
             <label>E-mail:*
-              <input type="text" class="form__input form__input--text" name="email" placeholder="kuklachev@gmail.com" required>
+              <input class="form__input form__input--text"
+                type="text"
+                inputmode="email"
+                name="email"
+                placeholder="kuklachev@gmail.com"
+                required
+              >
             </label>
           </p>
           <p class="form__field">
             <label>Телефон:*
-              <input type="text" class="form__input form__input--text" name="tel" placeholder="8 (960) 900-60-90" required>
+              <input class="form__input form__input--text"
+                type="tel"
+                inputmode="tel"
+                name="tel"
+                pattern="8[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}"
+                placeholder="8 (960) 900-60-90"
+                required
+              >
             </label>
           </p>
         </fieldset>
         <fieldset>
           <legend><label for="comment">Комментарий</label></legend>
-          <textarea id="comment" class="form__input form__input--text" name="comment" cols="30" rows="5" placeholder="Расскажите обо всех повадках кота"></textarea>
+          <textarea id="comment" class="form__input form__input--text"
+            name="comment"
+            cols="30"
+            rows="5"
+            placeholder="Расскажите обо всех повадках кота">
+          </textarea>
         </fieldset>
         <fieldset name="addons">
           <legend>Дополнительно</legend>
@@ -110,41 +149,40 @@
             </label>
           </p>
         </fieldset>
-        <div class="form__footer">
-          <button type="submit">Отправить заявку</button>
-          <p class="form__text">* — Обязательные поля</p>
-        </div>
+        <button type="submit">Отправить заявку</button>
+        <p class="form__text">* — Обязательные поля</p>
       </form>
-    </section>
-    <section class="contacts">
-      <h2 class="visually-hidden">Контакты</h2>
-      <p class="contacts__slogan"><b>Приглашаем к сотрудничеству дилеров!</b></p>
-      <p class="contacts__address">ул. Большая Конюшенная, д. 19/8 Санкт-Петербург</p>
-      <div class="contacts__map js-map"></div>
-      <div class="contacts__map-image">
-        <img src="img/location.jpg" alt="Cat Energy на карте">
-      </div>
     </section>
   </main>
   <footer class="page-footer">
-    <div class="page-footer__home-link home-link">
-      <a href="index.html"><span>Cat</span> Energy</a>
-    </div>
-    <ul class="footer__socials socials">
-      <li><a class="socials__link socials__link--vk" href="https://vk.com" rel="noopener nofollow" target="_blank" title="ВКонтакте">
-        <span class="visually-hidden">Cat Energy во ВКонтакте</span>
-      </a></li>
-      <li><a class="socials__link socials__link--instagram" href="https://instagram.com" rel="noopener nofollow" target="_blank" title="Instagram">
-        <span class="visually-hidden">Cat Energy в Instagram</span>
-      </a></li>
-      <li><a class="socials__link socials__link--fb" href="https://facebook.com" rel="noopener nofollow" target="_blank" title="Facebook">
-        <span class="visually-hidden">Cat Energy в Facebook</span>
-      </a></li>
-    </ul>
-    <div class="footer__copyright">
-      <a href="https://htmlacademy.ru" rel="noopener nofollow" target="_blank">HTML Academy</a>
-      <img src="img/logo_html.png" alt="Логотип HTML Academy">
-    </div>
+    <section class="page-footer__contacts contacts">
+      <h2 class="visually-hidden">Контакты</h2>
+      <div class="contacts__location">
+        <p class="contacts__slogan">Приглашаем к сотрудничеству дилеров!</p>
+        <address class="contacts__address">ул. Большая Конюшенная, д. 19/8 Санкт-Петербург</address>
+      </div>
+      <div class="contacts__info">
+        <a class="contacts__logo" href="index.html">
+          <img src="img/logo-text.svg" width="128" height="24" alt="На главную Cat Energy">
+        </a>
+        <ul class="contacts__socials socials">
+          <li><a class="socials__link socials__link--vk" href="https://vk.com" rel="noopener nofollow" target="_blank" title="ВКонтакте">
+            <span class="visually-hidden">Cat Energy во ВКонтакте</span>
+          </a></li>
+          <li><a class="socials__link socials__link--instagram" href="https://instagram.com" rel="noopener nofollow" target="_blank" title="Instagram">
+            <span class="visually-hidden">Cat Energy в Instagram</span>
+          </a></li>
+          <li><a class="socials__link socials__link--fb" href="https://facebook.com" rel="noopener nofollow" target="_blank" title="Facebook">
+            <span class="visually-hidden">Cat Energy в Facebook</span>
+          </a></li>
+        </ul>
+        <div class="contacts__copyright copyright">
+          <a href="https://htmlacademy.ru/intensive/adaptive" rel="noopener nofollow" target="_blank">HTML Academy
+            <img src="img/logo-html.svg" width="27" height="34" alt="Логотип HTML Academy">
+          </a>
+        </div>
+      </div>
+    </section>
   </footer>
 </body>
 </html>
