@@ -189,17 +189,6 @@
       </a>
     </div>
   </footer>
-  <script>
-    // nav toggle
-    const mainNavEl = document.querySelector(`.main-nav--nojs`);
-    mainNavEl.classList.remove(`main-nav--nojs`);
-    mainNavEl.classList.remove(`main-nav--opened`);
-    mainNavEl.classList.add(`main-nav--closed`);
-    const mainNavToggleEl = document.querySelector(`.js-toggle`);
-    mainNavToggleEl.addEventListener(`click`, (evt) => {
-      mainNavEl.classList.toggle(`main-nav--opened`);
-      mainNavEl.classList.toggle(`main-nav--closed`);
-    });
-  </script>
+  <script src="js/main.js"></script>
 </body>
 </html>
