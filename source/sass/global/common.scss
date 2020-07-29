@@ -1,0 +1,30 @@
+.visually-hidden {
+  position: absolute;
+  top: 0;
+  left: 0;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+}
+
+.page-body {
+  @include text(regular, 14px, 18px, false);
+  background-color: $basic-light;
+  color: $basic-dark;
+}
+
+.page-main--catalog {
+  padding: 0 20px;
+  border-top: $border-page;
+}
+
+.page-main--catalog .page-title {
+  padding-top: 27px;
+  padding-bottom: 41px;
+  margin: 0;
+}
+
+.page-title {
+  @include text(primary, 36px, 36px, false);
+}
