@@ -1,0 +1,5 @@
+.page-body {
+  @include text(regular, 14px, 18px, false);
+  background-color: $basic-light;
+  color: $basic-dark;
+}

@@ -1,0 +1,6 @@
+.page-title {
+  @include text(primary, 36px, 36px, false);
+  padding-top: 27px;
+  padding-bottom: 41px;
+  margin: 0;
+}
