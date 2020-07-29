@@ -1,0 +1,7 @@
+.map {
+  @include bg-norepeat(( $bg-map-pin, $bg-map));
+  width: 100%;
+  min-height: 362px;
+  background-size: 62px 53px, 320px 362px;
+  background-position: center;
+}

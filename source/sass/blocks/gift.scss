@@ -1,0 +1,18 @@
+.gift {
+  @include flex(row, center, center, false);
+  @include bg-norepeat(($icon-gift, $bg-gift));
+  max-width: 280px;
+  min-height: 289px;
+  margin: 0 auto;
+  text-align: center;
+  color: $basic-light;
+  background-color: $basic-green;
+  background-position: center 64px, top center;
+  background-size: 55px 60px, auto;
+}
+
+.gift__slogan {
+  @include text(regular, 16px, 20px, false);
+  position: relative;
+  top: 71px;
+}

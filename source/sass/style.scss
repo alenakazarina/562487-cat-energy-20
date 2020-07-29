@@ -1,1 +1,24 @@
-// Начните писать стили здесь
+@import "global/variables";
+@import "global/mixins";
+@import "global/fonts";
+@import "global/global";
+@import "global/common";
+// main blocks
+@import "blocks/header/index";
+@import "blocks/footer/index";
+@import "blocks/promo";
+@import "blocks/advantages";
+@import "blocks/case";
+@import "blocks/products";
+@import "blocks/addons";
+// blocks
+@import "blocks/page-body";
+@import "blocks/page-main";
+@import "blocks/page-title";
+@import "blocks/program";
+@import "blocks/facts";
+@import "blocks/slider";
+@import "blocks/product";
+@import "blocks/addon";
+@import "blocks/load-more";
+@import "blocks/gift";

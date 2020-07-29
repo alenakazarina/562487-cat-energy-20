@@ -1,0 +1,37 @@
+.main-nav {
+  display: block;
+}
+
+.main-nav--nojs .main-nav__menu {
+  display: grid;
+}
+
+.main-nav--nojs .main-nav__toggle {
+  display: none;
+}
+
+.main-nav--closed .main-nav__menu {
+  display: none;
+}
+
+.main-nav--opened .main-nav__toggle {
+  @include bg-norepeat($icon-menu-close);
+}
+
+.main-nav--closed .main-nav__toggle {
+  @include bg-norepeat($icon-menu-mobile);
+}
+
+.main-nav__menu {
+  @include list;
+  margin: 0 auto;
+}
+
+.main-nav__toggle {
+  @include absolute-top-right(23px, 23px, 0);
+  width: 24px;
+  height: 16px;
+  background-position: center;
+  background-color: transparent;
+  border: none;
+}

@@ -1,0 +1,46 @@
+.product {
+  display: grid;
+  grid-template-areas:
+    "picture title"
+    "picture info"
+    "buy buy";
+  grid-template-columns: min-content auto;
+  grid-template-rows: auto auto min-content;
+  width: 100%;
+  max-width: 280px;
+}
+
+.product__picture {
+  @include flex(row, center, center, false);
+  grid-area: picture;
+  width: 140px;
+}
+
+.product__title {
+  grid-area: title;
+}
+
+.product__title a {
+  @include text(primary, 16px, 20px, true);
+  color: $basic-dark-200;
+}
+
+.product__info {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-area: info;
+}
+
+.product__info dd {
+  margin: 0;
+  margin-left: auto;
+}
+
+.product__buy {
+  @include text(primary, 14px, 18px, true);
+  @include accent-link;
+  grid-area: buy;
+  justify-self: center;
+  width: 100%;
+  padding: 9px 44px;
+}

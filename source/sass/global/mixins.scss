@@ -1,0 +1,88 @@
+@mixin bg-norepeat($images) {
+  background-image: $images;
+  background-repeat: no-repeat;
+}
+
+@mixin font($font-family, $weight, $style) {
+  font-family: $font-family;
+  font-weight: $weight;
+  font-style: $style;
+}
+
+@mixin list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+@mixin uppercase {
+  text-transform: uppercase;
+}
+
+@mixin text($type, $size, $height, $uppercase) {
+  @if $type == primary {
+    @include font($primary-font, 400, normal);
+  }
+
+  @if $type == primary-medium {
+    @include font($primary-font, 500, normal);
+  }
+
+  @if $type == regular {
+    @include font($basic-font, 400, normal);
+  }
+
+  @if $uppercase {
+    @include uppercase();
+  }
+
+  font-size: $size;
+  line-height: $height;
+}
+
+@mixin accent-link {
+  color: $basic-light;
+  background-color: $basic-green;
+  text-align: center;
+}
+
+@mixin pseudo($width, $height) {
+  content: "";
+  display: inline-flex;
+  width: $width;
+  height: $height;
+}
+
+@mixin absolute-top-left($top, $left, $index) {
+  position: absolute;
+  top: $top;
+  left: $left;
+  z-index: $index;
+}
+
+@mixin absolute-top-right($top, $right, $index) {
+  position: absolute;
+  top: $top;
+  right: $right;
+  z-index: $index;
+}
+
+@mixin flex($direction, $justify, $align, $wrap) {
+  display: flex;
+
+  @if $direction != row {
+    flex-direction: $direction;
+  }
+
+  @if $justify != auto {
+    justify-content: $justify;
+  }
+
+  @if $align != auto {
+    align-items: $align;
+  }
+
+  @if $wrap {
+    flex-wrap: $wrap;
+  }
+}

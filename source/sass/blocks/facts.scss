@@ -1,0 +1,27 @@
+.facts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 30px;
+  align-items: center;
+}
+
+.facts__item {
+  @include flex(column, auto, center, false);
+  position: relative;
+  width: 124px;
+  height: 64px;
+  text-align: center;
+  border: $border-basic;
+}
+
+.facts__number {
+  @include text(primary, 24px, 24px, false);
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.facts__text {
+  max-width: 77px;
+  color: $basic-dark-400;
+  background-color: $basic-light-300;
+}

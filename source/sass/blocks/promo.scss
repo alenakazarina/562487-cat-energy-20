@@ -1,0 +1,48 @@
+.promo {
+  position: relative;
+  color: $basic-light;
+}
+
+.promo__top {
+  @include flex(column, auto, auto, false);
+  @include bg-norepeat((
+    $bg-promo-can,
+    $bg-promo-top,
+    linear-gradient(to bottom, $basic-green 0%, $basic-green 305px, $basic-light 50%)
+  ));
+  max-width: 280px;
+  min-height: 520px;
+  margin: 0 auto;
+  text-align: center;
+  background-position: center 167px, top, center;
+  background-size: 280px 270px, auto, auto;
+}
+
+.promo__title {
+  @include text(primary, 36px, 36px, false);
+  margin-top: 27px;
+  margin-bottom: 25px;
+}
+
+.promo__slogan {
+  @include text(primary, 14px, 14px, true);
+  margin: 0;
+}
+
+.promo__list {
+  display: grid;
+  grid-gap: 20px;
+  padding: 0 20px;
+}
+
+.promo__item {
+  padding: 0 20px;
+}
+
+.promo__link {
+  @include text(primary, 14px, 18px, true);
+  @include accent-link;
+  padding: 11px 44px;
+  margin-top: auto;
+  margin-bottom: 22px;
+}
