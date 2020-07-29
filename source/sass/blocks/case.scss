@@ -1,5 +1,6 @@
 .case {
   @include flex(column, auto, auto, false);
+  position: relative;
   padding: 0 20px;
   background-color: $basic-light-300;
 }

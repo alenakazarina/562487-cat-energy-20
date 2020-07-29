@@ -40,12 +40,12 @@
 }
 
 .program__link {
-  @include link;
   @include text(primary, 16px, 16px, true);
   @include flex(row, space-between, center, false);
   width: 134px;
   padding-top: 15px;
   padding-bottom: 18px;
+  color: $basic-dark;
 }
 
 .program__link::after {

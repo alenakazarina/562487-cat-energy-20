@@ -15,8 +15,8 @@
 }
 
 .menu__link {
-  @include link;
   @include text(primary-medium, 20px, 20px, true);
   display: block;
   padding: 20px 0;
+  color: $basic-dark;
 }

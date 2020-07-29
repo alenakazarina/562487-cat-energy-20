@@ -11,7 +11,6 @@
 }
 
 .addon__title a {
-  @include link;
   @include text(primary, 16px, 20px, true);
   color: $basic-dark-200;
 }

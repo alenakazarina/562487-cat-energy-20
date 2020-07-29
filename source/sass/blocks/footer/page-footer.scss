@@ -1,5 +1,6 @@
 .page-footer {
   @include text(regular, 16px, 20px, false);
+  position: relative;
   color: $basic-dark-400;
 }
 
@@ -28,11 +29,11 @@
 }
 
 .page-footer__copyright {
-  @include link;
   @include flex(row, space-between, center, false);
   width: 100%;
   max-width: 280px;
   padding: 22px 0;
   margin: 0 auto;
+  color: $basic-dark-400;
   border-top: $border-footer;
 }
