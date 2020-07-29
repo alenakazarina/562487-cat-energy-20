@@ -1,0 +1,32 @@
+.case {
+  @include flex(column, auto, auto, false);
+  padding: 0 20px;
+  background-color: $basic-light-300;
+}
+
+.case__title {
+  @include text(primary, 36px, 40px, false);
+  margin-top: 27px;
+  margin-bottom: 33px;
+}
+
+.case__description {
+  margin-top: 0;
+  margin-bottom: 25px;
+  color: $basic-dark-400;
+}
+
+.case__facts {
+  @include list;
+  align-self: center;
+  margin-bottom: 25px;
+}
+
+.case__costs {
+  @include text(primary, 14px, 20px, true);
+  text-align: center;
+}
+
+.case__slider {
+  align-self: center;
+}

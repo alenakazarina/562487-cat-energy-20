@@ -1,0 +1,15 @@
+.contacts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: baseline;
+}
+
+.contacts__slogan {
+  @include text(primary, 16px, 20px, true);
+  color: $basic-dark-100;
+  margin: 0;
+}
+
+.contacts__address {
+  @include text(regular, 14px, 20px, false);
+}

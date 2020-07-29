@@ -1,0 +1,54 @@
+.program {
+  display: grid;
+  color: $basic-dark;
+  background-color: $basic-light-200;
+}
+
+.program__title {
+  @include text(primary, 24px, 37px, true);
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-gap: 20px;
+  align-items: center;
+  margin: 30px 0;
+  position: relative;
+}
+
+.program__title::before {
+  @include pseudo(50px, 53px);
+  border-radius: 50%;
+  background-color: $basic-green;
+}
+
+.program--pro .program__title::after {
+  @include pseudo(67px, 50px);
+  @include bg-norepeat($icon-cat-pro);
+  @include absolute-top-left(10px, -10px, 0);
+}
+
+.program--slim .program__title::after {
+  @include pseudo(50px, 53px);
+  @include bg-norepeat($icon-cat-slim);
+  @include absolute-top-left(auto, 10px, 0);
+}
+
+.program__description {
+  padding-bottom: 23px;
+  margin: 0;
+  color: $basic-dark-400;
+  border-bottom: $border-footer;
+}
+
+.program__link {
+  @include link;
+  @include text(primary, 16px, 16px, true);
+  @include flex(row, space-between, center, false);
+  width: 134px;
+  padding-top: 15px;
+  padding-bottom: 18px;
+}
+
+.program__link::after {
+  @include pseudo(24px, 11px);
+  @include bg-norepeat($icon-arrow);
+}

@@ -1,0 +1,18 @@
+.addons {
+  color: $basic-dark-400;
+}
+
+.addons__title {
+  @include text(primary, 24px, 24px, false);
+  color: $basic-dark;
+  margin-bottom: 35px;
+}
+
+.addons__list {
+  @include list;
+  @include flex(column, center, center, false);
+}
+
+.addons__card {
+  margin-bottom: 31px;
+}

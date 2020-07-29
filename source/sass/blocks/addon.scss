@@ -1,0 +1,27 @@
+.addon {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  align-items: center;
+  width: 100%;
+  max-width: 280px;
+}
+
+.addon__title {
+  margin: 0;
+}
+
+.addon__title a {
+  @include link;
+  @include text(primary, 16px, 20px, true);
+  color: $basic-dark-200;
+}
+
+.addon__buy {
+  @include text(primary, 14px, 18px, true);
+  @include accent-link;
+  padding: 9px 44px;
+}
+
+.addon__price {
+  @include flex(row, space-between, auto, false);
+}

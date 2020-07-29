@@ -1,0 +1,45 @@
+.advantages {
+  display: grid;
+  grid-template-rows: min-content 1 fr;
+  padding: 0 20px;
+}
+
+.advantages__title {
+  @include text(primary, 36px, 40px, false);
+  margin-bottom: 38px;
+}
+
+.advantages__list {
+  @include list;
+  color: $basic-dark-400;
+}
+
+.advantage {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 60px auto;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.advantage::before {
+  @include pseudo(60px, 60px);
+  background-color: $basic-green;
+  background-position: center;
+}
+
+.advantage--leaf::before {
+  @include bg-norepeat($icon-advantage-leaf);
+}
+
+.advantage--tub::before {
+  @include bg-norepeat($icon-advantage-tub);
+}
+
+.advantage--eat::before {
+  @include bg-norepeat($icon-advantage-eat);
+}
+
+.advantage--alarm::before {
+  @include bg-norepeat($icon-advantage-alarm);
+}

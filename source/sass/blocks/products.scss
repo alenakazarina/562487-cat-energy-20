@@ -1,0 +1,12 @@
+.products {
+  color: $basic-dark-400;
+}
+
+.products__list {
+  @include list;
+  @include flex(column, center, center, false);
+}
+
+.products__card {
+  margin-bottom: 19px;
+}

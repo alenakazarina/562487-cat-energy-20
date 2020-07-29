@@ -1,0 +1,22 @@
+.menu {
+  display: grid;
+  grid-template-rows: repeat(3, 60px);
+  align-items: center;
+  max-width: 280px;
+}
+
+.menu__item {
+  text-align: center;
+  border-bottom: $border-header;
+}
+
+.menu__item:first-of-type {
+  border-top: $border-header;
+}
+
+.menu__link {
+  @include link;
+  @include text(primary-medium, 20px, 20px, true);
+  display: block;
+  padding: 20px 0;
+}
