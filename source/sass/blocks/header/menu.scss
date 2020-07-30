@@ -7,6 +7,10 @@
 
 .menu__item {
   text-align: center;
+}
+
+.menu__item:not(:last-of-type) {
+  text-align: center;
   border-bottom: $border-header;
 }
 
