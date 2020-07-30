@@ -1,0 +1,19 @@
+.fieldset {
+  position: relative;
+
+  &--bordered::after {
+    @include pseudo(100vw, 1px);
+    @include absolute-top-left(0, -20px, 0);
+    background-color: $basic-light-500;
+  }
+}
+
+.fieldset__legend {
+  @include text(primary, 24px, 26px, false);
+  width: 100%;
+  padding-top: 26px;
+  padding-bottom: 32px;
+  padding-left: 0;
+  padding-right: 0;
+  color: $basic-dark;
+}

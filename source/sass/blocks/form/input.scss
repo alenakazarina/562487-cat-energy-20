@@ -1,0 +1,56 @@
+$circle-size: 30px;
+$inner-circle-size: 13.5px;
+$inner-circle-shift: $circle-size / 2 - $inner-circle-size / 2;
+$checkbox-size: 30px;
+$border-input: 1px solid #e7e7e7;
+
+.input {
+  @include text(primary, 14px, 18px, true);
+  flex-grow: 1;
+  padding: 13px 15px 15px 15px;
+  color: $basic-dark-400;
+  border: $border-input;
+  transition: all 0.5s ease;
+  appearance: none;
+  cursor: pointer;
+
+  &--number {
+    appearance: textfield;
+  }
+
+  &--icon {
+    padding-right: 50px;
+  }
+}
+
+.input--radio + label::before {
+  @include pseudo($circle-size, $circle-size);
+  border-radius: 50%;
+  background-color: $basic-light;
+  border: $border-basic;
+}
+
+.input--radio:checked + label::after {
+  @include pseudo($inner-circle-size, $inner-circle-size);
+  @include absolute-top-left($inner-circle-shift, $inner-circle-shift, 0);
+  border-radius: 50%;
+  background-color: $basic-green;
+}
+
+.input--checkbox + label::before {
+  @include pseudo($checkbox-size, $checkbox-size);
+  background-color: $basic-light;
+  border: $border-basic;
+}
+
+.input--checkbox:checked + label::before {
+  @include bg-norepeat(url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2368b738' viewBox='0 0 21.1 15.5'%3E%3Cdefs/%3E%3Cpath d='M20.1 0L7.7 13.3 1 6.1 0 7.2l7.6 8.2.1.1L21 1.2l.1-.1z'/%3E%3C/svg%3E"));
+  background-size: 18px 14px;
+  background-position: center;
+}
+
+.input--number::-webkit-outer-spin-button,
+.input--number::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
