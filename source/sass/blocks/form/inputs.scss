@@ -1,0 +1,35 @@
+.inputs {
+  display: grid;
+  grid-gap: 13px;
+  padding-left: 0;
+  padding-right: 0;
+
+  &--cat {
+    grid-template-rows: repeat(3, 1fr);
+    padding-top: 20px;
+    padding-bottom: 24px;
+    color: $basic-dark-400;
+  }
+
+  &--target {
+    grid-template-rows: repeat(3, 1fr);
+    padding-top: 20px;
+    padding-bottom: 22px;
+    color: $basic-dark-200;
+  }
+
+  &--owner {
+    grid-template-rows: repeat(2, min-content);
+    color: $basic-dark-400;
+  }
+
+  &--comment {
+    color: $basic-dark-400;
+  }
+
+  &--addons {
+    grid-template-rows: repeat(4, min-content);
+    padding-bottom: 34px;
+    color: $basic-dark;
+  }
+}

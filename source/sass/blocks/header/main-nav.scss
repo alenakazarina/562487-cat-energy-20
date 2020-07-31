@@ -28,7 +28,7 @@
 }
 
 .main-nav__toggle {
-  @include absolute-top-right(23px, 23px, 0);
+  @include absolute-top-right(23px, 23px, 1);
   width: 24px;
   height: 16px;
   background-position: center;

@@ -1,0 +1,45 @@
+.form {
+  color: $basic-dark;
+}
+
+.form__fieldset {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+.form__field {
+  display: flex;
+  margin: 0;
+}
+
+.form__label {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-gap: 14px;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+}
+
+.form__input {
+  margin: 0;
+}
+
+.form__submit {
+  @include text(primary, 16px, 20px, true);
+  @include accent-link;
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  padding: 7px 44px;
+  margin: 0 auto;
+  border: none;
+}
+
+.form__text {
+  @include text(regular, 14px, 16px, false);
+  margin-top: 21px;
+  margin-bottom: 32px;
+  text-align: center;
+}

@@ -1,0 +1,15 @@
+.profile {
+  padding: 0 20px;
+}
+
+.profile__legend {
+  @include text(primary, 36px, 36px, false);
+  display: block;
+  margin-top: 27px;
+  margin-bottom: 37px;
+}
+
+.profile__text {
+  @include text(primary, 14px, 18px, true);
+  margin-bottom: 19px;
+}
