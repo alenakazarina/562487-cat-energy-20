@@ -1,16 +1,38 @@
 .page-header {
+  @include flex(column, auto, center, false);
+  @include container;
   position: relative;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 66px 1fr;
-  padding: 0 20px;
+
+  @media (min-width: $tablet-width) {
+    flex-direction: row;
+  }
 }
 
 .page-header__logo {
   @include flex(row, auto, center, false);
+  align-self: flex-start;
+  min-height: 66px;
+
+  @media (min-width: $tablet-width) {
+    min-height: 100px;
+  }
+
+  @media (min-width: $desktop-width) {
+    min-height: 165px;
+  }
 }
 
 .page-header__logo img {
   width: 190px;
   height: 37px;
+
+  @media (min-width: $tablet-width) {
+    width: 174px;
+    height: 52px;
+  }
+
+  @media (min-width: $desktop-width) {
+    width: 202px;
+    height: 60px;
+  }
 }

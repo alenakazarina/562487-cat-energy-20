@@ -1,10 +1,40 @@
 .contacts {
+  &--index {
+    background-color: $basic-light;
+  }
+
+  &--catalog {
+    background-color: $basic-light-200;
+
+    @media (min-width: $desktop-width) {
+      background-color: $basic-light;
+    }
+  }
+}
+
+.contacts__wrapper {
+  @include container;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   align-items: baseline;
+  padding-top: 28px;
+  padding-bottom: 22px;
+  padding-left: 19px;
+  padding-right: 19px;
 
-  &--light {
-    background-color: $basic-light;
+  @media (min-width: $tablet-width) {
+    grid-gap: 60px;
+    padding-top: 66px;
+    padding-bottom: 51px;
+    padding-left: 72px;
+    padding-right: 72px;
+  }
+
+  @media (min-width: $desktop-width) {
+    grid-gap: 80px;
+    max-width: 570px;
+    padding-left: 76px;
+    padding-right: 76px;
   }
 }
 
@@ -12,8 +42,25 @@
   @include text(primary, 16px, 20px, true);
   color: $basic-dark-100;
   margin: 0;
+
+  @media (min-width: $tablet-width) {
+    font-size: 20px;
+    line-height: 26px;
+  }
 }
 
 .contacts__address {
+  @include flex(column, auto, auto, false);
   @include text(regular, 14px, 20px, false);
+
+  @media (min-width: $tablet-width) {
+    min-height: 87px;
+    justify-content: space-between;
+    text-align: right;
+    font-size: 16px;
+  }
+
+  @media (min-width: $desktop-width) {
+    text-align: left;
+  }
 }

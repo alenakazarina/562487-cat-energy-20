@@ -1,48 +1,114 @@
 .promo {
+  @include container;
   position: relative;
   color: $basic-light;
+
+  @media (min-width: $tablet-width) {
+    color: $basic-dark;
+  }
+
+  &::before {
+    @media (min-width: $desktop-width) {
+      @include pseudo-flex(720px, 696px);
+      @include absolute-top-right(-165px, 0, -1);
+      @include bg-norepeat($bg-promo-top);
+      background-color: $basic-green;
+    }
+  }
 }
 
 .promo__top {
   @include flex(column, auto, auto, false);
   @include bg-norepeat((
-    $bg-promo-can,
-    $bg-promo-top,
+    $bg-promo-can-mobile,
+    $bg-promo-top-mobile,
     linear-gradient(to bottom, $basic-green 0%, $basic-green 305px, $basic-light 50%)
   ));
-  max-width: 280px;
   min-height: 520px;
-  margin: 0 auto;
-  text-align: center;
+  color: $basic-light;
   background-position: center 167px, top, center;
   background-size: 280px 270px, auto, auto;
+
+
+  @media (min-width: $tablet-width) {
+    @include bg-norepeat($bg-promo-can-tablet);
+    min-height: 845px;
+    color: $basic-dark;
+    background-position: center bottom;
+    background-size: 709px 609px;
+  }
+
+  @media (min-width: $desktop-width) {
+    @include bg-norepeat($bg-promo-can);
+    min-height: 613px;
+    background-position: 448px top;
+    background-size: 552px 499px;
+  }
 }
 
 .promo__title {
-  @include text(primary, 36px, 36px, false);
   margin-top: 27px;
   margin-bottom: 25px;
+  text-align: center;
+
+  @media (min-width: $tablet-width) {
+    margin-bottom: 41px;
+    margin-left: 83px;
+    text-align: left;
+  }
 }
 
 .promo__slogan {
   @include text(primary, 14px, 14px, true);
   margin: 0;
-}
+  text-align: center;
 
-.promo__list {
-  display: grid;
-  grid-gap: 20px;
-  padding: 0 20px;
-}
-
-.promo__item {
-  padding: 0 20px;
+  @media (min-width: $tablet-width) {
+    margin-left: 83px;
+    text-align: left;
+    font-size: 20px;
+    line-height: 20px;
+  }
 }
 
 .promo__link {
   @include text(primary, 14px, 18px, true);
   @include accent-link;
-  padding: 11px 44px;
+  width: 100%;
+  max-width: 280px;
+  align-self: center;
+  padding: 14px 26px;
   margin-top: auto;
   margin-bottom: 22px;
+
+  @media (min-width: $tablet-width) {
+    width: auto;
+    max-width: auto;
+    align-self: start;
+    margin-left: 83px;
+    margin-top: 49px;
+    font-size: 20px;
+    line-height: 26px;
+  }
+}
+
+.promo__list {
+  @include list;
+  display: grid;
+  grid-gap: 20px;
+
+  @media (min-width: $desktop-width) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: $gutter-desktop;
+  }
+}
+
+.promo__item {
+  display: grid;
+  padding: 0 20px;
+
+  @media (min-width: $tablet-width) {
+    grid-gap: 24px;
+    padding: 52px;
+  }
 }

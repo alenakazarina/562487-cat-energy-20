@@ -6,15 +6,23 @@
 }
 
 .page-footer__wrapper {
+  @include container;
   @include flex(column, auto, center, false);
-  padding: 0 20px;
+
+  @media (min-width: $tablet-width) {
+    flex-direction: row;
+    min-height: 150px;
+  }
 }
 
 .page-footer__contacts {
-  padding-top: 28px;
-  padding-bottom: 22px;
-  padding-left: 19px;
-  padding-right: 19px;
+  @media (min-width: $desktop-width) {
+    position: absolute;
+    top: 95px;
+    left: 50%;
+    z-index: 10;
+    transform: translateX(-570px - $gutter-desktop / 2);
+  }
 }
 
 .page-footer__logo {
@@ -23,6 +31,11 @@
   max-width: 280px;
   height: 95px;
   border-bottom: $border-footer;
+
+  @media (min-width: $tablet-width) {
+    max-width: 128px;
+    border: none;
+  }
 }
 
 .page-footer__socials {
@@ -37,4 +50,9 @@
   margin: 0 auto;
   color: $basic-dark-400;
   border-top: $border-footer;
+
+  @media (min-width: $tablet-width) {
+    max-width: 163px;
+    border: none;
+  }
 }

@@ -1,46 +1,131 @@
 .advantages {
+  @include container;
   position: relative;
   display: grid;
   grid-template-rows: min-content 1 fr;
-  padding: 0 20px;
+
+  &::after {
+    @media (min-width: $tablet-width) {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      width: 100%;
+      height: 1px;
+      background-color: #e6e6e6;
+    }
+
+    @media (min-width: $desktop-width) {
+      display: none;
+    }
+  }
 }
 
 .advantages__title {
-  @include text(primary, 36px, 40px, false);
+  margin-top: 32px;
   margin-bottom: 38px;
+
+  @media (min-width: $tablet-width) {
+    margin-top: 45px;
+    margin-bottom: 72px;
+  }
+
+  @media (min-width: $desktop-width) {
+    margin-top: 71px;
+  }
 }
 
 .advantages__list {
   @include list;
+  margin-bottom: 22px;
   color: $basic-dark-400;
+
+  @media (min-width: $tablet-width) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 60px;
+    grid-row-gap: 37px;
+  }
+
+  @media (min-width: $desktop-width) {
+    display: grid;
+    grid-template-columns: repeat(4, 245px);
+    grid-gap: 80px;
+  }
 }
 
 .advantage {
+  position: relative;
   display: grid;
   grid-gap: 20px;
   grid-template-columns: 60px auto;
   align-items: center;
   margin-bottom: 20px;
+
+  @media (min-width: $tablet-width) {
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content 1fr;
+    align-items: start;
+    min-height: 280px;
+  }
+
+  &::before {
+    @include pseudo(60px, 60px);
+    background-color: $basic-green;
+    background-position: center;
+
+    @media (min-width: $tablet-width) {
+      width: 80px;
+      height: 80px;
+    }
+  }
+
+  &--leaf::before {
+    @include bg-norepeat($icon-advantage-leaf);
+  }
+
+  &--tub::before {
+    @include bg-norepeat($icon-advantage-tub);
+  }
+
+  &--eat::before {
+    @include bg-norepeat($icon-advantage-eat);
+  }
+
+  &--alarm::before {
+    @include bg-norepeat($icon-advantage-alarm);
+  }
+
+  &::after {
+    @media (min-width: $tablet-width) {
+      font-size: 280px;
+      line-height: 280px;
+    }
+  }
 }
 
-.advantage::before {
-  @include pseudo(60px, 60px);
-  background-color: $basic-green;
-  background-position: center;
+@for $i from 1 through 4 {
+  .advantage:nth-of-type(#{$i}) {
+    &::after {
+      @media (min-width: $tablet-width) {
+        content: "#{$i}";
+        position: absolute;
+        top: 0;
+        left: calc(50% - 92px);
+        z-index: -1;
+        display: block;
+        width: 200px;
+        color: $basic-light-200;
+      }
+    }
+  }
 }
 
-.advantage--leaf::before {
-  @include bg-norepeat($icon-advantage-leaf);
-}
+.advantage br {
+  display: none;
 
-.advantage--tub::before {
-  @include bg-norepeat($icon-advantage-tub);
-}
-
-.advantage--eat::before {
-  @include bg-norepeat($icon-advantage-eat);
-}
-
-.advantage--alarm::before {
-  @include bg-norepeat($icon-advantage-alarm);
+  @media (min-width: $tablet-width) {
+    display: inline-flex;
+  }
 }
