@@ -1,7 +1,7 @@
 .socials {
   @include flex(row, center, center, false);
   width: 100%;
-  padding: 22px 0;
+  padding: 9px 0;
 }
 
 .socials__link {
@@ -13,14 +13,26 @@
 .socials__link--vk {
   @include bg-norepeat($icon-socials-vk);
   background-size: 23px 16px;
+
+  @media (min-width: $tablet-width) {
+    background-size: 30px 22px;
+  }
 }
 
 .socials__link--instagram {
   @include bg-norepeat($icon-socials-instagram);
   background-size: 16px 16px;
+
+  @media (min-width: $tablet-width) {
+    background-size: 23px 23px;
+  }
 }
 
 .socials__link--fb {
   @include bg-norepeat($icon-socials-fb);
   background-size: 10px 19px;
+
+  @media (min-width: $tablet-width) {
+    background-size: 28px 33px;
+  }
 }

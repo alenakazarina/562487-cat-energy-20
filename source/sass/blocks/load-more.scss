@@ -1,30 +1,50 @@
 .load-more {
-  @include flex(column, center, center, false);
-  padding: 24px 0;
-}
-
-.load-more::before {
-  @include pseudo(30px, 30px);
   @include bg-norepeat($icon-plus);
+  display: grid;
+  justify-items: center;
+  width: 100%;
   background-size: 30px 30px;
-  background-position: center;
+  background-position: center 26px;
+
+  @media (min-width: $tablet-width) {
+    @include bg-norepeat($icon-plus);
+    grid-template-rows: repeat(3, min-content);
+    text-align: center;
+    background-size: 60px 60px;
+    background-position: center 52px;
+    border: 2px solid $basic-light-200;
+  }
 }
 
 .load-more__slogan {
-  @include text(primary, 16px, 20px, true);
+  padding-top: 53px;
+  margin: 0;
   color: $basic-dark-100;
+
+  @media (min-width: $tablet-width) {
+    max-width: 134px;
+    padding-top: 12px;
+  }
 }
 
 .load-more__text {
   @include text(regular, 12px, 16px, false);
+  padding-top: 8px;
+  padding-bottom: 17px;
+  margin: 0;
   color: $basic-dark-400;
+
+  @media (min-width: $tablet-width) {
+    max-width: 134px;
+    padding-top: 12px;
+    padding-bottom: 87px;
+  }
 }
 
 .load-more__button {
   @include text(primary, 16px, 20px, true);
   width: 100%;
-  max-width: 280px;
-  padding: 9px 44px;
+  padding: 9px 35px;
   color: $basic-dark-400;
   background-color: $basic-light-200;
   border: none;

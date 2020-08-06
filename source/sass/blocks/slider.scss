@@ -3,25 +3,62 @@
   width: 100%;
 }
 
-.slider--after .slider__indicator::before {
-  transform: translateX(40px);
-}
-
 .slider__content {
   position: relative;
+  align-self: center;
   text-align: center;
   min-height: 240px;
+  margin-bottom: 23px;
+
+  @media (min-width: $tablet-width) {
+    min-height: 620px;
+    margin-bottom: 33px;
+  }
+
+  @media (min-width: $desktop-width) {
+    min-height: 620px;
+    margin-left: 640px;
+    margin-bottom: 0;
+    background-image: none;
+  }
 }
 
 .slider__image {
   display: inline-flex;
   will-change: opacity;
-}
 
-.slider__image--show {
-  animation-name: fade-in;
-  animation-duration: 0.5s;
-  animation-timing-function: ease;
+  &:first-of-type {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  &--before {
+    opacity: 1;
+
+    @media (min-width: $tablet-width) {
+      opacity: 1;
+      clip-path: polygon(0 0, 50% 0, 50% 50%, 50% 100%, 0 100%);
+    }
+  }
+
+  &--after {
+    opacity: 0;
+
+    @media (min-width: $tablet-width) {
+      opacity: 1;
+      clip-path: polygon(50% 0, 100% 0, 100% 50%, 100% 100%, 50% 100%);
+    }
+  }
+
+  &--show {
+    @include fade-in;
+  }
+
+  &--hide {
+    @include fade-out;
+  }
 }
 
 .slider__controls {
@@ -29,7 +66,18 @@
   width: 100%;
   height: 47px;
   margin-bottom: 30px;
-  margin-left: 4px;
+
+  @media (min-width: $tablet-width) {
+    position: absolute;
+    bottom: 34px;
+    right: 0;
+    margin-bottom: 0;
+  }
+
+  @media (min-width: $desktop-width) {
+    width: auto;
+    left: 560px;
+  }
 }
 
 .slider__control {
@@ -41,7 +89,7 @@
   cursor: pointer;
 }
 
-.slider__indicator {
+.slider__range {
   position: relative;
   width: 84px;
   height: 14px;
@@ -49,14 +97,50 @@
   background-color: $basic-light;
   border-radius: 6px;
   border: $border-basic;
+
+  @media (min-width: $tablet-width) {
+    width: 428px;
+    height: 6px;
+    background-color: $bgcolor-slider-range;
+    border-radius: 6px;
+    border: none;
+  }
 }
 
-.slider__indicator::before {
+.slider__thumb {
   @include pseudo(35px, 6px);
-  @include absolute-top-left(3px, 4px, 0);
+  @include absolute-top-left(3px, 4px, 1);
   background-color: $basic-green;
   border-radius: 6px;
   transition: all 0.25s ease;
+
+  @media (min-width: $tablet-width) {
+    top: -17px;
+    left: 0;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background-color: $basic-green;
+    border: 13px solid $basic-light;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16);
+    transform: translateX(197px);
+    transition: none;
+    cursor: pointer;
+  }
+
+  &--before {
+    @media (min-width: $tablet-width) {
+      transform: translateX(0);
+    }
+  }
+
+  &--after {
+    transform: translateX(40px);
+
+    @media (min-width: $tablet-width) {
+      transform: translateX(394px);
+    }
+  }
 }
 
 @keyframes fade-in {
@@ -66,5 +150,15 @@
 
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
   }
 }

@@ -1,30 +1,21 @@
 .main-nav {
-  display: block;
-}
-
-.main-nav--nojs .main-nav__menu {
-  display: grid;
-}
-
-.main-nav--nojs .main-nav__toggle {
-  display: none;
-}
-
-.main-nav--closed .main-nav__menu {
-  display: none;
-}
-
-.main-nav--opened .main-nav__toggle {
-  @include bg-norepeat($icon-menu-close);
-}
-
-.main-nav--closed .main-nav__toggle {
-  @include bg-norepeat($icon-menu-mobile);
+  width: 100%;
 }
 
 .main-nav__menu {
   @include list;
-  margin: 0 auto;
+}
+
+.main-nav--nojs .main-nav__menu {
+  display: flex;
+}
+
+.main-nav--closed .main-nav__menu {
+  display: none;
+
+  @media (min-width: $tablet-width) {
+    display: flex;
+  }
 }
 
 .main-nav__toggle {
@@ -34,4 +25,20 @@
   background-position: center;
   background-color: transparent;
   border: none;
+
+  @media (min-width: $tablet-width) {
+    display: none;
+  }
+}
+
+.main-nav--nojs .main-nav__toggle {
+  display: none;
+}
+
+.main-nav--closed .main-nav__toggle {
+  @include bg-norepeat($icon-menu-mobile);
+}
+
+.main-nav--opened .main-nav__toggle {
+  @include bg-norepeat($icon-menu-close);
 }

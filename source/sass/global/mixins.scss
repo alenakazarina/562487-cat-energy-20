@@ -53,6 +53,13 @@
   height: $height;
 }
 
+@mixin pseudo-flex($width, $height) {
+  content: "";
+  display: flex;
+  width: $width;
+  height: $height;
+}
+
 @mixin absolute-top-left($top, $left, $index) {
   position: absolute;
   top: $top;
@@ -64,6 +71,13 @@
   position: absolute;
   top: $top;
   right: $right;
+  z-index: $index;
+}
+
+@mixin absolute-bottom-left($bottom, $left, $index) {
+  position: absolute;
+  bottom: $bottom;
+  left: $left;
   z-index: $index;
 }
 
@@ -85,4 +99,38 @@
   @if $wrap {
     flex-wrap: $wrap;
   }
+}
+
+@mixin container {
+  max-width: $desktop-width;
+  margin: 0 auto;
+  padding: 0 $padding-mobile;
+
+  @media (min-width: $tablet-width) {
+    padding: 0 $padding-tablet;
+  }
+
+  @media (min-width: $desktop-width) {
+    padding: 0 $padding-desktop;
+  }
+}
+
+@mixin animation {
+  animation-duration: 0.5s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+
+  @media (min-width: $tablet-width) {
+    animation: none;
+  }
+}
+
+@mixin fade-in {
+  @include animation;
+  animation-name: fade-in;
+}
+
+@mixin fade-out {
+  @include animation;
+  animation-name: fade-out;
 }

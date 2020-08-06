@@ -12,16 +12,41 @@
   height: 64px;
   text-align: center;
   border: $border-basic;
+  border-radius: 3px;
+
+  @media (min-width: $tablet-width) {
+    width: 162px;
+    height: 77px;
+  }
 }
 
 .facts__number {
-  @include text(primary, 24px, 24px, false);
+  @include text(primary, 24px, 24px, true);
   margin-top: 15px;
   margin-bottom: 5px;
+
+  @media (min-width: $tablet-width) {
+    font-size: 30px;
+    line-height: 37px;
+  }
 }
 
 .facts__text {
   max-width: 77px;
   color: $basic-dark-400;
-  background-color: $basic-light-300;
+  background-color: $bgcolor-slider;
+
+
+  @media (min-width: $tablet-width) {
+    position: relative;
+    top: 7px;
+    left: 11px;
+    align-self: stretch;
+    max-width: 140px;
+    background-color: $basic-light;
+  }
+
+  @media (min-width: $desktop-width) {
+    background-color: $bgcolor-slider;
+  }
 }

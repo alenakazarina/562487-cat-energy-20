@@ -13,6 +13,9 @@ $basic-light-600: #cdcdcd;
 
 $basic-green: #68b738;
 
+$bgcolor-slider: #eaeaea;
+$bgcolor-slider-range: #dcdcdc;
+
 $basic-font: "Arial", sans-serif;
 $primary-font: "Oswald", "Arial", sans-serif;
 
@@ -40,8 +43,29 @@ $icon-plus: url("../img/icon-plus-mobile.svg");
 $icon-arrow: url("../img/icon-right-arrow-long.svg");
 $icon-gift: url("../img/icon-gift.svg");
 
-$bg-gift: url("../img/gift-photo-mobile@1x.jpg");
-$bg-map: url("../img/bg-map-mobile@1x.png");
+$bg-gift-mobile: url("../img/gift-photo-mobile@1x.jpg");
+$bg-gift-tablet: url("../img/gift-photo-tablet@1x.jpg");
+$bg-gift: url("../img/gift-photo-desktop@1x.jpg");
+$bg-map-mobile: url("../img/bg-map-mobile@1x.png");
+$bg-map-tablet: url("../img/bg-map-tablet@1x.png");
+$bg-map: url("../img/bg-map-desktop@1x.png");
 $bg-map-pin: url("../img/map-pin.png");
-$bg-promo-top: url("../img/index-background-mobile@1x.jpg");
-$bg-promo-can: url("../img/index-can-mobile@1x.png");
+$bg-promo-top: url("../img/index-background-desktop@1x.jpg");
+$bg-promo-top-mobile: url("../img/index-background-mobile@1x.jpg");
+$bg-promo-can: url("../img/index-can-desktop@1x.png");
+$bg-promo-can-mobile: url("../img/index-can-mobile@1x.png");
+$bg-promo-can-tablet: url("../img/index-can-tablet@1x.jpg");
+
+$mobile-max-width: 767px;
+$mobile-width: 320px;
+$tablet-width: 768px;
+$desktop-width: 1300px;
+
+$gutter-desktop: 80px;
+$gutter-tablet: 60px;
+
+$column-desktop: 245px;
+
+$padding-mobile: 20px;
+$padding-tablet: 30px;
+$padding-desktop: 40px;

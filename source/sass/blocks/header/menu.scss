@@ -1,26 +1,72 @@
 .menu {
-  display: grid;
-  grid-template-rows: repeat(3, 60px);
-  align-items: center;
-  max-width: 280px;
+  @include flex(column, center, center, wrap);
+  margin: 0 -20px;
+  color: $basic-dark;
+
+  @media (min-width: $tablet-width) {
+    flex-direction: row;
+    justify-content: flex-end;
+    margin: 0;
+  }
+
+  &--light {
+    @media (min-width: $desktop-width) {
+      color: $basic-light;
+    }
+  }
 }
 
 .menu__item {
-  text-align: center;
-}
-
-.menu__item:not(:last-of-type) {
+  width: 100%;
   text-align: center;
   border-bottom: $border-header;
+
+  @media (min-width: $tablet-width) {
+    width: auto;
+    margin-left: 35px;
+    border-bottom: none;
+  }
 }
 
 .menu__item:first-of-type {
   border-top: $border-header;
+
+  @media (min-width: $tablet-width) {
+    border-top: none;
+  }
 }
 
 .menu__link {
   @include text(primary-medium, 20px, 20px, true);
-  display: block;
+  position: relative;
+  display: inline-flex;
   padding: 20px 0;
-  color: $basic-dark;
+  color: inherit;
+
+  @media (min-width: $tablet-width) {
+    @include text(primary, 18px, 24px, true);
+    padding: 10px 0;
+  }
+
+  &--active {
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: $basic-green;
+
+      @media (min-width: $tablet-width) {
+        bottom: 0;
+      }
+    }
+  }
+}
+
+.menu--light .menu__link--active::before {
+  @media (min-width: $desktop-width) {
+    background-color: $basic-light;
+  }
 }

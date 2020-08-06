@@ -1,0 +1,38 @@
+.title {
+  @include font($primary-font, 400, normal);
+
+  &--page {
+    font-size: 36px;
+    line-height: 36px;
+
+    @media (min-width: $tablet-width) {
+      font-size: 60px;
+      line-height: 60px;
+    }
+  }
+
+  &--section {
+    font-size: 36px;
+    line-height: 40px;
+
+    @media (min-width: $tablet-width) {
+      font-size: 60px;
+      line-height: 60px;
+    }
+  }
+
+  &--card {
+    @include uppercase;
+    font-size: 16px;
+    line-height: 20px;
+
+    @media (min-width: $tablet-width) {
+      font-size: 20px;
+      line-height: 24px;
+    }
+
+    @media (min-width: $desktop-width) {
+      line-height: 21px;
+    }
+  }
+}

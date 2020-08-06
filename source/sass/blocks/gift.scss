@@ -1,18 +1,48 @@
 .gift {
   @include flex(row, center, center, false);
-  @include bg-norepeat(($icon-gift, $bg-gift));
-  max-width: 280px;
+  @include bg-norepeat($bg-gift-mobile);
   min-height: 289px;
-  margin: 0 auto;
   text-align: center;
   color: $basic-light;
   background-color: $basic-green;
-  background-position: center 64px, top center;
-  background-size: 55px 60px, auto;
+  background-position: top center;
+
+  @media (min-width: $tablet-width) {
+    min-height: 200px;
+    background-image: $bg-gift-tablet;
+  }
+
+  @media (min-width: $desktop-width) {
+    background-image: $bg-gift;
+    background-size: cover;
+  }
 }
 
 .gift__slogan {
+  @include flex(column, center, center, false);
   @include text(regular, 16px, 20px, false);
-  position: relative;
-  top: 71px;
+
+  @media (min-width: $tablet-width) {
+    flex-direction: row;
+  }
+
+  @media (min-width: $desktop-width) {
+    flex-direction: column;
+  }
+
+  &::before {
+    @include pseudo-flex(55px, 60px);
+    @include bg-norepeat($icon-gift);
+    margin-bottom: 48px;
+
+    @media (min-width: $tablet-width) {
+      margin-bottom: 0;
+      margin-right: 265px;
+    }
+
+    @media (min-width: $desktop-width) {
+      margin-bottom: 46px;
+      margin-right: 0;
+    }
+  }
 }

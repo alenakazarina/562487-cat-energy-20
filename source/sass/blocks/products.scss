@@ -5,9 +5,53 @@
 
 .products__list {
   @include list;
-  @include flex(column, center, center, false);
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+
+  @media (min-width: $tablet-width) {
+    grid-template-columns: repeat(2, 324px);
+    grid-column-gap: $gutter-tablet;
+    grid-row-gap: 140px;
+    justify-content: center;
+    padding-top: 100px;
+  }
+
+  @media (min-width: $desktop-width) {
+    grid-template-columns: repeat(4, $column-desktop);
+    grid-column-gap: $gutter-desktop;
+    grid-row-gap: 144px;
+  }
 }
 
 .products__card {
-  margin-bottom: 19px;
+  position: relative;
+  padding: 25px 0;
+
+  @media (min-width: $tablet-width) {
+    padding-top: 140px;
+    padding-bottom: 40px;
+    padding-left: 37px;
+    padding-right: 37px;
+  }
+
+  &::before {
+    @include pseudo-flex(100vw, 1px);
+    @include absolute-top-left(0, -20px, 0);
+    background-color: $basic-light-400;
+
+    @media (min-width: $tablet-width) {
+      display: none;
+    }
+  }
+
+  &:last-of-type::after {
+    @include pseudo-flex(100vw, 1px);
+    @include absolute-bottom-left(0, -20px, 0);
+    background-color: $basic-light-400;
+
+    @media (min-width: $tablet-width) {
+      display: none;
+    }
+  }
 }
