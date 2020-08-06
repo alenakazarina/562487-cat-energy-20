@@ -1,33 +1,36 @@
 .promo {
-  @include container;
+  @include bg-norepeat((
+    $bg-promo-top-mobile,
+    linear-gradient(to bottom, $basic-green 0%, $basic-green 305px, $basic-light 305px)
+  ));
   position: relative;
   color: $basic-light;
+  background-position: center top;
 
   @media (min-width: $tablet-width) {
     color: $basic-dark;
+    background-image: none;
   }
 
-  &::before {
-    @media (min-width: $desktop-width) {
-      @include pseudo-flex(720px, 696px);
-      @include absolute-top-right(-165px, 0, -1);
-      @include bg-norepeat($bg-promo-top);
-      background-color: $basic-green;
-    }
+  @media (min-width: $desktop-width) {
+    @include bg-norepeat( $bg-promo-top);
+    padding-top: 165px;
+    background-position: 50vw top;
+    background-size: 720px, 696px;
   }
+}
+
+.promo__wrapper {
+  @include container;
 }
 
 .promo__top {
   @include flex(column, auto, auto, false);
-  @include bg-norepeat((
-    $bg-promo-can-mobile,
-    $bg-promo-top-mobile,
-    linear-gradient(to bottom, $basic-green 0%, $basic-green 305px, $basic-light 50%)
-  ));
+  @include bg-norepeat($bg-promo-can-mobile);
   min-height: 520px;
   color: $basic-light;
-  background-position: center 167px, top, center;
-  background-size: 280px 270px, auto, auto;
+  background-position: center 167px;
+  background-size: 280px 270px;
 
 
   @media (min-width: $tablet-width) {

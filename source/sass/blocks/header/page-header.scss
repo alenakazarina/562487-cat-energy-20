@@ -6,6 +6,17 @@
   @media (min-width: $tablet-width) {
     flex-direction: row;
   }
+
+  &--index {
+    @media (min-width: $desktop-width) {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      z-index: 10;
+      width: 100%;
+      transform: translateX(-50%);
+    }
+  }
 }
 
 .page-header__logo {
