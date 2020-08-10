@@ -2,9 +2,16 @@
   @include flex(column, auto, center, false);
   @include container;
   position: relative;
+  border-bottom: 1px solid $basic-light-d9;
 
   @media (min-width: $tablet-width) {
     flex-direction: row;
+    min-height: 100px;
+    border: none;
+  }
+
+  @media (min-width: $desktop-width) {
+    min-height: 165px;
   }
 
   &--index {
@@ -20,17 +27,11 @@
 }
 
 .page-header__logo {
-  @include flex(row, auto, center, false);
-  align-self: flex-start;
+  @include logo-states;
+  display: flex;
+  align-items: center;
   min-height: 66px;
-
-  @media (min-width: $tablet-width) {
-    min-height: 100px;
-  }
-
-  @media (min-width: $desktop-width) {
-    min-height: 165px;
-  }
+  margin-right: auto;
 }
 
 .page-header__logo img {

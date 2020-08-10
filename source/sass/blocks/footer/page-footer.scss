@@ -2,7 +2,7 @@
   @include text(regular, 16px, 20px, false);
   position: relative;
   color: $basic-dark-400;
-  background-color: $basic-light-200;
+  background-color: $basic-light-f2;
 }
 
 .page-footer__wrapper {
@@ -27,10 +27,9 @@
 
 .page-footer__logo {
   @include flex(row, center, center, false);
+  @include logo-states;
   width: 100%;
-  max-width: 280px;
-  height: 95px;
-  border-bottom: $border-footer;
+  min-height: 95px;
 
   @media (min-width: $tablet-width) {
     max-width: 128px;
@@ -40,6 +39,7 @@
 
 .page-footer__socials {
   @include list;
+  padding: 20px 0;
 }
 
 .page-footer__copyright {
@@ -48,11 +48,12 @@
   max-width: 280px;
   padding: 22px 0;
   margin: 0 auto;
-  color: $basic-dark-400;
-  border-top: $border-footer;
+  border-top: $border-d9;
 
   @media (min-width: $tablet-width) {
     max-width: 163px;
+    padding: 0;
+    margin: 0;
     border: none;
   }
 }

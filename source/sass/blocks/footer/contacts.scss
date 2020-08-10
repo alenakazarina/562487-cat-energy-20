@@ -1,14 +1,12 @@
 .contacts {
-  &--index {
+  background-color: $basic-light-f2;
+
+  @media (min-width: $desktop-width) {
     background-color: $basic-light;
   }
 
-  &--catalog {
-    background-color: $basic-light-200;
-
-    @media (min-width: $desktop-width) {
-      background-color: $basic-light;
-    }
+  &--index {
+    background-color: $basic-light;
   }
 }
 

@@ -1,12 +1,13 @@
 .menu {
   @include flex(column, center, center, wrap);
-  margin: 0 -20px;
   color: $basic-dark;
+  background-color: $basic-light;
 
   @media (min-width: $tablet-width) {
     flex-direction: row;
     justify-content: flex-end;
     margin: 0;
+    background-color: transparent;
   }
 
   &--light {
@@ -19,7 +20,7 @@
 .menu__item {
   width: 100%;
   text-align: center;
-  border-bottom: $border-header;
+  border-bottom: 1px solid $basic-light-e6;
 
   @media (min-width: $tablet-width) {
     width: auto;
@@ -29,7 +30,7 @@
 }
 
 .menu__item:first-of-type {
-  border-top: $border-header;
+  border-top: 1px solid $basic-light-e6;
 
   @media (min-width: $tablet-width) {
     border-top: none;
@@ -46,6 +47,14 @@
   @media (min-width: $tablet-width) {
     @include text(primary, 18px, 24px, true);
     padding: 10px 0;
+  }
+
+  &:hover {
+    opacity: $opacity-60;
+  }
+
+  &:active {
+    opacity: $opacity-30;
   }
 
   &--active {

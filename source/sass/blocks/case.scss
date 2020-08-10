@@ -1,15 +1,15 @@
 .case {
   position: relative;
   min-height: 656px;
-  background-color: $bgcolor-slider;
+  background-color: $basic-light-ea;
 
   @media (min-width: $tablet-width) {
     background-color: $basic-light;
-    background-image: linear-gradient(to bottom, $basic-light 0, $basic-light 57%, $bgcolor-slider 57%);
+    background-image: linear-gradient(to bottom, $basic-light 0, $basic-light 57%, $basic-light-ea 57%);
   }
 
   @media (min-width: $desktop-width) {
-    background-image: linear-gradient(to bottom, $basic-light 0, $basic-light 27%, $bgcolor-slider 27%);
+    background-image: linear-gradient(to bottom, $basic-light 0, $basic-light 27%, $basic-light-ea 27%);
   }
 }
 

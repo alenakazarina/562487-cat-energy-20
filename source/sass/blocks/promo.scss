@@ -13,10 +13,13 @@
   }
 
   @media (min-width: $desktop-width) {
-    @include bg-norepeat( $bg-promo-top);
+    @include bg-norepeat((
+      $bg-promo-top,
+      linear-gradient(to right, $basic-green 0, $basic-green 100%)
+    ));
     padding-top: 165px;
     background-position: 50vw top;
-    background-size: 720px, 696px;
+    background-size: 720px 696px;
   }
 }
 
@@ -98,20 +101,10 @@
 .promo__list {
   @include list;
   display: grid;
-  grid-gap: 20px;
+  grid-row-gap: 20px;
 
   @media (min-width: $desktop-width) {
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: $gutter-desktop;
-  }
-}
-
-.promo__item {
-  display: grid;
-  padding: 0 20px;
-
-  @media (min-width: $tablet-width) {
-    grid-gap: 24px;
-    padding: 52px;
+    grid-column-gap: $gutter-desktop;
   }
 }
