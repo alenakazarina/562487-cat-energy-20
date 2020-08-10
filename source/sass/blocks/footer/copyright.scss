@@ -1,0 +1,19 @@
+.copyright {
+  color: $basic-dark-400;
+}
+
+.copyright svg {
+  fill: $basic-dark-600;
+}
+
+.copyright:hover svg {
+  fill: $basic-green;
+}
+
+.copyright:active {
+  opacity: $opacity-30;
+}
+
+.copyright:active svg {
+  fill: $basic-green;
+}
