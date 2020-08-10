@@ -1,18 +1,34 @@
 .addons {
   position: relative;
   color: $basic-dark-400;
+  padding-top: 28px;
+
+  @media (min-width: $tablet-width) {
+    padding-top: 68px;
+  }
 }
 
 .addons__title {
-  @include text(primary, 24px, 24px, false);
+  @include legend-padding;
+  display: inline-flex;
+  margin-top: 0;
+  margin-bottom: 0;
   color: $basic-dark;
-  margin-bottom: 35px;
+  background-color: $basic-light;
 
-  @media (min-width: $tablet-width) {
-    margin-top: 68px;
-    margin-bottom: 80px;
-    font-size: 36px;
-    line-height: 36px;
+  &::before {
+    @include green-line;
+    top: 42px;
+    left: 0;
+
+    @media (min-width: $tablet-width) {
+      top: 90px;
+      left: -$padding-tablet;
+    }
+
+    @media (min-width: $desktop-width) {
+      left: calc(1220px / 2 - 50vw);
+    }
   }
 }
 
@@ -20,10 +36,12 @@
   display: grid;
   grid-template-rows: repeat(1fr, 1fr);
   grid-row-gap: 31px;
+  margin-top: 35px;
   margin-bottom: 35px;
 
   @media (min-width: $tablet-width) {
     grid-row-gap: 69px;
+    margin-top: 80px;
     margin-bottom: 76px;
   }
 
@@ -40,8 +58,8 @@
 
   @media (min-width: $tablet-width) {
     grid-row-gap: 0;
-    border-left: 1px solid $basic-light-600;
-    border-right: 1px solid $basic-light-600;
+    border-left: $border-cd;
+    border-right: $border-cd;
   }
 
   @media (min-width: $desktop-width) {
