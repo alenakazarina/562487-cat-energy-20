@@ -1,14 +1,61 @@
 .program {
   position: relative;
+  display: grid;
+  grid-template-areas:
+    "title"
+    "text"
+    "link";
+  grid-template-rows: 50px min-content min-content;
+  padding-top: 21px;
+  padding-left: 20px;
+  padding-right: 20px;
   color: $basic-dark;
-  background-color: $basic-light-200;
+  background-color: $basic-light-f2;
 
   @media (min-width: $tablet-width) {
+    grid-template-areas:
+      "title ."
+      "text ."
+      "link .";
+    grid-template-rows: repeat(3, min-content);
+    grid-row-gap: 24px;
     min-height: 372px;
+    padding-top: 77px;
+    padding-bottom: 35px;
+    padding-left: 53px;
+    padding-right: 53px;
   }
 
   @media (min-width: $desktop-width) {
+    grid-template-areas:
+      "title"
+      "text"
+      "link";
     min-height: 374px;
+    padding-top: 41px;
+    padding-bottom: 40px;
+    padding-left: 52px;
+    padding-right: 52px;
+  }
+
+  &--slim {
+    @media (min-width: $tablet-width) {
+      grid-template-columns: 1fr 220px;
+    }
+
+    @media (min-width: $desktop-width) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &--pro {
+    @media (min-width: $tablet-width) {
+      grid-template-columns: 1fr 260px;
+    }
+
+    @media (min-width: $desktop-width) {
+      grid-template-columns: 1fr;
+    }
   }
 
   &::before {
@@ -82,15 +129,13 @@
 .program__title {
   @include flex(row, auto, center, false);
   @include text(primary, 24px, 37px, true);
-  padding: 30px 0;
   margin-top: 0;
   margin-bottom: 0;
   margin-left: 71px;
   position: relative;
 
   @media (min-width: $tablet-width) {
-    padding-top: 25px;
-    padding-bottom: 0;
+    grid-area: title;
     margin-left: 0;
     font-size: 36px;
     line-height: 36px;
@@ -103,39 +148,40 @@
 }
 
 .program__description {
-  padding-bottom: 13px;
+  padding-top: 22px;
+  padding-bottom: 23px;
   margin: 0;
   color: $basic-dark-400;
-  border-bottom: $border-footer;
+  border-bottom: $border-d9;
 
   @media (min-width: $tablet-width) {
-    max-width: 377px;
+    grid-area: text;
     padding-bottom: 24px;
     color: $basic-dark;
     border-bottom: none;
   }
+
+  @media (min-width: $tablet-width) {
+    padding-top: 18px;
+    padding-bottom: 0;
+  }
 }
 
 .program__link {
+  @include arrow-link;
   @include text(primary, 16px, 16px, true);
   @include flex(row, auto, center, false);
+  margin-right: auto;
   padding-top: 15px;
   padding-bottom: 18px;
-  color: $basic-dark;
 
   @media (min-width: $tablet-width) {
-    padding: 0;
+    grid-area: link;
     font-size: 20px;
     line-height: 30px;
   }
 
-  &::after {
-    @include pseudo(24px, 11px);
-    @include bg-norepeat($icon-arrow);
-    margin-left: 17px;
-
-    @media (min-width: $tablet-width) {
-      margin-left: 25px;
-    }
+  @media (min-width: $tablet-width) {
+    padding-bottom: 15px;
   }
 }

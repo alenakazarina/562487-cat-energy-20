@@ -82,37 +82,58 @@
 
 .slider__control {
   @include text(primary, 16px, 20px, true);
-  padding: 3px 10px;
+  padding: 4px 0;
   color: inherit;
   background-color: transparent;
   border: none;
   cursor: pointer;
+
+  @media (min-width: $tablet-width) {
+    border-bottom: 1px dotted transparentize($basic-dark, 0.76);
+  }
+
+  &:hover {
+    @media (min-width: $tablet-width) {
+      border-bottom: 1px solid transparentize($basic-dark, 0.6);
+    }
+  }
+
+  &:active {
+    @media (min-width: $tablet-width) {
+      border-bottom: none;
+      outline: none;
+    }
+  }
 }
 
 .slider__range {
   position: relative;
   width: 84px;
   height: 14px;
-  margin: 0 2px;
+  margin: 0 24px;
   background-color: $basic-light;
   border-radius: 6px;
-  border: $border-basic;
+  border: $border-cd;
 
   @media (min-width: $tablet-width) {
     width: 428px;
     height: 6px;
-    background-color: $bgcolor-slider-range;
+    background-color: $basic-light-dc;
     border-radius: 6px;
     border: none;
   }
 }
 
 .slider__thumb {
-  @include pseudo(35px, 6px);
   @include absolute-top-left(3px, 4px, 1);
+  display: block;
+  width: 35px;
+  height: 6px;
   background-color: $basic-green;
+  border: none;
   border-radius: 6px;
   transition: all 0.25s ease;
+  overflow: hidden;
 
   @media (min-width: $tablet-width) {
     top: -17px;
@@ -121,11 +142,26 @@
     height: 34px;
     border-radius: 50%;
     background-color: $basic-green;
-    border: 13px solid $basic-light;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16);
+    border: $border-cd;
+    box-shadow: inset 0 0 0 11px $basic-light;
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.16));
     transform: translateX(197px);
     transition: none;
     cursor: pointer;
+  }
+
+  &:hover {
+    @media (min-width: $tablet-width) {
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.19));
+    }
+  }
+
+  &:active {
+    @media (min-width: $tablet-width) {
+      outline: none;
+      border-color: $basic-green;
+      filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.2));
+    }
   }
 
   &--before {
