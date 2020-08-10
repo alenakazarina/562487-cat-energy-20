@@ -1,26 +1,53 @@
 .inputs {
   display: grid;
-  grid-gap: 13px;
-  padding-left: 0;
-  padding-right: 0;
 
   &--cat {
     grid-template-rows: repeat(3, 1fr);
-    padding-top: 20px;
-    padding-bottom: 24px;
+    grid-row-gap: 13px;
     color: $basic-dark-400;
+
+    @media (min-width: $tablet-width) {
+      grid-row-gap: 20px;
+    }
   }
 
-  &--target {
+  &--purpose {
     grid-template-rows: repeat(3, 1fr);
+    grid-row-gap: 13px;
     padding-top: 20px;
     padding-bottom: 22px;
+    padding-left: $padding-mobile;
+    padding-right: $padding-mobile;
     color: $basic-dark-200;
+
+    @media (min-width: $tablet-width) {
+      padding-top: 25px;
+      padding-bottom: 25px;
+      padding-left: 27px;
+      padding-right: 27px;
+      border: $border-d9;
+    }
+
+    @media (min-width: $tablet-width) {
+      padding-left: 28px;
+      padding-right: 28px;
+    }
   }
 
   &--owner {
     grid-template-rows: repeat(2, min-content);
+    grid-row-gap: 14px;
     color: $basic-dark-400;
+
+    @media (min-width: $tablet-width) {
+      grid-row-gap: 20px;
+    }
+
+    @media (min-width: $desktop-width) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-column-gap: $gutter-desktop;
+      grid-template-rows: min-content;
+    }
   }
 
   &--comment {
@@ -29,7 +56,20 @@
 
   &--addons {
     grid-template-rows: repeat(4, min-content);
-    padding-bottom: 34px;
+    grid-row-gap: 13px;
     color: $basic-dark;
+
+    @media (min-width: $tablet-width) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, min-content);
+      grid-column-gap: $gutter-tablet;
+      grid-row-gap: 23px;
+    }
+
+    @media (min-width: $desktop-width) {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: min-content;
+      grid-column-gap: $gutter-desktop;
+    }
   }
 }
