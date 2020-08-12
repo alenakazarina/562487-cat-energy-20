@@ -20,6 +20,8 @@
     min-height: 430px;
     padding-top: 162px;
     padding-bottom: 40px;
+    padding-left: 36px;
+    padding-right: 36px;
     margin-top: 81px;
     border: 2px solid $basic-light-f2;
   }
@@ -54,7 +56,6 @@
   padding: 9px 35px;
 
   @media (min-width: $tablet-width) {
-    width: calc(100% - 36px * 2);
     margin-top: auto;
   }
 }

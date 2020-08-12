@@ -69,57 +69,10 @@
   }
 }
 
-.fieldset--owner .fieldset__legend {
-  margin-bottom: 32px;
-
-  @media (min-width: $tablet-width) {
-    margin-bottom: 76px;
-  }
-}
-
-.fieldset--comment .fieldset__legend {
-  margin-bottom: 34px;
-
-  @media (min-width: $tablet-width) {
-    margin-bottom: 76px;
-  }
-}
-
-.fieldset--addons .fieldset__legend {
-  margin-bottom: 34px;
-
-  @media (min-width: $tablet-width) {
-    margin-bottom: 57px;
-  }
-}
-
 .fieldset__legend {
   @include legend-padding;
-  position: relative;
-  color: $basic-dark;
-  background-color: $basic-light;
 
   @media (min-width: $tablet-width) {
     margin-left: -40px;
-  }
-
-  &::before {
-    @include green-line;
-    top: 0.6em;
-    left: 0;
-
-    @media (min-width: $tablet-width) {
-      left: -$padding-tablet;
-    }
-
-    @media (min-width: $desktop-width) {
-      left: calc(1220px / 2 - 50vw + 40px);
-    }
-  }
-}
-
-.fieldset__legend br {
-  @media (min-width: $tablet-width) {
-    display: none;
   }
 }

@@ -10,6 +10,8 @@
 
 .addons__title {
   @include legend-padding;
+  --desktop-content-width: 1220px;
+
   display: inline-flex;
   margin-top: 0;
   margin-bottom: 0;
@@ -27,7 +29,7 @@
     }
 
     @media (min-width: $desktop-width) {
-      left: calc(1220px / 2 - 50vw);
+      left: calc(var(--desktop-content-width) / 2 - 50vw);
     }
   }
 }
