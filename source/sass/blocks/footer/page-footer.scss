@@ -11,35 +11,55 @@
 
   @media (min-width: $tablet-width) {
     flex-direction: row;
-    min-height: 150px;
+    justify-content: space-between;
+    min-height: 142px;
+  }
+
+  @media (min-width: $desktop-width) {
+    min-height: 152px;
   }
 }
 
 .page-footer__contacts {
   @media (min-width: $desktop-width) {
     position: absolute;
-    top: 95px;
+    top: 97px;
     left: 50%;
     z-index: 10;
     transform: translateX(-570px - $gutter-desktop / 2);
+    margin-left: 7px;
   }
 }
 
 .page-footer__logo {
-  @include flex(row, center, center, false);
   @include logo-states;
-  width: 100%;
-  min-height: 95px;
+  padding-top: 42px;
+  padding-bottom: 25px;
 
   @media (min-width: $tablet-width) {
     max-width: 128px;
+    padding-top: 10px;
+    padding-bottom: 0;
     border: none;
+  }
+
+  @media (min-width: $desktop-width) {
+    margin-left: 7px;
   }
 }
 
 .page-footer__socials {
   @include list;
-  padding: 20px 0;
+  margin-right: 5px;
+
+  @media (min-width: $tablet-width) {
+    margin-left: 27px;
+    margin-right: 0;
+  }
+
+  @media (min-width: $desktop-width) {
+    margin-left: 32px;
+  }
 }
 
 .page-footer__copyright {
@@ -55,5 +75,9 @@
     padding: 0;
     margin: 0;
     border: none;
+  }
+
+  @media (min-width: $desktop-width) {
+    margin-right: -8px;
   }
 }

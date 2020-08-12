@@ -49,6 +49,11 @@
     padding: 10px 0;
   }
 
+  @media (min-width: $desktop-width) {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
   &:hover {
     opacity: $opacity-60;
   }
@@ -69,6 +74,10 @@
 
       @media (min-width: $tablet-width) {
         bottom: 0;
+      }
+
+      @media (min-width: $desktop-width) {
+        bottom: 2px;
       }
     }
   }

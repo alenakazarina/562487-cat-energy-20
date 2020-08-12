@@ -1,29 +1,33 @@
 .facts {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 30px;
+  grid-column-gap: 30px;
   align-items: center;
+
+  @media (min-width: $tablet-width) {
+    grid-column-gap: 42px;
+  }
 }
 
 .facts__item {
   @include flex(column, auto, center, false);
   position: relative;
   width: 124px;
-  height: 64px;
+  height: 56px;
   text-align: center;
   border: $border-cd;
   border-radius: 3px;
 
   @media (min-width: $tablet-width) {
     width: 162px;
-    height: 77px;
+    height: 72px;
   }
 }
 
 .facts__number {
   @include text(primary, 24px, 24px, true);
-  margin-top: 15px;
-  margin-bottom: 5px;
+  margin-top: 14px;
+  margin-bottom: 8px;
 
   @media (min-width: $tablet-width) {
     font-size: 30px;
@@ -32,17 +36,23 @@
 }
 
 .facts__text {
-  max-width: 77px;
+  max-width: 87px;
+  padding: 0 3px;
+  margin: 0 auto;
+  font-size: 12px;
+  line-height: 12px;
   color: $basic-dark-400;
   background-color: $basic-light-ea;
 
 
   @media (min-width: $tablet-width) {
     position: relative;
-    top: 7px;
-    left: 11px;
-    align-self: stretch;
-    max-width: 140px;
+    top: 5px;
+    left: 0;
+    max-width: initial;
+    padding: 0 8px;
+    font-size: 14px;
+    line-height: 14px;
     background-color: $basic-light;
   }
 

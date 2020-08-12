@@ -6,7 +6,8 @@
     "text"
     "link";
   grid-template-rows: 50px min-content min-content;
-  padding-top: 21px;
+  padding-top: 25px;
+  padding-bottom: 5px;
   padding-left: 20px;
   padding-right: 20px;
   color: $basic-dark;
@@ -31,9 +32,8 @@
       "title"
       "text"
       "link";
-    min-height: 374px;
-    padding-top: 41px;
-    padding-bottom: 40px;
+    padding-top: 47px;
+    padding-bottom: 17px;
     padding-left: 52px;
     padding-right: 52px;
   }
@@ -59,31 +59,31 @@
   }
 
   &::before {
-    @include pseudo(50px, 53px);
-    @include absolute-top-left(21px, 22px, 0);
+    @include pseudo(50px, 50px);
+    @include absolute-top-left(23px, 22px, 0);
     border-radius: 50%;
     background-color: $basic-green;
 
     @media (min-width: $tablet-width) {
       width: 200px;
-      height: 211px;
-      top: 81px;
+      height: 200px;
+      top: 90px;
       right: 62px;
       left: auto;
     }
 
     @media (min-width: $desktop-width) {
       width: 100px;
-      height: 106px;
-      top: 41px;
+      height: 100px;
+      top: 46px;
       right: auto;
-      left: 52px;
+      left: 53px;
     }
   }
 
   &--slim::after {
-    @include pseudo(50px, 53px);
-    @include absolute-top-left(21px, 29px, 0);
+    @include pseudo(50px, 50px);
+    @include absolute-top-left(22px, 29px, 0);
     @include bg-norepeat($icon-cat-slim);
 
     @media (min-width: $tablet-width) {
@@ -121,7 +121,7 @@
       height: 100px;
       top: 67px;
       right: auto;
-      left: 33px;
+      left: 35px;
     }
   }
 }
@@ -156,13 +156,13 @@
 
   @media (min-width: $tablet-width) {
     grid-area: text;
-    padding-bottom: 24px;
+    padding: 0;
     color: $basic-dark;
     border-bottom: none;
   }
 
-  @media (min-width: $tablet-width) {
-    padding-top: 18px;
+  @media (min-width: $desktop-width) {
+    padding-top: 19px;
     padding-bottom: 0;
   }
 }
@@ -172,16 +172,18 @@
   @include text(primary, 16px, 16px, true);
   @include flex(row, auto, center, false);
   margin-right: auto;
-  padding-top: 15px;
+  padding-top: 18px;
   padding-bottom: 18px;
 
   @media (min-width: $tablet-width) {
     grid-area: link;
+    padding-top: 26px;
+    padding-bottom: 18px;
     font-size: 20px;
     line-height: 30px;
   }
 
-  @media (min-width: $tablet-width) {
-    padding-bottom: 15px;
+  @media (min-width: $desktop-width) {
+    padding: 3px 0;
   }
 }

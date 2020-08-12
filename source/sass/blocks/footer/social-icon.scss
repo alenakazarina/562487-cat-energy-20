@@ -2,8 +2,8 @@
   fill: $basic-dark-600;
 
   &--vk {
-    width: 23px;
-    height: 16px;
+    width: 22px;
+    height: 22px;
 
     @media (min-width: $tablet-width) {
       width: 30px;
@@ -22,12 +22,12 @@
   }
 
   &--fb {
-    width: 22px;
-    height: 22px;
+    width: 18px;
+    height: 18px;
 
     @media (min-width: $tablet-width) {
       width: 28px;
-      height: 33px;
+      height: 28px;
     }
   }
 }

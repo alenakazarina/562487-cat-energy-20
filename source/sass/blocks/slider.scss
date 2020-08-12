@@ -1,6 +1,22 @@
+$initial-x-tablet: 49%;
+$initial-x: 53%;
+
 .slider {
   @include flex(column, auto, auto, false);
-  width: 100%;
+  padding-top: 20px;
+  margin-left: -20px;
+  margin-right: -20px;
+
+  @media (min-width: $tablet-width) {
+    padding-top: 8px;
+  }
+
+  @media (min-width: $desktop-width) {
+    position: relative;
+    top: 6px;
+    left: 68px;
+    padding-top: 0;
+  }
 }
 
 .slider__content {
@@ -8,18 +24,11 @@
   align-self: center;
   text-align: center;
   min-height: 240px;
-  margin-bottom: 23px;
+  margin-bottom: 15px;
 
   @media (min-width: $tablet-width) {
-    min-height: 620px;
-    margin-bottom: 33px;
-  }
-
-  @media (min-width: $desktop-width) {
-    min-height: 620px;
-    margin-left: 640px;
+    margin-left: 12px;
     margin-bottom: 0;
-    background-image: none;
   }
 }
 
@@ -39,7 +48,11 @@
 
     @media (min-width: $tablet-width) {
       opacity: 1;
-      clip-path: polygon(0 0, 50% 0, 50% 50%, 50% 100%, 0 100%);
+      clip-path: polygon(0 0, $initial-x-tablet 0, $initial-x-tablet $initial-x-tablet, $initial-x-tablet 100%, 0 100%);
+    }
+
+    @media (min-width: $desktop-width) {
+      clip-path: polygon(0 0, $initial-x 0, $initial-x $initial-x, $initial-x 100%, 0 100%);
     }
   }
 
@@ -48,7 +61,11 @@
 
     @media (min-width: $tablet-width) {
       opacity: 1;
-      clip-path: polygon(50% 0, 100% 0, 100% 50%, 100% 100%, 50% 100%);
+      clip-path: polygon($initial-x-tablet 0, 100% 0, 100% $initial-x-tablet, 100% 100%, $initial-x-tablet 100%);
+    }
+
+    @media (min-width: $desktop-width) {
+      clip-path: polygon($initial-x 0, 100% 0, 100% $initial-x, 100% 100%, $initial-x 100%);
     }
   }
 
@@ -62,33 +79,37 @@
 }
 
 .slider__controls {
-  @include flex(row, center, center, false);
-  width: 100%;
+  @include flex(row, space-between, center, false);
+  width: 228px;
   height: 47px;
-  margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 22px;
 
   @media (min-width: $tablet-width) {
-    position: absolute;
-    bottom: 34px;
-    right: 0;
-    margin-bottom: 0;
+    width: 568px;
+    margin-bottom: 60px;
   }
 
   @media (min-width: $desktop-width) {
-    width: auto;
-    left: 560px;
+    position: relative;
+    top: 20px;
+    left: 25px;
   }
 }
 
 .slider__control {
   @include text(primary, 16px, 20px, true);
-  padding: 4px 0;
+  padding: 10px 15px;
   color: inherit;
   background-color: transparent;
   border: none;
   cursor: pointer;
 
   @media (min-width: $tablet-width) {
+    padding: 0;
+    font-size: 20px;
+    line-height: 30px;
     border-bottom: 1px dotted transparentize($basic-dark, 0.76);
   }
 
@@ -110,7 +131,7 @@
   position: relative;
   width: 84px;
   height: 14px;
-  margin: 0 24px;
+  margin-left: 3px;
   background-color: $basic-light;
   border-radius: 6px;
   border: $border-cd;
@@ -136,7 +157,7 @@
   overflow: hidden;
 
   @media (min-width: $tablet-width) {
-    top: -17px;
+    top: -14px;
     left: 0;
     width: 34px;
     height: 34px;

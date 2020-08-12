@@ -1,0 +1,68 @@
+.advantage {
+  position: relative;
+  display: grid;
+  grid-template-columns: 60px auto;
+  grid-column-gap: 20px;
+  align-items: center;
+  margin-bottom: 20px;
+
+  @media (min-width: $tablet-width) {
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content 1fr;
+    grid-row-gap: 30px;
+    align-items: start;
+    min-height: 272px;
+    padding-right: 75px;
+    margin-bottom: 0;
+  }
+
+  @media (min-width: $desktop-width) {
+    grid-row-gap: 32px;
+    min-height: 250px;
+    padding-right: 0;
+  }
+
+  &::before {
+    @include pseudo(60px, 60px);
+    background-color: $basic-green;
+    background-position: center;
+
+    @media (min-width: $tablet-width) {
+      width: 80px;
+      height: 80px;
+    }
+  }
+
+  &::after {
+    @media (min-width: $tablet-width) {
+      @include text(primary, 280px, 280px, false);
+      counter-increment: section;
+      content: counters(section, ".");
+      position: absolute;
+      top: -40px;
+      left: 112px;
+      z-index: -1;
+      color: $basic-light-f2;
+    }
+  }
+
+  &--leaf::before {
+    @include bg-norepeat($icon-advantage-leaf);
+  }
+
+  &--leaf::after {
+    left: 120px;
+  }
+
+  &--tub::before {
+    @include bg-norepeat($icon-advantage-tub);
+  }
+
+  &--eat::before {
+    @include bg-norepeat($icon-advantage-eat);
+  }
+
+  &--alarm::before {
+    @include bg-norepeat($icon-advantage-alarm);
+  }
+}
