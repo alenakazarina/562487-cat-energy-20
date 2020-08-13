@@ -1,48 +1,55 @@
 .product {
   display: grid;
-  grid-template-areas:
-    "picture title"
-    "picture info"
-    "buy buy";
-  grid-template-columns: repeat(2, auto);
-  grid-template-rows: auto auto min-content;
+  grid-template-columns: repeat(2, 1fr);
   width: 100%;
 
   @media (min-width: $tablet-width) {
-    grid-template-areas:
-      "picture"
-      "title"
-      "info"
-      "buy";
-    grid-template-columns: auto;
-    grid-template-rows: auto auto auto;
-    justify-items: center;
-    background-color: $basic-light-200;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto min-content min-content;
+    grid-row-gap: 33px;
+    background-image: linear-gradient(to bottom, $basic-light 0, $basic-light 81px, $basic-light-f2 81px);
   }
 }
 
 .product__picture {
-  @include flex(row, center, center, false);
-  grid-area: picture;
-  width: 100%;
+  margin: auto;
 
   @media (min-width: $tablet-width) {
-    position: absolute;
-    top: -180px;
-    left: 0;
+    margin-bottom: 0;
+  }
+}
+
+.product__wrap {
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: $tablet-width) {
+    align-items: center;
+    padding-left: 36px;
+    padding-right: 36px;
+  }
+
+  @media (min-width: $desktop-width) {
+    align-items: center;
+    padding-left: 33px;
+    padding-right: 33px;
   }
 }
 
 .product__title {
-  grid-area: title;
   max-width: 76px;
-  margin: 0;
+  margin-top: 0;
+  margin-bottom: 18px;
 
   @media (min-width: $tablet-width) {
     max-width: 174px;
     padding: 0 20px;
     margin-bottom: 33px;
     text-align: center;
+  }
+
+  @media (min-width: $desktop-width) {
+    margin-top: 7px;
   }
 }
 
@@ -53,12 +60,10 @@
 .product__info {
   display: grid;
   grid-template-columns: repeat(2, auto);
-  grid-area: info;
   margin: 0;
 
   @media (min-width: $tablet-width) {
     width: 100%;
-    margin-bottom: 33px;
   }
 }
 
@@ -68,10 +73,21 @@
 }
 
 .product__buy {
-  @include text(primary, 14px, 18px, true);
+  @include text(primary, 16px, 20px, true);
   @include accent-link;
-  grid-area: buy;
-  justify-self: center;
-  width: 100%;
+  grid-column-start: 1;
+  grid-column-end: 3;
   padding: 9px 44px;
+
+  @media (min-width: $tablet-width) {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    margin-left: 37px;
+    margin-right: 37px;
+  }
+
+  @media (min-width: $desktop-width) {
+    margin-left: 38px;
+    margin-right: 38px;
+  }
 }

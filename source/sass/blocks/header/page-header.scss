@@ -1,10 +1,19 @@
 .page-header {
-  @include flex(column, auto, center, false);
   @include container;
   position: relative;
+  display: grid;
+  border-bottom: 1px solid $basic-light-d9;
 
   @media (min-width: $tablet-width) {
-    flex-direction: row;
+    grid-template-columns: 174px 1fr;
+    align-items: center;
+    min-height: 110px;
+    border: none;
+  }
+
+  @media (min-width: $desktop-width) {
+    grid-template-columns: $column-desktop 1fr;
+    min-height: 170px;
   }
 
   &--index {
@@ -15,22 +24,17 @@
       z-index: 10;
       width: 100%;
       transform: translateX(-50%);
+      margin-left: 10px;
     }
   }
 }
 
 .page-header__logo {
-  @include flex(row, auto, center, false);
-  align-self: flex-start;
-  min-height: 66px;
-
-  @media (min-width: $tablet-width) {
-    min-height: 100px;
-  }
-
-  @media (min-width: $desktop-width) {
-    min-height: 165px;
-  }
+  @include logo-states;
+  display: flex;
+  align-items: center;
+  min-height: 65px;
+  margin-right: auto;
 }
 
 .page-header__logo img {

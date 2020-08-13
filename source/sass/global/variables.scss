@@ -2,27 +2,34 @@ $basic-dark: #000000;
 $basic-dark-100: #111111;
 $basic-dark-200: #222222;
 $basic-dark-400: #444444;
+$basic-dark-600: #666666;
 
 $basic-light: #ffffff;
-$basic-light-100: #fdf7f0;
-$basic-light-200: #f2f2f2;
-$basic-light-300: #e5e5e5;
-$basic-light-400: #ebebeb;
-$basic-light-500: #d9d9d9;
-$basic-light-600: #cdcdcd;
+$basic-light-ba: #bababa;
+$basic-light-cd: #cdcdcd;
+$basic-light-d9: #d9d9d9;
+$basic-light-dc: #dcdcdc;
+$basic-light-e6: #e6e6e6;
+$basic-light-e7: #e7e7e7;
+$basic-light-ea: #eaeaea;
+$basic-light-eb: #ebebeb;
+$basic-light-f2: #f2f2f2;
 
 $basic-green: #68b738;
-
-$bgcolor-slider: #eaeaea;
-$bgcolor-slider-range: #dcdcdc;
+$basic-green-hover: #5eaa2f;
+$basic-error: #ff8282;
 
 $basic-font: "Arial", sans-serif;
 $primary-font: "Oswald", "Arial", sans-serif;
 
-$border-header:  1px solid $basic-light-300;
-$border-footer: 1px solid $basic-light-500;
-$border-basic: 1px solid $basic-light-600;
-$border-page: 1px solid $basic-light-400;
+$border-cd: 1px solid $basic-light-cd;
+$border-d9: 1px solid $basic-light-d9;
+$border-e7: 1px solid $basic-light-e7;
+$border-eb: 1px solid $basic-light-eb;
+
+$opacity-30: 0.3;
+$opacity-60: 0.6;
+$opacity-80: 0.8;
 
 $icon-menu-mobile: url("../img/icon-mobile-menu.svg");
 $icon-menu-close: url("../img/icon-close.svg");
@@ -35,20 +42,17 @@ $icon-advantage-tub: url("../img/advantage-powder@1x.png");
 $icon-advantage-eat: url("../img/advantage-dining@1x.png");
 $icon-advantage-alarm: url("../img/advantage-clock@1x.png");
 
-$icon-socials-vk: url("../img/icon-vk.svg");
-$icon-socials-instagram: url("../img/icon-insta.svg");
-$icon-socials-fb: url("../img/icon-fb.svg");
-
 $icon-plus: url("../img/icon-plus-mobile.svg");
 $icon-arrow: url("../img/icon-right-arrow-long.svg");
+$icon-arrow-long: url("../img/icon-right-arrow-verylong.svg");
 $icon-gift: url("../img/icon-gift.svg");
 
 $bg-gift-mobile: url("../img/gift-photo-mobile@1x.jpg");
 $bg-gift-tablet: url("../img/gift-photo-tablet@1x.jpg");
 $bg-gift: url("../img/gift-photo-desktop@1x.jpg");
-$bg-map-mobile: url("../img/bg-map-mobile@1x.png");
-$bg-map-tablet: url("../img/bg-map-tablet@1x.png");
-$bg-map: url("../img/bg-map-desktop@1x.png");
+$bg-map-mobile: url("../img/map-mobile@1x.jpg");
+$bg-map-tablet: url("../img/map-tablet@1x.jpg");
+$bg-map: url("../img/map-desktop@1x.jpg");
 $bg-map-pin: url("../img/map-pin.png");
 $bg-promo-top: url("../img/index-background-desktop@1x.jpg");
 $bg-promo-top-mobile: url("../img/index-background-mobile@1x.jpg");
@@ -56,7 +60,6 @@ $bg-promo-can: url("../img/index-can-desktop@1x.png");
 $bg-promo-can-mobile: url("../img/index-can-mobile@1x.png");
 $bg-promo-can-tablet: url("../img/index-can-tablet@1x.jpg");
 
-$mobile-max-width: 767px;
 $mobile-width: 320px;
 $tablet-width: 768px;
 $desktop-width: 1300px;

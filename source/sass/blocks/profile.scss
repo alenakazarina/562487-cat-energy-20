@@ -1,5 +1,17 @@
 .profile {
-  padding: 0 20px;
+  position: relative;
+}
+
+.profile__wrapper {
+  @media (min-width: $tablet-width) {
+    padding-left: 40px;
+    padding-right: 35px;
+  }
+
+  @media (min-width: $desktop-width) {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 .profile__legend {
@@ -7,9 +19,20 @@
   display: block;
   margin-top: 27px;
   margin-bottom: 37px;
+
+  @media (min-width: $tablet-width) {
+    margin-bottom: 54px;
+  }
 }
 
 .profile__text {
   @include text(primary, 14px, 18px, true);
-  margin-bottom: 19px;
+  margin-bottom: 39px;
+
+  @media (min-width: $tablet-width) {
+    max-width: 323px;
+    margin-bottom: 66px;
+    font-size: 20px;
+    line-height: 30px;
+  }
 }

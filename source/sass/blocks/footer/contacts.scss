@@ -1,14 +1,12 @@
 .contacts {
-  &--index {
+  background-color: $basic-light-f2;
+
+  @media (min-width: $desktop-width) {
     background-color: $basic-light;
   }
 
-  &--catalog {
-    background-color: $basic-light-200;
-
-    @media (min-width: $desktop-width) {
-      background-color: $basic-light;
-    }
+  &--index {
+    background-color: $basic-light;
   }
 }
 
@@ -24,17 +22,17 @@
 
   @media (min-width: $tablet-width) {
     grid-gap: 60px;
+    align-items: start;
     padding-top: 66px;
-    padding-bottom: 51px;
+    padding-bottom: 58px;
     padding-left: 72px;
     padding-right: 72px;
   }
 
   @media (min-width: $desktop-width) {
-    grid-gap: 80px;
-    max-width: 570px;
+    grid-gap: 97px;
     padding-left: 76px;
-    padding-right: 76px;
+    padding-right: 89px;
   }
 }
 
@@ -54,7 +52,7 @@
   @include text(regular, 14px, 20px, false);
 
   @media (min-width: $tablet-width) {
-    min-height: 87px;
+    min-height: 77px;
     justify-content: space-between;
     text-align: right;
     font-size: 16px;

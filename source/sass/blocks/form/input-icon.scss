@@ -1,0 +1,37 @@
+.input-icon {
+  position: absolute;
+  fill: $basic-dark-200;
+
+  &--mail {
+    top: 16px;
+    right: 15px;
+    width: 20px;
+    height: 14px;
+
+    @media (min-width: $tablet-width) {
+      top: 19px;
+      right: 20px;
+    }
+
+    @media (min-width: $desktop-width) {
+      right: 18px;
+    }
+  }
+
+  &--phone {
+    top: 13px;
+    right: 12px;
+    width: 20px;
+    height: 20px;
+
+    @media (min-width: $tablet-width) {
+      top: 16px;
+      right: 16px;
+    }
+
+    @media (min-width: $desktop-width) {
+      top: 15px;
+      right: 15px;
+    }
+  }
+}

@@ -2,12 +2,26 @@
 
 // nav toggle
 (function() {
+  let isMenuOpen = true;
+  const OPEN_TEXT = `Открыть основное меню`;
+  const CLOSE_TEXT = `Закрыть основное меню`;
   const mainNavEl = document.querySelector(`.main-nav--nojs`);
   mainNavEl.classList.remove(`main-nav--nojs`);
   mainNavEl.classList.remove(`main-nav--opened`);
   mainNavEl.classList.add(`main-nav--closed`);
+  isMenuOpen = false;
   const mainNavToggleEl = document.querySelector(`.js-toggle`);
+  const mainNavToggleText = mainNavToggleEl.querySelector(`span`);
   mainNavToggleEl.addEventListener(`click`, (evt) => {
+    if (isMenuOpen) {
+      isMenuOpen = false;
+      mainNavToggleText.innerText = OPEN_TEXT;
+      mainNavToggleEl.setAttribute(`aria-label`, OPEN_TEXT);
+    } else {
+      isMenuOpen = true;
+      mainNavToggleText.innerText = CLOSE_TEXT;
+      mainNavToggleEl.setAttribute(`aria-label`, CLOSE_TEXT);
+    }
     mainNavEl.classList.toggle(`main-nav--opened`);
     mainNavEl.classList.toggle(`main-nav--closed`);
   });

@@ -1,17 +1,26 @@
 .label {
-  @include text(primary, 14px, 18px, true);
-  position: relative;
-  white-space: nowrap;
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  align-items: center;
+  width: 100%;
 
-  &--email::after {
-    @include pseudo(20px, 14px);
-    @include absolute-top-right(16px, 15px, 0);
-    @include bg-norepeat(url("../img/icon-mail.svg"));
+  &--text {
+    grid-column-gap: 14px;
   }
 
-  &--tel::after {
-    @include pseudo(20px, 20px);
-    @include absolute-top-right(13px, 12px, 0);
-    @include bg-norepeat(url("../img/icon-phone.svg"));
+  &--radio {
+    grid-column-gap: 15px;
+
+    @media (min-width: $tablet-width) {
+      grid-column-gap: 20px;
+    }
+  }
+
+  &--checkbox {
+    grid-column-gap: 16px;
+
+    @media (min-width: $tablet-width) {
+      grid-column-gap: 19px;
+    }
   }
 }

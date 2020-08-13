@@ -1,51 +1,61 @@
 .load-more {
   @include bg-norepeat($icon-plus);
-  display: grid;
-  justify-items: center;
   width: 100%;
   background-size: 30px 30px;
   background-position: center 26px;
 
   @media (min-width: $tablet-width) {
-    @include bg-norepeat($icon-plus);
-    grid-template-rows: repeat(3, min-content);
-    text-align: center;
     background-size: 60px 60px;
-    background-position: center 52px;
-    border: 2px solid $basic-light-200;
+    background-position: center 133px;
+    background-color: $basic-light;
+  }
+}
+
+.load-more__wrapper {
+  @include flex(column, auto, center, false);
+  margin-top: 65px;
+  text-align: center;
+
+  @media (min-width: $tablet-width) {
+    min-height: 430px;
+    padding-top: 162px;
+    padding-bottom: 40px;
+    padding-left: 36px;
+    padding-right: 36px;
+    margin-top: 81px;
+    border: 2px solid $basic-light-f2;
   }
 }
 
 .load-more__slogan {
-  padding-top: 53px;
-  margin: 0;
+  margin-top: 0;
+  margin-bottom: 8px;
   color: $basic-dark-100;
 
   @media (min-width: $tablet-width) {
     max-width: 134px;
-    padding-top: 12px;
+    margin-bottom: 23px;
   }
 }
 
 .load-more__text {
   @include text(regular, 12px, 16px, false);
-  padding-top: 8px;
-  padding-bottom: 17px;
-  margin: 0;
+  margin-top: 0;
+  margin-bottom: 21px;
   color: $basic-dark-400;
 
   @media (min-width: $tablet-width) {
     max-width: 134px;
-    padding-top: 12px;
-    padding-bottom: 87px;
   }
 }
 
 .load-more__button {
   @include text(primary, 16px, 20px, true);
+  @include gray-link;
   width: 100%;
   padding: 9px 35px;
-  color: $basic-dark-400;
-  background-color: $basic-light-200;
-  border: none;
+
+  @media (min-width: $tablet-width) {
+    margin-top: auto;
+  }
 }

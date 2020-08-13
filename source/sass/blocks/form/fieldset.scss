@@ -1,19 +1,78 @@
 .fieldset {
   position: relative;
 
-  &--bordered::after {
-    @include pseudo(100vw, 1px);
-    @include absolute-top-left(0, -20px, 0);
-    background-color: $basic-light-500;
+  &--cat {
+    margin-bottom: 27px;
+
+    @media (min-width: $tablet-width) {
+      margin-bottom: 72px;
+    }
+
+    @media (min-width: $desktop-width) {
+      margin-bottom: 0;
+    }
+  }
+
+  &--purpose {
+    margin-bottom: 26px;
+    margin-left: -$padding-mobile;
+    margin-right: -$padding-mobile;
+    border-top: $border-d9;
+    border-bottom: $border-d9;
+
+    @media (min-width: $tablet-width) {
+      margin-bottom: 71px;
+      margin-left: 0;
+      margin-right: 0;
+      border: none;
+    }
+
+    @media (min-width: $desktop-width) {
+      margin-bottom: 0;
+    }
+  }
+
+  &--owner {
+    margin-bottom: 27px;
+
+    @media (min-width: $tablet-width) {
+      margin-bottom: 65px;
+    }
+
+    @media (min-width: $desktop-width) {
+      margin-bottom: 69px;
+    }
+  }
+
+  &--comment {
+    margin-bottom: 27px;
+
+    @media (min-width: $tablet-width) {
+      margin-bottom: 65px;
+    }
+
+    @media (min-width: $desktop-width) {
+      margin-bottom: 67px;
+    }
+  }
+
+  &--addons {
+    margin-bottom: 34px;
+
+    @media (min-width: $tablet-width) {
+      margin-bottom: 54px;
+    }
+
+    @media (min-width: $desktop-width) {
+      margin-bottom: 61px;
+    }
   }
 }
 
 .fieldset__legend {
-  @include text(primary, 24px, 26px, false);
-  width: 100%;
-  padding-top: 26px;
-  padding-bottom: 32px;
-  padding-left: 0;
-  padding-right: 0;
-  color: $basic-dark;
+  @include legend-padding;
+
+  @media (min-width: $tablet-width) {
+    margin-left: -40px;
+  }
 }

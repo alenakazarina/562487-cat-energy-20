@@ -41,9 +41,89 @@
 }
 
 @mixin accent-link {
+  text-align: center;
   color: $basic-light;
   background-color: $basic-green;
-  text-align: center;
+  border: none;
+
+  &:hover {
+    background-color: $basic-green-hover;
+  }
+
+  &:active {
+    color: transparentize($basic-light, 1 - $opacity-30);
+    background-color: $basic-green-hover;
+  }
+}
+
+@mixin arrow-link {
+  position: relative;
+  color: $basic-dark;
+
+  &:hover {
+    &::before {
+      opacity: 1;
+    }
+
+    &::after {
+      opacity: 0;
+    }
+  }
+
+  &:active {
+    opacity: $opacity-30;
+  }
+
+  &::before {
+    @include pseudo-flex(32px, 14px);
+    @include absolute-top-right(calc(50% - 6px), 0, 0);
+    @include bg-norepeat($icon-arrow-long);
+    background-position: left center;
+    background-size: 32px 11px;
+    opacity: 0;
+
+    @media (min-width: $tablet-width) {
+      top: calc(50% - 1px);
+    }
+
+    @media (min-width: $desktop-width) {
+      top: calc(50% - 6px);
+    }
+  }
+
+  &::after {
+    @include pseudo-flex(32px, 14px);
+    @include bg-norepeat($icon-arrow);
+    position: relative;
+    top: 1px;
+    margin-left: 11px;
+    background-position: left center;
+    background-size: 24px 11px;
+    opacity: 1;
+
+    @media (min-width: $tablet-width) {
+      top: 2px;
+      margin-left: 25px;
+    }
+
+    @media (min-width: $desktop-width) {
+      top: 1px;
+    }
+  }
+}
+
+@mixin gray-link {
+  color: $basic-dark-400;
+  background-color: $basic-light-f2;
+  border: none;
+
+  &:hover {
+    background-color: $basic-light-eb;
+  }
+
+  &:active {
+    color: transparentize($basic-dark-400, 1 - $opacity-30);
+  }
 }
 
 @mixin pseudo($width, $height) {
@@ -71,13 +151,6 @@
   position: absolute;
   top: $top;
   right: $right;
-  z-index: $index;
-}
-
-@mixin absolute-bottom-left($bottom, $left, $index) {
-  position: absolute;
-  bottom: $bottom;
-  left: $left;
   z-index: $index;
 }
 
@@ -133,4 +206,41 @@
 @mixin fade-out {
   @include animation;
   animation-name: fade-out;
+}
+
+@mixin green-line {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  display: block;
+  width: calc(100vw - 20px);
+  height: 2px;
+  background-color: $basic-green;
+
+  @media (min-width: $tablet-width) {
+    width: 100vw;
+  }
+}
+
+@mixin legend-padding {
+  padding-right: 20px;
+
+  @media (min-width: $tablet-width) {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @media (min-width: $desktop-width) {
+    margin-left: -$padding-desktop;
+  }
+}
+
+@mixin logo-states {
+  &:hover {
+    opacity: $opacity-80;
+  }
+
+  &:active {
+    opacity: $opacity-60;
+  }
 }
