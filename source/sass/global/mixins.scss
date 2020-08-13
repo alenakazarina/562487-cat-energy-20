@@ -188,26 +188,6 @@
   }
 }
 
-@mixin animation {
-  animation-duration: 0.5s;
-  animation-timing-function: ease;
-  animation-fill-mode: forwards;
-
-  @media (min-width: $tablet-width) {
-    animation: none;
-  }
-}
-
-@mixin fade-in {
-  @include animation;
-  animation-name: fade-in;
-}
-
-@mixin fade-out {
-  @include animation;
-  animation-name: fade-out;
-}
-
 @mixin green-line {
   content: "";
   position: absolute;

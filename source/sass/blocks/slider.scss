@@ -44,10 +44,9 @@ $initial-x: 53%;
   }
 
   &--before {
-    opacity: 1;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 
     @media (min-width: $tablet-width) {
-      opacity: 1;
       clip-path: polygon(0 0, $initial-x-tablet 0, $initial-x-tablet $initial-x-tablet, $initial-x-tablet 100%, 0 100%);
     }
 
@@ -57,24 +56,15 @@ $initial-x: 53%;
   }
 
   &--after {
-    opacity: 0;
+    clip-path: polygon(99% 0, 100% 0, 100% 100%, 99% 100%);
 
     @media (min-width: $tablet-width) {
-      opacity: 1;
       clip-path: polygon($initial-x-tablet 0, 100% 0, 100% $initial-x-tablet, 100% 100%, $initial-x-tablet 100%);
     }
 
     @media (min-width: $desktop-width) {
       clip-path: polygon($initial-x 0, 100% 0, 100% $initial-x, 100% 100%, $initial-x 100%);
     }
-  }
-
-  &--show {
-    @include fade-in;
-  }
-
-  &--hide {
-    @include fade-out;
   }
 }
 
@@ -197,25 +187,5 @@ $initial-x: 53%;
     @media (min-width: $tablet-width) {
       transform: translateX(394px);
     }
-  }
-}
-
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes fade-out {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
   }
 }
