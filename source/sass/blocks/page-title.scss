@@ -1,5 +1,15 @@
 .page-title {
-  padding-top: 27px;
-  padding-bottom: 41px;
+  padding-top: 26px;
+  padding-bottom: 40px;
   margin: 0;
+
+  @media (min-width: $tablet-width) {
+    padding-top: 31px;
+    padding-bottom: 55px;
+  }
+
+  @media (min-width: $desktop-width) {
+    padding-top: 19px;
+    padding-bottom: 53px;
+  }
 }

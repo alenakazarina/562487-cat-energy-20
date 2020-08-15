@@ -3,20 +3,6 @@ $initial-x: 53%;
 
 .slider {
   @include flex(column, auto, auto, false);
-  padding-top: 20px;
-  margin-left: -20px;
-  margin-right: -20px;
-
-  @media (min-width: $tablet-width) {
-    padding-top: 8px;
-  }
-
-  @media (min-width: $desktop-width) {
-    position: relative;
-    top: 6px;
-    left: 68px;
-    padding-top: 0;
-  }
 }
 
 .slider__content {

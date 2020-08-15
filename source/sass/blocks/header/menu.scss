@@ -19,21 +19,22 @@
 
 .menu__item {
   width: 100%;
+  padding: 15px 0;
   text-align: center;
   border-bottom: 1px solid $basic-light-e6;
 
   @media (min-width: $tablet-width) {
     width: auto;
-    margin-left: 35px;
+    margin-left: 36px;
     border-bottom: none;
   }
-}
 
-.menu__item:first-of-type {
-  border-top: 1px solid $basic-light-e6;
+  &:first-of-type {
+    border-top: 1px solid $basic-light-e6;
 
-  @media (min-width: $tablet-width) {
-    border-top: none;
+    @media (min-width: $tablet-width) {
+      border-top: none;
+    }
   }
 }
 
@@ -41,12 +42,11 @@
   @include text(primary-medium, 20px, 20px, true);
   position: relative;
   display: inline-flex;
-  padding: 20px 0;
+  padding: 7px 0;
   color: inherit;
 
   @media (min-width: $tablet-width) {
     @include text(primary, 18px, 24px, true);
-    padding: 10px 0;
   }
 
   @media (min-width: $desktop-width) {
@@ -63,28 +63,12 @@
   }
 
   &--active {
-    &::before {
-      content: "";
-      position: absolute;
-      bottom: 10px;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background-color: $basic-green;
-
-      @media (min-width: $tablet-width) {
-        bottom: 0;
-      }
-
-      @media (min-width: $desktop-width) {
-        bottom: 2px;
-      }
-    }
+    border-bottom: 2px solid $basic-green;
   }
 }
 
-.menu--light .menu__link--active::before {
+.menu--light .menu__link--active {
   @media (min-width: $desktop-width) {
-    background-color: $basic-light;
+    border-color: $basic-light;
   }
 }

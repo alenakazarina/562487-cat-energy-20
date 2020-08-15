@@ -1,55 +1,57 @@
 .product {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 144px min-content;
   width: 100%;
 
   @media (min-width: $tablet-width) {
     grid-template-columns: 1fr;
-    grid-template-rows: auto min-content min-content;
-    grid-row-gap: 33px;
-    background-image: linear-gradient(to bottom, $basic-light 0, $basic-light 81px, $basic-light-f2 81px);
+    grid-template-rows: 210px min-content min-content;
+    grid-row-gap: 2px;
+    background-image: linear-gradient(to top, $basic-light-f2 0, $basic-light-f2 430px, $basic-light 430px);
   }
 }
 
 .product__picture {
-  margin: auto;
+  align-self: end;
+}
 
-  @media (min-width: $tablet-width) {
-    margin-bottom: 0;
-  }
+.product__picture picture {
+  @include flex(row, center, center, false);
 }
 
 .product__wrap {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: repeat(2, min-content);
+  grid-row-gap: 15px;
+  padding-top: 21px;
 
   @media (min-width: $tablet-width) {
+    grid-row-gap: 20px;
     align-items: center;
-    padding-left: 36px;
-    padding-right: 36px;
+    width: 100%;
+    padding-top: 26px;
+    padding-bottom: 31px;
+    padding-left: 38px;
+    padding-right: 38px;
   }
 
   @media (min-width: $desktop-width) {
-    align-items: center;
-    padding-left: 33px;
-    padding-right: 33px;
+    grid-row-gap: 25px;
+    padding-top: 36px;
+    padding-bottom: 30px;
+    padding-right: 42px;
   }
 }
 
 .product__title {
   max-width: 76px;
-  margin-top: 0;
-  margin-bottom: 18px;
+  margin: 0;
 
   @media (min-width: $tablet-width) {
-    max-width: 174px;
-    padding: 0 20px;
-    margin-bottom: 33px;
+    max-width: 150px;
+    margin: 0 auto;
     text-align: center;
-  }
-
-  @media (min-width: $desktop-width) {
-    margin-top: 7px;
   }
 }
 
@@ -58,36 +60,23 @@
 }
 
 .product__info {
-  display: grid;
-  grid-template-columns: repeat(2, auto);
   margin: 0;
-
-  @media (min-width: $tablet-width) {
-    width: 100%;
-  }
-}
-
-.product__info dd {
-  margin: 0;
-  margin-left: auto;
 }
 
 .product__buy {
-  @include text(primary, 16px, 20px, true);
   @include accent-link;
   grid-column-start: 1;
   grid-column-end: 3;
-  padding: 9px 44px;
 
   @media (min-width: $tablet-width) {
     grid-column-start: 1;
     grid-column-end: 2;
-    margin-left: 37px;
+    margin-left: 39px;
     margin-right: 37px;
   }
 
   @media (min-width: $desktop-width) {
     margin-left: 38px;
-    margin-right: 38px;
+    margin-right: 39px;
   }
 }

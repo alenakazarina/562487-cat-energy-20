@@ -9,40 +9,46 @@
 
   @media (min-width: $tablet-width) {
     min-height: 200px;
+    text-align: left;
     background-image: $bg-gift-tablet;
   }
 
   @media (min-width: $desktop-width) {
+    text-align: center;
     background-image: $bg-gift;
     background-size: cover;
   }
 }
 
 .gift__slogan {
-  @include flex(column, center, center, false);
   @include text(regular, 16px, 20px, false);
+  position: relative;
+  top: 72px;
+  left: 0;
 
   @media (min-width: $tablet-width) {
-    flex-direction: row;
+    top: 2px;
+    left: 150px;
   }
 
   @media (min-width: $desktop-width) {
-    flex-direction: column;
+    top: 72px;
+    left: -2px;
   }
 
   &::before {
-    @include pseudo-flex(55px, 60px);
+    @include pseudo-flex(60px, 60px);
+    @include absolute-top-left(-123px, 52px, 0);
     @include bg-norepeat($icon-gift);
-    margin-bottom: 48px;
 
     @media (min-width: $tablet-width) {
-      margin-bottom: 0;
-      margin-right: 265px;
+      top: -6px;
+      left: -334px;
     }
 
     @media (min-width: $desktop-width) {
-      margin-bottom: 46px;
-      margin-right: 0;
+      top: -122px;
+      left: 54px;
     }
   }
 }
