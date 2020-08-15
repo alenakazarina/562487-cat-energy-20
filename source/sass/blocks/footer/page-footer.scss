@@ -33,7 +33,7 @@
 
 .page-footer__logo {
   @include logo-states;
-  padding-top: 42px;
+  padding-top: 41px;
   padding-bottom: 25px;
 
   @media (min-width: $tablet-width) {
@@ -41,10 +41,6 @@
     padding-top: 10px;
     padding-bottom: 0;
     border: none;
-  }
-
-  @media (min-width: $desktop-width) {
-    margin-left: 7px;
   }
 }
 
@@ -56,28 +52,19 @@
     margin-left: 27px;
     margin-right: 0;
   }
-
-  @media (min-width: $desktop-width) {
-    margin-left: 32px;
-  }
 }
 
 .page-footer__copyright {
   @include flex(row, space-between, center, false);
   width: 100%;
   max-width: 280px;
-  padding: 22px 0;
+  padding: 20px 0;
   margin: 0 auto;
   border-top: $border-d9;
 
   @media (min-width: $tablet-width) {
     max-width: 163px;
-    padding: 0;
     margin: 0;
     border: none;
-  }
-
-  @media (min-width: $desktop-width) {
-    margin-right: -8px;
   }
 }

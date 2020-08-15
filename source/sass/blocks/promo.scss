@@ -48,9 +48,9 @@
   @media (min-width: $desktop-width) {
     @include bg-norepeat($bg-promo-can);
     min-height: 632px;
-    padding-left: 88px;
+    padding-left: 78px;
     padding-top: 48px;
-    background-position: 458px top;
+    background-position: 448px top;
     background-size: 552px 499px;
   }
 }
@@ -80,7 +80,6 @@
 }
 
 .promo__link {
-  @include text(primary, 14px, 18px, true);
   @include accent-link;
   width: 100%;
   max-width: 280px;
@@ -88,6 +87,8 @@
   padding: 11px 26px;
   margin-top: auto;
   margin-bottom: 23px;
+  font-size: 14px;
+  line-height: 18px;
 
   @media (min-width: $tablet-width) {
     width: auto;
@@ -120,6 +121,5 @@
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: $gutter-desktop;
     width: 100%;
-    margin-left: 7px;
   }
 }

@@ -41,6 +41,11 @@
 }
 
 @mixin accent-link {
+  @include text(primary, 16px, 20px, true);
+  padding-top: 11px;
+  padding-bottom: 10px;
+  padding-left: 44px;
+  padding-right: 44px;
   text-align: center;
   color: $basic-light;
   background-color: $basic-green;
@@ -103,7 +108,7 @@
 
     @media (min-width: $tablet-width) {
       top: 2px;
-      margin-left: 25px;
+      margin-left: 22px;
     }
 
     @media (min-width: $desktop-width) {
@@ -184,28 +189,9 @@
   }
 
   @media (min-width: $desktop-width) {
-    padding: 0 $padding-desktop;
+    padding-left: $padding-desktop + $scroll-shift;
+    padding-right: $padding-desktop - $scroll-shift;
   }
-}
-
-@mixin animation {
-  animation-duration: 0.5s;
-  animation-timing-function: ease;
-  animation-fill-mode: forwards;
-
-  @media (min-width: $tablet-width) {
-    animation: none;
-  }
-}
-
-@mixin fade-in {
-  @include animation;
-  animation-name: fade-in;
-}
-
-@mixin fade-out {
-  @include animation;
-  animation-name: fade-out;
 }
 
 @mixin green-line {
@@ -223,11 +209,11 @@
 }
 
 @mixin legend-padding {
-  padding-right: 20px;
+  padding-right: 22px;
 
   @media (min-width: $tablet-width) {
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 38px;
+    padding-right: 36px;
   }
 
   @media (min-width: $desktop-width) {

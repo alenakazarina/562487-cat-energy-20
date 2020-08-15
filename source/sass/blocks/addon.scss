@@ -4,12 +4,13 @@
     "title"
     "price"
     "buy";
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: repeat(3, min-content);
+  grid-row-gap: 11px;
   align-items: center;
-  border-bottom: $border-cd;
+  border-top: $border-cd;
 
-  &:first-of-type {
-    border-top: $border-cd;
+  &:last-of-type {
+    border-bottom: $border-cd;
   }
 
   @media (min-width: $tablet-width) {
@@ -17,14 +18,15 @@
       "title price"
       "buy buy";
     grid-template-rows: repeat(2, 1fr);
-    grid-row-gap: 27px;
+    grid-row-gap: 5px;
+    align-items: baseline;
   }
 
   @media (min-width: $desktop-width) {
     grid-template-areas: "title price buy";
     grid-template-columns: 1fr 1fr $column-desktop;
     grid-template-rows: 1fr;
-    grid-column-gap: $gutter-desktop;
+    grid-column-gap: 40px;
   }
 }
 
@@ -42,26 +44,19 @@
   grid-area: price;
 
   @media (min-width: $tablet-width) {
-    justify-content: start;
-    margin-left: auto;
+    display: grid;
+    grid-template-columns: 1fr minmax(43px, auto);
+    grid-gap: 50px;
+    justify-items: end;
   }
-}
 
-.addon__price span:last-of-type {
-  @media (min-width: $tablet-width) {
-    margin-left: 50px;
+  @media (min-width: $desktop-width) {
+    justify-items: start;
   }
 }
 
 .addon__buy {
-  @include text(primary, 14px, 18px, true);
   @include accent-link;
   grid-area: buy;
-  padding: 9px 44px;
   width: 100%;
-
-  @media (min-width: $desktop-width) {
-    width: 244px;
-    justify-self: end;
-  }
 }
