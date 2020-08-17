@@ -1,26 +1,13 @@
 .label {
+  @include text(primary, 16px, 18px, true);
   display: grid;
-  grid-template-columns: min-content 1fr;
+  grid-template-columns: min-content minmax(170px, 1fr);
+  grid-column-gap: 15px;
   align-items: center;
-  width: 100%;
 
-  &--text {
-    grid-column-gap: 14px;
-  }
-
-  &--radio {
-    grid-column-gap: 15px;
-
-    @media (min-width: $tablet-width) {
-      grid-column-gap: 20px;
-    }
-  }
-
-  &--checkbox {
-    grid-column-gap: 16px;
-
-    @media (min-width: $tablet-width) {
-      grid-column-gap: 19px;
-    }
+  @media (min-width: $tablet-width) {
+    grid-column-gap: 18px;
+    font-size: 20px;
+    line-height: 30px;
   }
 }

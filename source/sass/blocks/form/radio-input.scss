@@ -1,19 +1,17 @@
-$circle-size-mobile: 30px;
-$circle-size: 40px;
 $inner-circle-size-mobile: 13.5px;
 $inner-circle-size: 18px;
-$shift-mobile: $circle-size-mobile / 2 - $inner-circle-size-mobile / 2;
-$shift: $circle-size / 2 - $inner-circle-size / 2;
+$shift-mobile: $input-size-mobile / 2 - $inner-circle-size-mobile / 2;
+$shift: $input-size / 2 - $inner-circle-size / 2;
 
 .radio-input + label::before {
-  @include pseudo($circle-size-mobile, $circle-size-mobile);
+  @include pseudo($input-size-mobile, $input-size-mobile);
   border-radius: 50%;
   background-color: $basic-light;
   border: $border-cd;
 
   @media (min-width: $tablet-width) {
-    width: $circle-size;
-    height: $circle-size;
+    width: $input-size;
+    height: $input-size;
   }
 }
 

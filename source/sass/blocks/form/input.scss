@@ -1,15 +1,13 @@
 .input {
-  @include text(primary, 14px, 18px, true);
-  flex-grow: 1;
-  padding: 13px 15px 13px 15px;
+  @include text(primary, 16px, 18px, true);
+  padding: 13px;
   color: $basic-dark-400;
   border: $border-e7;
   appearance: none;
   cursor: pointer;
 
   @media (min-width: $tablet-width) {
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 10px 17px;
     font-size: 20px;
     line-height: 30px;
   }
@@ -31,7 +29,16 @@
   }
 
   &--icon {
-    padding-right: 50px;
+    padding-right: 40px;
+  }
+
+  &--comment {
+    height: 150px;
+    padding-right: 12px;
+
+    @media (min-width: $tablet-width) {
+      height: 174px;
+    }
   }
 }
 

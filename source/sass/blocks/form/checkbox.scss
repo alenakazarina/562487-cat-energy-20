@@ -1,14 +1,11 @@
-$checkbox-size-mobile: 30px;
-$checkbox-size: 26px;
-
 .checkbox + label::before {
-  @include pseudo($checkbox-size, $checkbox-size);
+  @include pseudo($input-size-mobile, $input-size-mobile);
   background-color: $basic-light;
   border: $border-cd;
 
   @media (min-width: $tablet-width) {
-    width: $checkbox-size;
-    height: $checkbox-size;
+    width: $input-size;
+    height: $input-size;
   }
 }
 

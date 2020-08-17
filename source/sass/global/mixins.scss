@@ -204,16 +204,27 @@
   background-color: $basic-green;
 
   @media (min-width: $tablet-width) {
+    left: -$padding-tablet;
     width: 100vw;
+  }
+
+  @media (min-width: $desktop-width) {
+    left: calc(#{$desktop-content-width} / 2 - 50vw);
   }
 }
 
-@mixin legend-padding {
+@mixin accent-title {
+  @include text(primary, 24px, 26px, false);
+  display: inline-flex;
   padding-right: 22px;
+  color: $basic-dark;
+  background-color: $basic-light;
 
   @media (min-width: $tablet-width) {
     padding-left: 38px;
     padding-right: 36px;
+    font-size: 36px;
+    line-height: 36px;
   }
 
   @media (min-width: $desktop-width) {
