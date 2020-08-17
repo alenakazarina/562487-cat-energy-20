@@ -1,10 +1,9 @@
 .addon {
   display: grid;
-  grid-template-areas:
-    "title"
-    "price"
-    "buy";
-  grid-template-rows: repeat(3, min-content);
+  grid-template:
+    "title" min-content
+    "price" min-content
+    "buy" min-content;
   grid-row-gap: 11px;
   align-items: center;
   border-top: $border-cd;
@@ -14,18 +13,15 @@
   }
 
   @media (min-width: $tablet-width) {
-    grid-template-areas:
-      "title price"
-      "buy buy";
-    grid-template-rows: repeat(2, 1fr);
+    grid-template:
+      "title price" 1fr
+      "buy buy" 1fr;
     grid-row-gap: 5px;
     align-items: baseline;
   }
 
   @media (min-width: $desktop-width) {
-    grid-template-areas: "title price buy";
-    grid-template-columns: 1fr 1fr $column-desktop;
-    grid-template-rows: 1fr;
+    grid-template: "title price buy" 1fr / 1fr 1fr $column-desktop;
     grid-column-gap: 40px;
   }
 }
