@@ -1,11 +1,20 @@
 .fieldset {
   position: relative;
 
+  @media (min-width: $tablet-width) {
+    padding-left: 40px;
+    padding-right: 35px;
+  }
+
+  @media (min-width: $desktop-width) {
+    padding: 0;
+  }
+
   &--cat {
-    margin-bottom: 27px;
+    margin-bottom: 24px;
 
     @media (min-width: $tablet-width) {
-      margin-bottom: 72px;
+      margin-bottom: 74px;
     }
 
     @media (min-width: $desktop-width) {
@@ -14,14 +23,14 @@
   }
 
   &--purpose {
-    margin-bottom: 26px;
+    margin-bottom: 27px;
     margin-left: -$padding-mobile;
     margin-right: -$padding-mobile;
     border-top: $border-d9;
     border-bottom: $border-d9;
 
     @media (min-width: $tablet-width) {
-      margin-bottom: 71px;
+      margin-bottom: 73px;
       margin-left: 0;
       margin-right: 0;
       border: none;
@@ -33,14 +42,14 @@
   }
 
   &--owner {
-    margin-bottom: 27px;
+    margin-bottom: 28px;
 
     @media (min-width: $tablet-width) {
       margin-bottom: 65px;
     }
 
     @media (min-width: $desktop-width) {
-      margin-bottom: 69px;
+      margin-bottom: 67px;
     }
   }
 
@@ -57,20 +66,20 @@
   }
 
   &--addons {
-    margin-bottom: 34px;
+    margin-bottom: 35px;
 
     @media (min-width: $tablet-width) {
       margin-bottom: 54px;
     }
 
     @media (min-width: $desktop-width) {
-      margin-bottom: 61px;
+      margin-bottom: 59px;
     }
   }
 }
 
 .fieldset__legend {
-  @include legend-padding;
+  margin-left: -3px;
 
   @media (min-width: $tablet-width) {
     margin-left: -40px;

@@ -7,8 +7,7 @@
   margin-bottom: 20px;
 
   @media (min-width: $tablet-width) {
-    grid-template-columns: 1fr;
-    grid-template-rows: min-content 1fr;
+    grid-template: min-content 1fr / 1fr;
     grid-row-gap: 30px;
     align-items: start;
     min-height: 272px;
@@ -35,13 +34,10 @@
 
   &::after {
     @media (min-width: $tablet-width) {
+      @include absolute-top-left(-40px, 112px, -1);
       @include text(primary, 280px, 280px, false);
       counter-increment: section;
       content: counters(section, ".");
-      position: absolute;
-      top: -40px;
-      left: 112px;
-      z-index: -1;
       color: $basic-light-f2;
     }
   }

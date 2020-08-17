@@ -4,13 +4,11 @@
 }
 
 .addons__title {
-  @include legend-padding;
-  display: inline-flex;
+  @include accent-title;
   padding-top: 26px;
   padding-bottom: 32px;
-  margin: 0;
-  color: $basic-dark;
-  background-color: $basic-light;
+  margin-top: 0;
+  margin-bottom: 0;
 
   @media (min-width: $tablet-width) {
     padding-top: 66px;
@@ -29,19 +27,17 @@
 
     @media (min-width: $tablet-width) {
       top: 88px;
-      left: -$padding-tablet;
     }
 
     @media (min-width: $desktop-width) {
       top: 96px;
-      left: calc(#{$desktop-content-width} / 2 - 50vw);
     }
   }
 }
 
 .addons__wrapper {
   display: grid;
-  grid-template-rows: repeat(1fr, 1fr);
+  grid-template-rows: repeat(2, auto);
   grid-row-gap: 38px;
   margin-bottom: 32px;
 
@@ -51,7 +47,7 @@
   }
 
   @media (min-width: $desktop-width) {
-    grid-template-columns: 3fr $column-desktop;
+    grid-template: auto / 3fr $column-desktop;
     grid-column-gap: $gutter-desktop;
     margin-bottom: 86px;
   }
@@ -85,9 +81,6 @@
   }
 
   @media (min-width: $desktop-width) {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-left: 0;
-    padding-right: 0;
+    padding: 15px 0;
   }
 }

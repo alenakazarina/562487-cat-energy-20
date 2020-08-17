@@ -14,12 +14,10 @@
 
   @media (min-width: $desktop-width) {
     display: grid;
-    grid-template-areas:
-      "title slider"
-      "text slider"
-      "stat slider";
-    grid-template-columns: 440px 1fr;
-    grid-template-rows: repeat(3, min-content);
+    grid-template:
+      "title slider" min-content
+      "text slider" min-content
+      "stat slider" min-content / 440px 1fr;
     grid-column-gap: 40px;
     grid-row-gap: 50px;
   }
@@ -101,8 +99,7 @@
   }
 
   @media (min-width: $desktop-width) {
-    grid-template-rows: min-content;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template: min-content / repeat(2, 1fr);
     grid-column-gap: 30px;
     margin-top: 0;
     text-align: left;

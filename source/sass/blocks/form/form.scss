@@ -23,15 +23,9 @@
 }
 
 .form__label {
-  @include text(primary, 16px, 18px, true);
   position: relative;
   white-space: nowrap;
   cursor: pointer;
-
-  @media (min-width: $tablet-width) {
-    font-size: 20px;
-    line-height: 30px;
-  }
 }
 
 .form__input {
@@ -42,34 +36,33 @@
   display: grid;
   grid-template-rows: repeat(2, min-content);
   align-items: center;
-  grid-row-gap: 21px;
-  margin-bottom: 32px;
+  grid-row-gap: 6px;
+  margin-bottom: 16px;
   text-align: center;
 
   @media (min-width: $tablet-width) {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template: min-content / repeat(2, 1fr);
     grid-column-gap: $gutter-tablet;
-    grid-template-rows: min-content;
+    padding-left: 40px;
+    padding-right: 35px;
     margin-bottom: 72px;
     text-align: left;
   }
 
   @media (min-width: $desktop-width) {
     grid-column-gap: $gutter-desktop;
-    margin-bottom: 82px;
+    padding: 0;
+    margin-bottom: 80px;
   }
 }
 
 .form__submit {
-  @include text(primary, 16px, 20px, true);
   @include accent-link;
   width: 100%;
-  padding: 7px 44px;
 
   @media (min-width: $tablet-width) {
     font-size: 20px;
     line-height: 30px;
-    padding: 13px 45px;
   }
 }
 
@@ -78,5 +71,6 @@
 
   @media (min-width: $tablet-width) {
     font-size: 16px;
+    line-height: 20px;
   }
 }

@@ -1,23 +1,12 @@
 .legend {
-  @include font($primary-font, 400, normal);
-  --desktop-content-width: 1220px;
-
+  @include accent-title;
   position: relative;
-  font-size: 24px;
-  line-height: 26px;
-  color: $basic-dark;
-  background-color: $basic-light;
-
-  @media (min-width: $tablet-width) {
-    font-size: 36px;
-    line-height: 36px;
-  }
 
   &--owner {
-    margin-bottom: 32px;
+    margin-bottom: 31px;
 
     @media (min-width: $tablet-width) {
-      margin-bottom: 76px;
+      margin-bottom: 77px;
     }
   }
 
@@ -40,14 +29,10 @@
   &::before {
     @include green-line;
     top: 0.6em;
-    left: 0;
-
-    @media (min-width: $tablet-width) {
-      left: -$padding-tablet;
-    }
+    left: 3px;
 
     @media (min-width: $desktop-width) {
-      left: calc(var(--desktop-content-width) / 2 - 50vw + 40px);
+      left: calc(#{$desktop-content-width} / 2 - 50vw + #{$padding-desktop});
     }
   }
 }

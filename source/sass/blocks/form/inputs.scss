@@ -1,5 +1,6 @@
 .inputs {
   display: grid;
+  max-width: 100%;
 
   &--cat {
     grid-template-rows: repeat(3, 1fr);
@@ -14,10 +15,7 @@
   &--purpose {
     grid-template-rows: repeat(3, 1fr);
     grid-row-gap: 13px;
-    padding-top: 20px;
-    padding-bottom: 22px;
-    padding-left: $padding-mobile;
-    padding-right: $padding-mobile;
+    padding: 20px $padding-mobile;
     color: $basic-dark-200;
 
     @media (min-width: $tablet-width) {
@@ -36,7 +34,7 @@
 
   &--owner {
     grid-template-rows: repeat(2, min-content);
-    grid-row-gap: 14px;
+    grid-row-gap: 13px;
     color: $basic-dark-400;
 
     @media (min-width: $tablet-width) {
@@ -44,9 +42,8 @@
     }
 
     @media (min-width: $desktop-width) {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template: min-content / repeat(2, 1fr);
       grid-column-gap: $gutter-desktop;
-      grid-template-rows: min-content;
     }
   }
 
@@ -56,19 +53,17 @@
 
   &--addons {
     grid-template-rows: repeat(4, min-content);
-    grid-row-gap: 13px;
+    grid-row-gap: 12px;
     color: $basic-dark;
 
     @media (min-width: $tablet-width) {
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(2, min-content);
-      grid-column-gap: $gutter-tablet;
-      grid-row-gap: 23px;
+      grid-template: repeat(2, min-content) / repeat(2, 1fr);
+      grid-column-gap: 56px;
+      grid-row-gap: 32px;
     }
 
     @media (min-width: $desktop-width) {
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: min-content;
+      grid-template: min-content / repeat(4, 1fr);
       grid-column-gap: $gutter-desktop;
     }
   }

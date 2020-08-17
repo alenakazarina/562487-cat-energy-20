@@ -18,10 +18,7 @@
 
   &--index {
     @media (min-width: $desktop-width) {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      z-index: 10;
+      @include absolute-top-left(0, 50%, 10);
       width: 100%;
       transform: translateX(-50%);
     }
