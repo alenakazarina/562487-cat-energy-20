@@ -23,8 +23,13 @@
 
   &::before {
     @include pseudo(60px, 60px);
+    @include bg-norepeat($advantage-sprite);
     background-color: $basic-green;
-    background-position: center;
+    background-size: 60px 240px;
+
+    @media (min-resolution: 2dppx) {
+      background-image: $advantage-sprite-retina;
+    }
 
     @media (min-width: $tablet-width) {
       width: 80px;
@@ -43,22 +48,38 @@
   }
 
   &--leaf::before {
-    @include bg-norepeat($icon-advantage-leaf);
+    background-position: 0 -120px;
+
+    @media (min-width: $tablet-width) {
+      background-position: 10px -110px;
+    }
+  }
+
+  &--tub::before {
+    background-position: 0 -180px;
+
+    @media (min-width: $tablet-width) {
+      background-position: 10px -170px;
+    }
+  }
+
+  &--eat::before {
+    background-position: 0 -60px;
+
+    @media (min-width: $tablet-width) {
+      background-position: 10px -50px;
+    }
+  }
+
+  &--alarm::before {
+    background-position: 0 0;
+
+    @media (min-width: $tablet-width) {
+      background-position: 10px 10px;
+    }
   }
 
   &--leaf::after {
     left: 120px;
-  }
-
-  &--tub::before {
-    @include bg-norepeat($icon-advantage-tub);
-  }
-
-  &--eat::before {
-    @include bg-norepeat($icon-advantage-eat);
-  }
-
-  &--alarm::before {
-    @include bg-norepeat($icon-advantage-alarm);
   }
 }

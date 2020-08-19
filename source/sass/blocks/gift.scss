@@ -1,22 +1,48 @@
 .gift {
   @include flex(row, center, center, false);
-  @include bg-norepeat($bg-gift-mobile);
+  @include bg-norepeat((
+    $bg-gift-mobile,
+    linear-gradient(to bottom, $basic-green 0%, $basic-green 100%)
+  ));
   min-height: 289px;
   text-align: center;
   color: $basic-light;
-  background-color: $basic-green;
   background-position: top center;
+  background-size: $mobile-content-width auto;
+
+  @media (min-resolution: 2dppx) {
+    background-image:
+      $bg-gift-mobile-2x,
+      linear-gradient(to bottom, $basic-green 0%, $basic-green 100%);
+  }
 
   @media (min-width: $tablet-width) {
     min-height: 200px;
     text-align: left;
-    background-image: $bg-gift-tablet;
+    background-image:
+      $bg-gift-tablet,
+      linear-gradient(to bottom, $basic-green 0%, $basic-green 100%);
+    background-size: $tablet-content-width auto;
+  }
+
+  @media (min-width: $tablet-width) and (min-resolution: 2dppx) {
+    background-image:
+      $bg-gift-tablet-2x,
+      linear-gradient(to bottom, $basic-green 0%, $basic-green 100%);
   }
 
   @media (min-width: $desktop-width) {
     text-align: center;
-    background-image: $bg-gift;
+    background-image:
+      $bg-gift,
+      linear-gradient(to bottom, $basic-green 0%, $basic-green 100%);
     background-size: cover;
+  }
+
+  @media (min-width: $desktop-width) and (min-resolution: 2dppx) {
+    background-image:
+      $bg-gift-2x,
+      linear-gradient(to bottom, $basic-green 0%, $basic-green 100%);
   }
 }
 

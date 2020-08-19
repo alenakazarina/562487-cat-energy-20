@@ -1,11 +1,18 @@
 .promo {
   @include bg-norepeat((
     $bg-promo-top-mobile,
-    linear-gradient(to bottom, $basic-green 0%, $basic-green 305px, $basic-light 305px)
+    linear-gradient(to bottom, $basic-green 0%, $basic-green 305px)
   ));
   position: relative;
   color: $basic-light;
   background-position: center top;
+  background-size: 320px 305px;
+
+  @media (min-resolution: 2dppx) {
+    background-image:
+      $bg-promo-top-mobile-2x,
+      linear-gradient(to bottom, $basic-green 0%, $basic-green 305px);
+  }
 
   @media (min-width: $tablet-width) {
     color: $basic-dark;
@@ -13,13 +20,18 @@
   }
 
   @media (min-width: $desktop-width) {
-    @include bg-norepeat((
-      $bg-promo-top,
-      linear-gradient(to right, $basic-green 0, $basic-green 100%)
-    ));
     padding-top: 144px;
+    background-image:
+      $bg-promo-top,
+      linear-gradient(to bottom, $basic-green 0, $basic-green 100%);
     background-position: 50vw top;
     background-size: 720px 696px;
+  }
+
+  @media (min-width: $desktop-width) and (min-resolution: 2dppx) {
+    background-image:
+      $bg-promo-top-2x,
+      linear-gradient(to bottom, $basic-green 0, $basic-green 100%);
   }
 }
 
@@ -35,23 +47,34 @@
   background-position: center 167px;
   background-size: 280px 270px;
 
+  @media (min-resolution: 2dppx) {
+    background-image: $bg-promo-can-mobile-2x;
+  }
 
   @media (min-width: $tablet-width) {
-    @include bg-norepeat($bg-promo-can-tablet);
     min-height: 840px;
     padding-left: 86px;
     color: $basic-dark;
+    background-image: $bg-promo-can-tablet;
     background-position: center bottom;
     background-size: 709px 609px;
   }
 
+  @media (min-width: $tablet-width) and (min-resolution: 2dppx) {
+    background-image: $bg-promo-can-tablet-2x;
+  }
+
   @media (min-width: $desktop-width) {
-    @include bg-norepeat($bg-promo-can);
     min-height: 632px;
     padding-left: 78px;
     padding-top: 48px;
-    background-position: 448px top;
+    background-image: $bg-promo-can;
+    background-position: 446px top;
     background-size: 552px 499px;
+  }
+
+  @media (min-width: $desktop-width) and (min-resolution: 2dppx) {
+    background-image: $bg-promo-can-2x;
   }
 }
 
