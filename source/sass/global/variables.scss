@@ -31,38 +31,49 @@ $opacity-30: 0.3;
 $opacity-60: 0.6;
 $opacity-80: 0.8;
 
-$icon-menu-mobile: url("../img/icon-mobile-menu.svg");
+$icon-menu-open: url("../img/icon-mobile-menu.svg");
 $icon-menu-close: url("../img/icon-close.svg");
-
 $icon-cat-pro: url("../img/icon-cat-pro.svg");
 $icon-cat-slim: url("../img/icon-cat-slim.svg");
-
-$icon-advantage-leaf: url("../img/advantage-leaf@1x.png");
-$icon-advantage-tub: url("../img/advantage-powder@1x.png");
-$icon-advantage-eat: url("../img/advantage-dining@1x.png");
-$icon-advantage-alarm: url("../img/advantage-clock@1x.png");
-
 $icon-plus: url("../img/icon-plus-mobile.svg");
 $icon-arrow: url("../img/icon-right-arrow-long.svg");
 $icon-arrow-long: url("../img/icon-right-arrow-verylong.svg");
 $icon-gift: url("../img/icon-gift.svg");
 
+$advantage-sprite: url("../img/advantage-sprite@1x.png");
+$advantage-sprite-retina: url("../img/advantage-sprite@2x.png");
+
 $bg-gift-mobile: url("../img/gift-photo-mobile@1x.jpg");
+$bg-gift-mobile-2x: url("../img/gift-photo-mobile@2x.jpg");
 $bg-gift-tablet: url("../img/gift-photo-tablet@1x.jpg");
+$bg-gift-tablet-2x: url("../img/gift-photo-tablet@2x.jpg");
 $bg-gift: url("../img/gift-photo-desktop@1x.jpg");
+$bg-gift-2x: url("../img/gift-photo-desktop@2x.jpg");
+
 $bg-map-mobile: url("../img/bg-map-mobile@1x.jpg");
+$bg-map-mobile-2x: url("../img/bg-map-mobile@2x.jpg");
 $bg-map-tablet: url("../img/bg-map-tablet@1x.jpg");
+$bg-map-tablet-2x: url("../img/bg-map-tablet@2x.jpg");
 $bg-map: url("../img/bg-map-desktop@1x.jpg");
+$bg-map-2x: url("../img/bg-map-desktop@2x.jpg");
 $bg-map-pin: url("../img/map-pin.png");
+
 $bg-promo-top: url("../img/index-background-desktop@1x.jpg");
+$bg-promo-top-2x: url("../img/index-background-desktop@2x.jpg");
 $bg-promo-top-mobile: url("../img/index-background-mobile@1x.jpg");
+$bg-promo-top-mobile-2x: url("../img/index-background-mobile@2x.jpg");
 $bg-promo-can: url("../img/index-can-desktop@1x.png");
+$bg-promo-can-2x: url("../img/index-can-desktop@2x.png");
 $bg-promo-can-mobile: url("../img/index-can-mobile@1x.png");
+$bg-promo-can-mobile-2x: url("../img/index-can-mobile@2x.png");
 $bg-promo-can-tablet: url("../img/index-can-tablet@1x.jpg");
+$bg-promo-can-tablet-2x: url("../img/index-can-tablet@2x.jpg");
 
 $mobile-width: 320px;
 $tablet-width: 768px;
 $desktop-width: 1300px;
+$mobile-max-width: 767px;
+$desktop-full-width: 1440px;
 
 $gutter-desktop: 80px;
 $gutter-tablet: 60px;
@@ -74,6 +85,8 @@ $padding-tablet: 30px;
 $padding-desktop: 40px;
 
 $desktop-content-width: 1220px;
+$tablet-content-width: 708px;
+$mobile-content-width: 280px;
 $scroll-shift: 10px;
 
 $input-size-mobile: 30px;

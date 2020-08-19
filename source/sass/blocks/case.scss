@@ -6,11 +6,14 @@
     background-color: $basic-light;
     background-image: linear-gradient(to top, $basic-light-ea 0, $basic-light-ea 462px, $basic-light 462px);
   }
+
+  @media (min-width: $desktop-width) {
+    background-image: linear-gradient(to top, $basic-light-f2 0, $basic-light-f2 462px, $basic-light 462px);
+  }
 }
 
 .case__wrapper {
   @include container;
-  min-height: 656px;
 
   @media (min-width: $desktop-width) {
     display: grid;
@@ -20,6 +23,7 @@
       "stat slider" min-content / 440px 1fr;
     grid-column-gap: 40px;
     grid-row-gap: 50px;
+    padding-bottom: 27px;
   }
 }
 
@@ -100,7 +104,7 @@
 
   @media (min-width: $desktop-width) {
     grid-template: min-content / repeat(2, 1fr);
-    grid-column-gap: 30px;
+    grid-column-gap: 20px;
     margin-top: 0;
     text-align: left;
   }
