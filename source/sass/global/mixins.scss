@@ -81,7 +81,7 @@
 
   &::before {
     @include pseudo-flex(32px, 14px);
-    @include absolute-top-right(calc(50% - 6px), 0, 0);
+    @include absolute-top-right(calc(50% - 8px), 0, 0);
     @include bg-norepeat($icon-arrow-long);
     background-position: left center;
     background-size: 32px 11px;
@@ -113,6 +113,7 @@
 
     @media (min-width: $desktop-width) {
       top: 1px;
+      margin-left: 25px;
     }
   }
 }

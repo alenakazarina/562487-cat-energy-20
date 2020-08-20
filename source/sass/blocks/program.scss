@@ -1,39 +1,38 @@
 .program {
   position: relative;
   display: grid;
-  grid-template-areas:
-    "title"
-    "text"
-    "link";
-  grid-template-rows: 50px min-content min-content;
-  padding-top: 25px;
-  padding-bottom: 5px;
+  grid-template:
+    "icon title" min-content
+    "text text" min-content
+    "link link" min-content /  minmax(50px, 67px) auto;
+  grid-column-gap: 4px;
+  grid-row-gap: 23px;
+  padding-top: 20px;
   padding-left: 20px;
   padding-right: 20px;
   color: $basic-dark;
   background-color: $basic-light-f2;
 
   @media (min-width: $tablet-width) {
-    grid-template-areas:
-      "title ."
-      "text ."
-      "link .";
-    grid-template-rows: repeat(3, min-content);
+    grid-template:
+      "title icon" min-content
+      "text icon" min-content
+      "link icon" min-content / auto min-content;
+    grid-column-gap: 10px;
     grid-row-gap: 24px;
-    min-height: 372px;
     padding-top: 77px;
-    padding-bottom: 35px;
-    padding-left: 53px;
-    padding-right: 53px;
+    padding-bottom: 42px;
+    padding-left: 52px;
   }
 
   @media (min-width: $desktop-width) {
-    grid-template-areas:
-      "title"
-      "text"
-      "link";
-    padding-top: 47px;
-    padding-bottom: 17px;
+    grid-template:
+      "icon title" min-content
+      "text text" min-content
+      "link link" min-content / 134px auto;
+    grid-column-gap: 25px;
+    padding-top: 42px;
+    padding-bottom: 54px;
     padding-left: 52px;
     padding-right: 52px;
   }
@@ -57,112 +56,97 @@
       grid-template-columns: 1fr;
     }
   }
+}
 
-  &::before {
-    @include pseudo(50px, 50px);
-    @include absolute-top-left(23px, 22px, 0);
-    border-radius: 50%;
-    background-color: $basic-green;
+.program__icon {
+  position: relative;
+  grid-area: icon;
+
+  @media (min-width: $tablet-width) {
+    justify-self: end;
+  }
+
+  &--slim {
+    width: 50px;
+    height: 53px;
 
     @media (min-width: $tablet-width) {
+      left: -18px;
       width: 200px;
-      height: 200px;
-      top: 90px;
-      right: 62px;
-      left: auto;
+      min-width: 250px;
+      height: 211px;
     }
 
     @media (min-width: $desktop-width) {
+      left: 40px;
       width: 100px;
-      height: 100px;
-      top: 46px;
-      right: auto;
-      left: 53px;
+      height: 106px;
     }
   }
 
-  &--slim::after {
-    @include pseudo(50px, 50px);
-    @include absolute-top-left(22px, 29px, 0);
-    @include bg-norepeat($icon-cat-slim);
+  &--pro {
+    top: 6px;
+    left: -8px;
+    width: 67px;
+    height: 50px;
 
     @media (min-width: $tablet-width) {
-      width: 140px;
-      height: 192px;
-      top: 81px;
-      right: 90px;
-      left: auto;
-    }
-
-    @media (min-width: $desktop-width) {
-      width: 70px;
-      height: 97px;
-      top: 41px;
-      right: auto;
-      left: 67px;
-    }
-  }
-
-  &--pro::after {
-    @include pseudo(67px, 50px);
-    @include absolute-top-left(35px, 13px, 0);
-    @include bg-norepeat($icon-cat-pro);
-
-    @media (min-width: $tablet-width) {
+      top: 13px;
+      left: 0;
       width: 268px;
-      height: 112px;
-      top: 135px;
-      right: 28px;
-      left: auto;
+      min-width: 285px;
+      height: 200px;
     }
 
     @media (min-width: $desktop-width) {
+      top: 3px;
+      left: 55px;
       width: 134px;
       height: 100px;
-      top: 67px;
-      right: auto;
-      left: 35px;
     }
   }
 }
 
 .program__title {
-  @include flex(row, auto, center, false);
   @include text(primary, 24px, 37px, true);
-  margin-top: 0;
-  margin-bottom: 0;
-  margin-left: 71px;
-  position: relative;
+  grid-area: title;
+  padding-top: 10px;
+  padding-bottom: 8px;
+  margin: 0;
 
   @media (min-width: $tablet-width) {
-    grid-area: title;
-    margin-left: 0;
+    padding: 0;
     font-size: 36px;
     line-height: 36px;
   }
 
   @media (min-width: $desktop-width) {
-    padding: 30px 0;
-    margin-left: 160px;
+    padding-top: 35px;
+    padding-bottom: 50px;
   }
 }
 
 .program__description {
-  padding-top: 22px;
-  padding-bottom: 23px;
+  position: relative;
+  grid-area: text;
   margin: 0;
   color: $basic-dark-400;
-  border-bottom: $border-d9;
 
   @media (min-width: $tablet-width) {
-    grid-area: text;
-    padding: 0;
     color: $basic-dark;
     border-bottom: none;
   }
 
-  @media (min-width: $desktop-width) {
-    padding-top: 19px;
+  &::after {
+    @include pseudo-flex(100%, 1px);
+    position: absolute;
+    bottom: -24px;
+    left: 0;
+    background-color: $basic-light-d9;
+
+    @media (min-width: $tablet-width) {
+      display: none;
+    }
   }
 }
 
@@ -170,12 +154,12 @@
   @include arrow-link;
   @include text(primary, 16px, 16px, true);
   @include flex(row, auto, center, false);
+  grid-area: link;
+  padding-top: 19px;
+  padding-bottom: 22px;
   margin-right: auto;
-  padding-top: 18px;
-  padding-bottom: 18px;
 
   @media (min-width: $tablet-width) {
-    grid-area: link;
     padding-top: 26px;
     padding-bottom: 18px;
     font-size: 20px;
