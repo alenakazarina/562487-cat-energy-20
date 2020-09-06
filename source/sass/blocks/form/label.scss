@@ -10,4 +10,28 @@
     font-size: 20px;
     line-height: 30px;
   }
+
+  &--email {
+    grid-column-gap: 13px;
+
+    @media (min-width: $tablet-width) {
+      grid-column-gap: 20px;
+    }
+
+    @media (min-width: $desktop-width) {
+      grid-column-gap: 23px;
+    }
+  }
+
+  &--tel {
+    grid-column-gap: 10px;
+
+    @media (min-width: $tablet-width) {
+      grid-column-gap: 16px;
+    }
+
+    @media (min-width: $desktop-width) {
+      grid-column-gap: 15px;
+    }
+  }
 }

@@ -1,14 +1,43 @@
+$gradient-height: 462px;
+$gradient-width: calc(50% - 365px + 40px);
+
 .case {
   position: relative;
   background-color: $basic-light-ea;
 
   @media (min-width: $tablet-width) {
+    padding-bottom: 38px;
     background-color: $basic-light;
-    background-image: linear-gradient(to top, $basic-light-ea 0, $basic-light-ea 462px, $basic-light 462px);
+    background-image: linear-gradient(to top, $basic-light-ea 0, $basic-light-ea $gradient-height, $basic-light $gradient-height);
   }
 
   @media (min-width: $desktop-width) {
-    background-image: linear-gradient(to top, $basic-light-f2 0, $basic-light-f2 462px, $basic-light 462px);
+    padding-bottom: 0;
+    background-image: linear-gradient(to top, $basic-light-f2 0, $basic-light-f2 $gradient-height, $basic-light $gradient-height);
+  }
+}
+
+.case__title {
+  @include container;
+  padding-top: 27px;
+  padding-bottom: 35px;
+  margin-top: 0;
+  margin-bottom: 0;
+
+  @media (min-width: $tablet-width) {
+    padding-top: 42px;
+    padding-bottom: 65px;
+  }
+
+  @media (min-width: $desktop-width) {
+    padding-top: 60px;
+    padding-bottom: 76px;
+  }
+}
+
+.case__inner {
+  @media (min-width: $desktop-width) {
+    background-image: linear-gradient(to left, $basic-light-ea 0, $basic-light-ea $gradient-width, transparent $gradient-width);
   }
 }
 
@@ -17,64 +46,44 @@
 
   @media (min-width: $desktop-width) {
     display: grid;
-    grid-template:
-      "title slider" min-content
-      "text slider" min-content
-      "stat slider" min-content / 440px 1fr;
-    grid-column-gap: 40px;
-    grid-row-gap: 50px;
-    padding-bottom: 27px;
-  }
-}
-
-.case__title {
-  padding-top: 27px;
-  padding-bottom: 35px;
-  margin: 0;
-
-  @media (min-width: $tablet-width) {
-    padding-top: 43px;
-    padding-bottom: 63px;
-  }
-
-  @media (min-width: $desktop-width) {
-    grid-area: title;
-    padding-top: 62px;
-    padding-bottom: 73px;
+    grid-template-rows: repeat(2, min-content);
+    min-height: 462px;
+    padding-top: 70px;
   }
 }
 
 .case__description {
-  padding-right: 10px;
+  padding-right: 5px;
   margin-top: 0;
   margin-bottom: 26px;
   color: $basic-dark-400;
 
   @media (min-width: $tablet-width) {
+    padding-right: 15px;
     margin-bottom: 53px;
   }
 
   @media (min-width: $desktop-width) {
-    grid-area: text;
-    padding-right: 0;
-    margin-bottom: 0;
+    max-width: 450px;
+    margin-bottom: 69px;
   }
 }
 
 .case__stat {
   @include flex(column, auto, auto, false);
+  margin-bottom: 20px;
 
   @media (min-width: $tablet-width) {
     flex-direction: row;
     justify-content: space-between;
-    margin-bottom: 58px;
+    margin-bottom: 66px;
   }
 
   @media (min-width: $desktop-width) {
-    grid-area: stat;
     flex-direction: column;
     justify-content: flex-start;
-    margin-bottom: 0;
+    max-width: 440px;
+    margin-bottom: 50px;
   }
 }
 
@@ -104,28 +113,24 @@
 
   @media (min-width: $desktop-width) {
     grid-template: min-content / repeat(2, 1fr);
-    grid-column-gap: 20px;
+    grid-column-gap: 25px;
     margin-top: 0;
     text-align: left;
   }
 }
 
 .case__slider {
-  align-self: center;
-  padding-top: 20px;
-  margin-left: -20px;
-  margin-right: -20px;
+  margin-left: -$padding-mobile;
+  margin-right: -$padding-mobile;
 
   @media (min-width: $tablet-width) {
-    padding-top: 8px;
+    margin: 0;
   }
 
   @media (min-width: $desktop-width) {
-    position: relative;
+    position: absolute;
     top: 6px;
-    left: 58px;
-    grid-area: slider;
-    align-self: start;
-    padding-top: 0;
+    right: 0;
+    width: calc(50% + 40px);
   }
 }

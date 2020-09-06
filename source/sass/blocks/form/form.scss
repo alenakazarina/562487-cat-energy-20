@@ -37,7 +37,7 @@
   grid-template-rows: repeat(2, min-content);
   align-items: center;
   grid-row-gap: 6px;
-  margin-bottom: 16px;
+  margin-bottom: 19px;
   text-align: center;
 
   @media (min-width: $tablet-width) {
@@ -52,7 +52,7 @@
   @media (min-width: $desktop-width) {
     grid-column-gap: $gutter-desktop;
     padding: 0;
-    margin-bottom: 80px;
+    margin-bottom: 83px;
   }
 }
 

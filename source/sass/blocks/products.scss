@@ -15,7 +15,7 @@
   @media (min-width: $tablet-width) {
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: $gutter-tablet;
-    grid-row-gap: 62px;
+    grid-row-gap: 64px;
     padding-top: 34px;
     margin-left: 0;
     margin-right: 0;
@@ -24,7 +24,7 @@
   @media (min-width: $desktop-width) {
     grid-template-columns: repeat(4, $column-desktop);
     grid-column-gap: $gutter-desktop;
-    grid-row-gap: 60px;
+    grid-row-gap: 62px;
     padding-top: 26px;
   }
 }
@@ -41,6 +41,10 @@
     padding-right: 0;
     background-color: $basic-light-f2;
     border: none;
+  }
+
+  @media (min-width: $tablet-width) {
+    padding-bottom: 40px;
   }
 
   &--load {

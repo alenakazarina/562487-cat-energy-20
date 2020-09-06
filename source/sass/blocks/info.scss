@@ -1,10 +1,10 @@
 .info {
   @include text(regular, 12px, 16px, false);
   display: grid;
+  width: 100%;
 
   @media (min-width: $tablet-width) {
     grid-row-gap: 8px;
-    width: 100%;
     font-size: 16px;
   }
 }

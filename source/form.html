@@ -1,20 +1,12 @@
 <!DOCTYPE html>
 <html class="page" lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Доставка еды для котов. Подбор программы питания. Скидки на первый заказ.">
-  <title>Программа питания для вашего кота от Cat Energy.</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
+<include src="html/head.html" locals='{
+  "title": "Программа питания для вашего кота от Cat Energy."
+}'></include>
 <body class="page-body">
   <header class="page-header">
     <a class="page-header__logo logo" href="/">
-      <picture>
-        <source srcset="img/logo-desktop.svg" media="(min-width: 1300px)">
-        <source srcset="img/logo-tablet.svg" media="(min-width: 768px)">
-        <img src="img/logo-mobile.svg" width="190" height="41" alt="Логотип Cat Energy">
-      </picture>
+      <include src="html/logo.html"></include>
       <span class="visually-hidden">На главную Cat Energy</span>
     </a>
     <nav class="main-nav main-nav--opened main-nav--nojs" aria-label="Основное меню">
@@ -107,9 +99,9 @@
           </fieldset>
         </div>
         <fieldset class="form__fieldset fieldset fieldset--owner">
-          <legend class="fieldset__legend legend legend--owner">Контактные&nbsp;данные<br> (владельца&nbsp;кота)</legend>
+          <legend class="fieldset__legend legend legend--owner">Контактные&nbsp;данные&nbsp;<br>(владельца&nbsp;кота)</legend>
           <div class="inputs inputs--owner">
-            <label class="form__label label">E-mail:*
+            <label class="form__label label label--email">E-mail:*
               <input class="form__input input input--icon"
                 type="email"
                 inputmode="email"
@@ -121,7 +113,7 @@
                 <use xlink:href="img/sprite.svg#icon-mail"></use>
               </svg>
             </label>
-            <label class="form__label label">Телефон:*
+            <label class="form__label label label--tel">Телефон:*
               <input class="form__input input input--icon"
                 type="tel"
                 inputmode="tel"
@@ -189,52 +181,7 @@
       </form>
     </section>
   </main>
-  <footer class="page-footer">
-    <div class="page-footer__contacts contacts">
-      <div class="contacts__wrapper">
-        <p class="contacts__slogan">Приглашаем<br>к сотрудничеству<br>дилеров!</p>
-        <address class="contacts__address">ул. Большая<br> Конюшенная, д. 19/8
-          <span>Санкт-Петербург</span>
-        </address>
-      </div>
-    </div>
-    <div class="map js-map"></div>
-    <div class="page-footer__wrapper">
-      <a class="page-footer__logo" href="index.html">
-        <svg width="128" height="24" fill="#111111" role="img" aria-label="На главную Cat Energy">
-          <use xlink:href="img/sprite.svg#logo-footer"></use>
-        </svg>
-      </a>
-      <ul class="page-footer__socials socials">
-        <li><a class="socials__link" href="https://vk.com" rel="noopener nofollow" target="_blank" title="ВКонтакте">
-          <span class="visually-hidden">Cat Energy во ВКонтакте</span>
-          <svg class="social-icon social-icon--vk" width="22" height="12" role="img" aria-label="Cat Energy во ВКонтакте">
-            <use xlink:href="img/sprite.svg#icon-vk"></use>
-          </svg>
-        </a></li>
-        <li><a class="socials__link" href="https://instagram.com" rel="noopener nofollow" target="_blank" title="Instagram">
-          <span class="visually-hidden">Cat Energy в Instagram</span>
-          <svg class="social-icon social-icon--insta" width="16" height="16" role="img" aria-label="Cat Energy в Instagram">
-            <use xlink:href="img/sprite.svg#icon-insta"></use>
-          </svg>
-        </a></li>
-        <li><a class="socials__link" href="https://facebook.com" rel="noopener nofollow" target="_blank" title="Facebook">
-          <span class="visually-hidden">Cat Energy в Facebook</span>
-          <svg class="social-icon social-icon--fb" width="10" height="19" role="img" aria-label="Cat Energy в Facebook">
-            <use xlink:href="img/sprite.svg#icon-fb"></use>
-          </svg>
-        </a></li>
-      </ul>
-      <a class="page-footer__copyright copyright"
-        href="https://htmlacademy.ru/intensive/adaptive"
-        rel="noopener nofollow"
-        target="_blank">HTML Academy
-        <svg width="27" height="34" role="img" aria-label="Логотип HTML Academy">
-          <use xlink:href="img/sprite.svg#logo-html"></use>
-        </svg>
-      </a>
-    </div>
-  </footer>
-  <script src="js/main.js"></script>
+  <include src="html/footer.html" locals='{"modifier": ""}'></include>
+  <script src="js/main.min.js" async></script>
 </body>
 </html>

@@ -23,13 +23,10 @@
 
   &::before {
     @include pseudo(60px, 60px);
-    @include bg-norepeat($advantage-sprite);
+    background-repeat: no-repeat;
     background-color: $basic-green;
-    background-size: 60px 240px;
-
-    @media (min-resolution: 2dppx) {
-      background-image: $advantage-sprite-retina;
-    }
+    background-position: center;
+    background-size: 50px;
 
     @media (min-width: $tablet-width) {
       width: 80px;
@@ -48,34 +45,34 @@
   }
 
   &--leaf::before {
-    background-position: 0 -120px;
+    background-image: $advantage-leaf;
 
-    @media (min-width: $tablet-width) {
-      background-position: 10px -110px;
+    @media (min-resolution: 2dppx) {
+      background-image: $advantage-leaf-2x;
     }
   }
 
   &--tub::before {
-    background-position: 0 -180px;
+    background-image: $advantage-tub;
 
-    @media (min-width: $tablet-width) {
-      background-position: 10px -170px;
+    @media (min-resolution: 2dppx) {
+      background-image: $advantage-tub-2x;
     }
   }
 
   &--eat::before {
-    background-position: 0 -60px;
+    background-image: $advantage-eat;
 
-    @media (min-width: $tablet-width) {
-      background-position: 10px -50px;
+    @media (min-resolution: 2dppx) {
+      background-image: $advantage-eat-2x;
     }
   }
 
   &--alarm::before {
-    background-position: 0 0;
+    background-image: $advantage-alarm;
 
-    @media (min-width: $tablet-width) {
-      background-position: 10px 10px;
+    @media (min-resolution: 2dppx) {
+      background-image: $advantage-alarm-2x;
     }
   }
 

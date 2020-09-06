@@ -1,0 +1,15 @@
+<picture class="slider__image slider__image--{{ image }}">
+  <source type="image/webp"
+    srcset="img/webp/{{ image }}-desktop@1x.webp 1x, img/webp/{{ image }}-desktop@2x.webp 2x"
+    media="(min-width: 1300px)">
+  <source type="image/webp"
+    srcset="img/webp/{{ image }}-tablet@1x.webp 1x, img/webp/{{ image }}-tablet@2x.webp 2x"
+    media="(min-width: 768px)">
+  <source type="image/webp"
+    srcset="img/webp/{{ image }}-mobile@1x.webp 1x, img/webp/{{ image }}-mobile@2x.webp 2x">
+  <source srcset="img/{{ image }}-desktop@1x.png 1x, img/{{ image }}-desktop@2x.png 2x" media="(min-width: 1300px)">
+  <source srcset="img/{{ image }}-tablet@1x.png, img/{{ image }}-tablet@2x.png 2x" media="(min-width: 768px)">
+  <img src="img/{{ image }}-mobile@1x.png"
+    srcset="img/{{ image }}-mobile@2x.png 2x"
+    alt="{{ alt }}">
+</picture>
