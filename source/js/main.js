@@ -35,93 +35,134 @@
   if (!sliderEl) {
     return;
   }
-
   const [sliderImageBefore, sliderImageAfter] = sliderEl.querySelectorAll(`.slider__image`);
-  const sliderControls = sliderEl.querySelector(`.slider__controls`);
-  const sliderControlEls = sliderControls.querySelectorAll(`.slider__control`);
-  const sliderRange = sliderEl.querySelector(`.slider__range`);
-  const sliderThumbler = sliderEl.querySelector(`.slider__thumb`);
-  const INITIAL_X = 197;
+  const MIDDLE = 365;
+  const GRADIENT_COLOR = `#eaeaea`;
   const SliderState = {
     AFTER: `after`,
     BEFORE: `before`,
     MIDDLE: `middle`
   };
+  const Thumb = {
+    MIN: 0,
+    MID: 197,
+    MOBILE: 38
+  };
+  const Image = {
+    AFTER: 0,
+    BEFORE: 100,
+    TABLET: 49,
+    DESKTOP: 53
+  };
+  const MQ = {
+    MOBILE: `mobile`,
+    TABLET: `tablet`,
+    DESKTOP: `desktop`
+  };
+  const getMQ = (mq) => {
+    switch(mq) {
+      case MQ.MOBILE:
+        return window.matchMedia(`(max-width: 767.9px)`);
+      case MQ.TABLET:
+        return window.matchMedia(`(min-width: 768px) and (max-width: 1299.9px)`);
+      case MQ.DESKTOP:
+        return window.matchMedia(`(min-width: 1300px)`);
+      default:
+        throw Error(`Unknown MQ`);
+    }
+  };
 
   class Slider {
     constructor() {
       this.rootEl = sliderEl;
-      this.controlsEl = sliderControls;
-      this.controlBefore = sliderControlEls[0];
-      this.controlAfter = sliderControlEls[1];
-      this.rangeEl = sliderRange;
-      this.thumbEl = sliderThumbler;
-      this.imageBefore = sliderImageBefore;
-      this.imageAfter = sliderImageAfter;
-      this.active = SliderState.BEFORE;
+      this.contentEl = sliderEl.children[0];
+      this.imageBefore = this.contentEl.children[0];
+      this.imageAfter = this.contentEl.children[1];
+      this.controlsEl = sliderEl.children[1];
+      this.controlBefore = this.controlsEl.children[0];
+      this.rangeEl = this.controlsEl.children[1];
+      this.controlAfter = this.controlsEl.children[2];
+      this.thumbEl = this.rangeEl.children[0];
+      this.gradientEl = document.querySelector(`.js-gradient`);
+      this.state = SliderState.BEFORE;
       this.imageX = 0;
       this.thumbX = 0;
+      this.thumbMax = this.rangeEl.offsetWidth - this.thumbEl.offsetWidth;
       this.startDragFlag = false;
       this.startDragX = 0;
-      this.minX = 0;
-      this.maxX = this.rangeEl.offsetWidth - this.thumbEl.offsetWidth;
-      this.minXMobile = 0;
-      this.maxXMobile = 38;
-      this.shiftX = this.thumbEl.offsetWidth;
+      this.shiftX = this.thumbEl.offsetWidth / 2;
+      this.gradientWidth = 0;
 
-      this.handleControlsClickMobile = this.handleControlsClickMobile.bind(this);
-      this.handleControlsClickTablet = this.handleControlsClickTablet.bind(this);
-
+      this.handleControlsClick = this.handleControlsClick.bind(this);
       this.handleTouchStart = this.handleTouchStart.bind(this);
       this.handleTouchMove = this.handleTouchMove.bind(this);
       this.handleTouchEnd = this.handleTouchEnd.bind(this);
-
       this.handleThumbMouseDown = this.handleThumbMouseDown.bind(this);
       this.handleMouseUp = this.handleMouseUp.bind(this);
       this.handleMouseMove = this.handleMouseMove.bind(this);
+      this.handleWindowResize = this.handleWindowResize.bind(this);
+    }
+
+    setState(state, imageX, thumbX) {
+      this.state = state;
+      this.imageX = imageX;
+      this.thumbX = thumbX;
+      if (getMQ(MQ.DESKTOP).matches) {
+        switch (state) {
+          case SliderState.BEFORE:
+            this.gradientWidth = 0;
+            break;
+          case SliderState.AFTER:
+            this.gradientWidth = this.rootEl.offsetWidth;
+            break;
+          case SliderState.MIDDLE:
+            const shift = (this.imageX - Image.DESKTOP) * MIDDLE / Image.DESKTOP;
+            this.gradientWidth = this.rootEl.offsetWidth - MIDDLE - shift;
+            break;
+          default:
+            throw Error(`Unknown Slider State`);
+        }
+      }
     }
 
     setSlider() {
+      if (getMQ(MQ.DESKTOP).matches) {
+        this.gradientEl.style.backgroundImage = `linear-gradient(to left, ${GRADIENT_COLOR} 0, ${GRADIENT_COLOR} ${this.gradientWidth}px, transparent ${this.gradientWidth}px)`;
+      }
       this.imageBefore.style.clipPath = `polygon(0 0, ${this.imageX}% 0, ${this.imageX}% 100%, 0 100%)`;
       this.imageAfter.style.clipPath = `polygon(${this.imageX}% 0, 100% 0, 100% 100%, ${this.imageX}% 100%)`;
       this.thumbEl.style.transform = `translateX(${this.thumbX}px)`;
     }
 
-    setBefore() {
-      this.active = SliderState.BEFORE;
-      this.imageX = 100;
+    initMobile() {
+      this.thumbMax = this.rangeEl.offsetWidth - this.thumbEl.offsetWidth;
+      this.setState(SliderState.BEFORE, Image.BEFORE, Thumb.MIN);
     }
 
-    setAfter() {
-      this.active = SliderState.AFTER;
-      this.imageX = 0;
+    initTablet() {
+      this.thumbMax = this.rangeEl.offsetWidth - this.thumbEl.offsetWidth;
+      this.setState(SliderState.MIDDLE, Image.TABLET, Thumb.MID);
+    }
+
+    initDesktop() {
+      this.setState(SliderState.MIDDLE, Image.DESKTOP, Thumb.MID);
     }
 
     moveSlider(evtClientX) {
       const shift = this.startDragX - evtClientX;
       this.startDragX = evtClientX;
       const endX = this.thumbX - shift;
-      const willMinRange = endX <= this.minX + this.shiftX / 2;
-      const willMaxRange = endX >= this.maxX - this.shiftX / 2;
+      const willMinRange = endX <= Thumb.MIN + this.shiftX;
+      const willMaxRange = endX >= this.thumbMax - this.shiftX;
 
       if (willMinRange && shift >=0) {
-        this.thumbX = this.minX;
-        this.setBefore();
-        this.setSlider();
-        return;
+        this.setState(SliderState.BEFORE, Image.BEFORE, Thumb.MIN);
+      } else if (willMaxRange && shift <=0) {
+        this.setState(SliderState.AFTER, Image.AFTER, this.thumbMax);
+      } else {
+        const percentX = Math.round(endX * 100 / this.thumbMax);
+        this.setState(SliderState.MIDDLE, 100 - percentX, endX);
       }
-
-      if (willMaxRange && shift <=0) {
-        this.thumbX = this.maxX;
-        this.setAfter();
-        this.setSlider();
-        return;
-      }
-
-      const percentX = Math.round(endX * 100 / this.maxX);
-      this.active = SliderState.MIDDLE;
-      this.imageX = 100 - percentX;
-      this.thumbX = endX;
       this.setSlider();
     }
 
@@ -131,165 +172,82 @@
       }
     }
 
-    initMobile() {
-      this.active = SliderState.BEFORE;
-      this.imageX = 0;
-      this.thumbX = 0;
-      this.setMobileListeners(true);
+    removeGradient() {
+      this.gradientWidth = 0;
+      this.gradientEl.style.backgroundImage = ``;
     }
 
-    initTablet() {
-      this.active = SliderState.MIDDLE;
-      this.imageX = 49;
-      this.thumbX = 197;
-      this.setTabletListeners(true);
-    }
-
-    changeToMobile() {
-      if (this.active === SliderState.AFTER) {
-        this.imageX = 0;
-        this.thumbX = this.maxXMobile;
-      } else if (this.active === SliderState.BEFORE) {
-        this.imageX = 100;
-        this.thumbX = this.minXMobile;
-      } else {
-        this.active = SliderState.BEFORE;
-        this.imageX = 100;
-        this.thumbX = this.minXMobile;
-      }
-      this.setSlider();
-      this.setTabletListeners(false);
-      this.setMobileListeners(true);
-    }
-
-    changeToTablet() {
-      if (this.active === SliderState.AFTER) {
-        this.imageX = 0;
-        this.thumbX = this.maxX;
-      } else {
-        this.imageX = 100;
-        this.thumbX = this.minX;
-      }
-      this.setSlider();
-      this.setMobileListeners(false);
-      this.setTabletListeners(true);
-    }
-
-    setMobileListeners(isActive) {
-      if (isActive) {
-        this.controlsEl.addEventListener(`click`, this.handleControlsClickMobile);
-      } else {
-        this.controlsEl.removeEventListener(`click`, this.handleControlsClickMobile);
-      }
-    }
-
-    setTabletListeners(isActive) {
-      if(isActive) {
-        this.controlsEl.addEventListener(`click`, this.handleControlsClickTablet);
-
-        this.thumbEl.addEventListener("touchstart", this.handleTouchStart);
-        this.thumbEl.addEventListener("touchmove", this.handleTouchMove);
-        this.thumbEl.addEventListener("touchend", this.handleTouchEnd);
-
+    addListeners() {
+      if (getMQ(MQ.TABLET).matches || getMQ(MQ.DESKTOP).matches) {
+        this.thumbEl.addEventListener(`touchstart`, this.handleTouchStart);
+        this.thumbEl.addEventListener(`touchmove`, this.handleTouchMove);
+        this.thumbEl.addEventListener(`touchend`, this.handleTouchEnd);
+        this.thumbEl.addEventListener(`mousedown`, this.handleThumbMouseDown);
         document.addEventListener('mousemove', this.handleMouseMove);
         document.addEventListener('mouseup', this.handleMouseUp);
-        this.thumbEl.addEventListener(`mousedown`, this.handleThumbMouseDown);
-      } else {
-        this.controlsEl.removeEventListener(`click`, this.handleControlsClickTablet);
-
-        this.thumbEl.removeEventListener("touchstart", this.handleTouchStart);
-        this.thumbEl.removeEventListener("touchmove", this.handleTouchMove);
-        this.thumbEl.removeEventListener("touchend", this.handleTouchEnd);
-
-        document.removeEventListener('mousemove', this.handleMouseMove);
-        document.removeEventListener('mouseup', this.handleMouseUp);
-        this.thumbEl.removeEventListener(`mousedown`, this.handleThumbMouseDown);
+        window.addEventListener(`resize`, this.handleWindowResize);
       }
+      this.controlsEl.addEventListener(`click`, this.handleControlsClick);
     }
 
-    handleControlsClickMobile(evt) {
+    removeListeners() {
+      this.thumbEl.removeEventListener(`touchstart`, this.handleTouchStart);
+      this.thumbEl.removeEventListener(`touchmove`, this.handleTouchMove);
+      this.thumbEl.removeEventListener(`touchend`, this.handleTouchEnd);
+      this.thumbEl.removeEventListener(`mousedown`, this.handleThumbMouseDown);
+      document.removeEventListener('mousemove', this.handleMouseMove);
+      document.removeEventListener('mouseup', this.handleMouseUp);
+    }
+
+    handleControlsClick(evt) {
       const targetEl = evt.target;
-      const isBeforeActive = this.active === SliderState.BEFORE;
+      const isBeforeActive = this.state === SliderState.BEFORE;
+      const isAfterActive = this.state === SliderState.AFTER;
 
       switch (targetEl) {
         case this.controlBefore:
-          if (!isBeforeActive) {
-            this.thumbX = this.minXMobile;
-            this.setBefore();
-            this.setSlider();
+          if (isBeforeActive) {
+            return;
           }
+          this.setState(SliderState.BEFORE, Image.BEFORE, Thumb.MIN);
           break;
 
         case this.controlAfter:
-          if (isBeforeActive) {
-            this.thumbX = this.maxXMobile;
-            this.setAfter();
-            this.setSlider();
+          if (isAfterActive) {
+            return;
           }
+          const thumbX = getMQ(MQ.MOBILE).matches ? Thumb.MOBILE : this.thumbMax;
+          this.setState(SliderState.AFTER, Image.AFTER, thumbX);
           break;
 
         case this.rangeEl:
-          if (isBeforeActive) {
-            this.thumbX = this.maxXMobile;
-            this.setAfter();
-            this.setSlider();
+          if (getMQ(MQ.MOBILE).matches) {
+            const state = isBeforeActive ? SliderState.AFTER : SliderState.BEFORE;
+            const imageX = isBeforeActive ? Image.AFTER : Image.BEFORE;
+            const thumbX = isBeforeActive ? Thumb.MOBILE : Thumb.MIN;
+            this.setState(state, imageX, thumbX);
           } else {
-            this.thumbX = this.minXMobile;
-            this.setBefore();
-            this.setSlider();
+            const x = evt.offsetX;
+            if (x <= Thumb.MIN + this.shiftX) {
+              this.setState(SliderState.BEFORE, Image.BEFORE, Thumb.MIN);
+            } else if (x >= this.thumbMax - this.shiftX) {
+              this.setState(SliderState.AFTER, Image.AFTER, this.thumbMax);
+            } else {
+              const percentX = 100 - Math.round(x * 100 / this.thumbMax);
+              this.setState(SliderState.MIDDLE, percentX, x - this.shiftX);
+            }
           }
           break;
-        default:
-          return;
-      }
-    }
 
-    handleControlsClickTablet(evt) {
-      const targetEl = evt.target;
-      switch (targetEl) {
-        case this.controlBefore:
-          if (this.active !== SliderState.BEFORE) {
-            this.thumbX = this.minX;
-            this.setBefore();
-            this.setSlider();
-          }
-          break;
-        case this.controlAfter:
-          if (this.active !== SliderState.AFTER) {
-            this.thumbX = this.maxX;
-            this.setAfter();
-            this.setSlider();
-          }
-          break;
-        case this.rangeEl:
-          const x = evt.offsetX;
-          if (x <= this.minX + this.shiftX / 2) {
-            this.thumbX = this.minX;
-            this.setBefore();
-            this.setSlider();
-            return;
-          }
-          if (x >= this.maxX - this.shiftX / 2) {
-            this.thumbX = this.maxX;
-            this.setAfter();
-            this.setSlider();
-            return;
-          }
-          const percentX = 100 - Math.round(x * 100 / this.maxX);
-          this.active = SliderState.MIDDLE;
-          this.imageX = percentX;
-          this.thumbX = x - this.shiftX / 2;
-          this.setSlider();
-          break;
         default:
           return;
       }
+      this.setSlider();
     }
 
     handleTouchStart(evt) {
       evt.preventDefault();
       this.startDragFlag = true;
-
       for (let touch of evt.changedTouches) {
         if (touch.target === this.thumbEl) {
           this.startDragX = touch.clientX;
@@ -302,18 +260,20 @@
     }
 
     handleTouchMove(evt) {
-      evt.preventDefault();
       if (!this.startDragFlag) {
         return;
       }
 
-      let evtClientX = 0;
-      for (let touch of evt.changedTouches) {
-        if (touch.target === this.thumbEl) {
-          evtClientX = touch.clientX;
+      if (evt.cancelable) {
+        evt.preventDefault();
+        let evtClientX = 0;
+        for (let touch of evt.changedTouches) {
+          if (touch.target === this.thumbEl) {
+            evtClientX = touch.clientX;
+          }
         }
+        this.moveSlider(evtClientX);
       }
-      this.moveSlider(evtClientX);
     }
 
     handleThumbMouseDown(evt) {
@@ -332,23 +292,48 @@
       }
       this.moveSlider(evt.clientX);
     }
+
+    handleWindowResize() {
+      if (getMQ(MQ.DESKTOP).matches) {
+        this.initDesktop();
+        this.setSlider();
+      }
+    }
   }
 
   const catSlider = new Slider();
-  const tabletMQ = window.matchMedia(`(min-width: 768px)`);
-  const isTablet = tabletMQ.matches;
 
-  if (isTablet) {
+  if (getMQ(MQ.MOBILE).matches) {
+    catSlider.initMobile();
+  } else if (getMQ(MQ.TABLET).matches) {
     catSlider.initTablet();
   } else {
-    catSlider.initMobile();
+    catSlider.initDesktop();
   }
+  catSlider.setSlider();
+  catSlider.addListeners();
 
-  tabletMQ.addEventListener(`change`, () => {
-    if (tabletMQ.matches) {
-      catSlider.changeToTablet();
-    } else {
-      catSlider.changeToMobile();
+  getMQ(MQ.MOBILE).addEventListener(`change`, (evt) => {
+    if (evt.target.matches) {
+      catSlider.initMobile();
+      catSlider.setSlider();
+      catSlider.removeListeners();
+    }
+  });
+
+  getMQ(MQ.TABLET).addEventListener(`change`, (evt) => {
+    if (evt.target.matches) {
+      catSlider.initTablet();
+      catSlider.setSlider();
+      catSlider.removeGradient();
+      catSlider.addListeners();
+    }
+  });
+
+  getMQ(MQ.DESKTOP).addEventListener(`change`, (evt) => {
+    if (evt.target.matches) {
+      catSlider.initDesktop();
+      catSlider.setSlider();
     }
   });
 })();
