@@ -10,6 +10,10 @@
     @media (min-width: $tablet-width) {
       grid-row-gap: 20px;
     }
+
+    @media (min-width: $desktop-width) {
+      grid-row-gap: 19px;
+    }
   }
 
   &--purpose {
@@ -19,14 +23,14 @@
     color: $basic-dark-200;
 
     @media (min-width: $tablet-width) {
-      padding-top: 25px;
-      padding-bottom: 25px;
+      padding-top: 24px;
+      padding-bottom: 23px;
       padding-left: 27px;
       padding-right: 27px;
       border: $border-d9;
     }
 
-    @media (min-width: $tablet-width) {
+    @media (min-width: $desktop-width) {
       padding-left: 28px;
       padding-right: 28px;
     }
@@ -42,7 +46,7 @@
     }
 
     @media (min-width: $desktop-width) {
-      grid-template: min-content / repeat(2, 1fr);
+      grid-template: min-content / repeat(2, minmax(570px, 1fr));
       grid-column-gap: $gutter-desktop;
     }
   }

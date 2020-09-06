@@ -16,13 +16,13 @@
     grid-template:
       "title price" 1fr
       "buy buy" 1fr;
-    grid-row-gap: 5px;
+    grid-row-gap: 8px;
     align-items: baseline;
   }
 
   @media (min-width: $desktop-width) {
     grid-template: "title price buy" 1fr / 1fr 1fr $column-desktop;
-    grid-column-gap: 40px;
+    grid-column-gap: 37px;
   }
 }
 

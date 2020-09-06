@@ -20,12 +20,12 @@
   }
 
   @media (min-width: $desktop-width) {
-    padding-top: 144px;
+    padding-top: 140px;
     background-image:
       $bg-promo-top,
       linear-gradient(to bottom, $basic-green 0, $basic-green 100%);
     background-position: 50vw top;
-    background-size: 720px 696px;
+    background-size: 720px 694px;
   }
 
   @media (min-width: $desktop-width) and (min-resolution: 2dppx) {
@@ -42,7 +42,7 @@
 .promo__top {
   @include flex(column, auto, auto, false);
   @include bg-norepeat($bg-promo-can-mobile);
-  min-height: 502px;
+  min-height: 503px;
   color: $basic-light;
   background-position: center 167px;
   background-size: 280px 270px;
@@ -65,11 +65,11 @@
   }
 
   @media (min-width: $desktop-width) {
-    min-height: 632px;
-    padding-left: 78px;
-    padding-top: 48px;
+    min-height: 635px;
+    padding-left: 79px;
+    padding-top: 52px;
     background-image: $bg-promo-can;
-    background-position: 446px top;
+    background-position: 448px top;
     background-size: 552px 499px;
   }
 
@@ -79,8 +79,7 @@
 }
 
 .promo__title {
-  margin-top: 27px;
-  margin-bottom: 25px;
+  margin: 27px 0;
   text-align: center;
 
   @media (min-width: $tablet-width) {
@@ -134,7 +133,7 @@
 .promo__list {
   @include list;
   display: grid;
-  grid-row-gap: 20px;
+  grid-row-gap: 16px;
 
   @media (min-width: $tablet-width) {
     grid-row-gap: 30px;

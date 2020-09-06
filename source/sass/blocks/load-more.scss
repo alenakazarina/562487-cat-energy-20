@@ -7,14 +7,14 @@
   @include flex(column, auto, center, false);
   @include bg-norepeat($icon-plus);
   padding-top: 80px;
-  padding-bottom: 25px;
+  padding-bottom: 23px;
   text-align: center;
   background-size: 30px 30px;
   background-position: center 26px;
 
   @media (min-width: $tablet-width) {
     min-height: 430px;
-    padding-top: 158px;
+    padding-top: 156px;
     padding-bottom: 38px;
     padding-left: 36px;
     padding-right: 36px;

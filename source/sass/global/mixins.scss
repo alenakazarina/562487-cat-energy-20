@@ -59,6 +59,10 @@
     color: transparentize($basic-light, 1 - $opacity-30);
     background-color: $basic-green-hover;
   }
+
+  @media (min-width: $tablet-width) {
+    line-height: 19px;
+  }
 }
 
 @mixin arrow-link {
@@ -108,12 +112,12 @@
 
     @media (min-width: $tablet-width) {
       top: 2px;
-      margin-left: 22px;
+      margin-left: 25px;
     }
 
     @media (min-width: $desktop-width) {
       top: 1px;
-      margin-left: 25px;
+      margin-left: 28px;
     }
   }
 }
@@ -190,8 +194,7 @@
   }
 
   @media (min-width: $desktop-width) {
-    padding-left: $padding-desktop + $scroll-shift;
-    padding-right: $padding-desktop - $scroll-shift;
+    padding: 0 $padding-desktop;
   }
 }
 
@@ -229,6 +232,7 @@
   }
 
   @media (min-width: $desktop-width) {
+    padding-right: 42px;
     margin-left: -$padding-desktop;
   }
 }
