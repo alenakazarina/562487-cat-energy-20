@@ -1,20 +1,12 @@
 <!DOCTYPE html>
 <html class="page" lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Доставка еды для котов. Подбор программы питания. Скидки на первый заказ.">
-  <title>Cat Energy - функциональное питание для котов.</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
+<include src="html/head.html" locals='{
+  "title": "Cat Energy - функциональное питание для котов."
+}'></include>
 <body class="page-body">
   <header class="page-header page-header--index">
     <a class="page-header__logo">
-      <picture>
-        <source srcset="img/logo-desktop.svg" media="(min-width: 1300px)">
-        <source srcset="img/logo-tablet.svg" media="(min-width: 768px)">
-        <img src="img/logo-mobile.svg" width="190" height="41" alt="Логотип Cat Energy">
-      </picture>
+      <include src="html/logo.html"></include>
     </a>
     <nav class="main-nav main-nav--opened main-nav--nojs" aria-label="Основное меню">
       <button class="main-nav__toggle js-toggle" type="button" aria-label="Открыть основное меню">
@@ -43,7 +35,7 @@
           <a href="form.html" class="promo__link">Подобрать программу</a>
         </div>
         <ul class="promo__list">
-          <li class="program">
+          <li class="program program--slim">
             <img class="program__icon program__icon--slim"
               src="img/icon-cat-slim.svg"
               alt="Кот-фитоняшка"
@@ -53,7 +45,7 @@
             <p class="program__description">Ваш кот весит больше собаки и почти утратил способность лазить по деревьям? Пора на&nbsp;диету! Cat Energy Slim поможет вашему питомцу сбросить лишний вес.</p>
             <a class="program__link" href="catalog.html">Каталог slim</a>
           </li>
-          <li class="program">
+          <li class="program program--pro">
             <img class="program__icon program__icon--pro"
               src="img/icon-cat-pro.svg"
               alt="Кот-профи"
@@ -76,98 +68,51 @@
       </ul>
     </section>
     <section class="case">
-      <div class="case__wrapper">
-        <h2 class="case__title title title--section">Живой пример</h2>
-        <p class="case__description">Борис сбросил 5 кг за 2 месяца, просто заменив свой обычный корм на Cat Energy Slim. Отличный результат без изнуряющих тренировок! При этом он не менял своих привычек и по-прежнему спит по 16 часов в день.</p>
-        <div class="case__stat">
-          <ul class="case__facts facts">
-            <li class="facts__item">
-              <span class="facts__number">5 кг</span>
-              <small class="facts__text">снижение веса</small>
-            </li>
-            <li class="facts__item">
-              <span class="facts__number">60 дней</span>
-              <small class="facts__text">затрачено времени</small>
-            </li>
-          </ul>
-          <p class="case__costs">Затраты на питание:<span>&nbsp;15 000 руб.</span></p>
-        </div>
-        <div class="case__slider slider js-slider">
-          <div class="slider__content">
-            <picture class="slider__image slider__image--before">
-              <source srcset="img/before-desktop@1x.png 1x, img/before-desktop@2x.png 2x" media="(min-width: 1300px)">
-              <source srcset="img/before-tablet@1x.png, img/before-tablet@2x.png 2x" media="(min-width: 768px)">
-              <img src="img/before-mobile@1x.png"
-                srcset="img/before-mobile@2x.png 2x"
-                alt="Фото кота Бориса до">
-            </picture>
-            <picture class="slider__image slider__image--after">
-              <source srcset="img/after-desktop@1x.png" media="(min-width: 1300px)">
-              <source srcset="img/after-tablet@1x.png" media="(min-width: 768px)">
-              <img src="img/after-mobile@1x.png"
-                srcset="img/after-mobile@2x.png 2x"
-                alt="Фото кота Бориса после">
-            </picture>
+      <h2 class="case__title title title--section">Живой пример</h2>
+      <div class="case__inner js-gradient">
+        <div class="case__wrapper">
+          <p class="case__description">Борис сбросил 5 кг за 2 месяца, просто заменив свой обычный корм на Cat Energy Slim. Отличный результат без изнуряющих тренировок! При этом он не менял своих привычек и по-прежнему спит по 16 часов в день.</p>
+          <div class="case__stat">
+            <ul class="case__facts facts">
+              <li class="facts__item">
+                <span class="facts__number">5 кг</span>
+                <small class="facts__text">снижение веса</small>
+              </li>
+              <li class="facts__item">
+                <span class="facts__number">60 дней</span>
+                <small class="facts__text">затрачено времени</small>
+              </li>
+            </ul>
+            <p class="case__costs">Затраты на питание:<span>&nbsp;15 000 руб.</span></p>
           </div>
-          <div class="slider__controls">
-            <button class="slider__control" data-control="before" type="button">Было</button>
-            <div class="slider__range">
-              <button class="slider__thumb" type="button">
-                <span class="visually-hidden">Переместить слайдер до/после</span>
-              </button>
+          <div class="case__slider slider js-slider">
+            <div class="slider__content">
+              <include src="html/slider-image.html" locals='{
+                "alt": "Фото кота Бориса до",
+                "image": "before"
+              }'></include>
+              <include src="html/slider-image.html" locals='{
+                "alt": "Фото кота Бориса после",
+                "image": "after"
+              }'></include>
             </div>
-            <button class="slider__control" data-control="after" type="button">Стало</button>
+            <div class="slider__controls">
+              <button class="slider__control" data-control="before" type="button">Было</button>
+              <div class="slider__range">
+                <button class="slider__thumb" type="button">
+                  <span class="visually-hidden">Переместить слайдер до/после</span>
+                </button>
+              </div>
+              <button class="slider__control" data-control="after" type="button">Стало</button>
+            </div>
           </div>
         </div>
       </div>
     </section>
   </main>
-  <footer class="page-footer">
-    <div class="page-footer__contacts contacts contacts--index">
-      <div class="contacts__wrapper">
-        <p class="contacts__slogan">Приглашаем<br>к сотрудничеству<br>дилеров!</p>
-        <address class="contacts__address">ул. Большая<br> Конюшенная, д. 19/8
-          <span>Санкт-Петербург</span>
-        </address>
-      </div>
-    </div>
-    <div class="map js-map"></div>
-    <div class="page-footer__wrapper">
-      <a class="page-footer__logo">
-        <svg width="128" height="24" fill="#111111" role="img" aria-label="Cat Energy">
-          <use xlink:href="img/sprite.svg#logo-footer"></use>
-        </svg>
-      </a>
-      <ul class="page-footer__socials socials">
-        <li><a class="socials__link" href="https://vk.com" rel="noopener nofollow" target="_blank" title="ВКонтакте">
-          <span class="visually-hidden">Cat Energy во ВКонтакте</span>
-          <svg class="social-icon social-icon--vk" width="22" height="12" role="img" aria-label="Cat Energy во ВКонтакте">
-            <use xlink:href="img/sprite.svg#icon-vk"></use>
-          </svg>
-        </a></li>
-        <li><a class="socials__link" href="https://instagram.com" rel="noopener nofollow" target="_blank" title="Instagram">
-          <span class="visually-hidden">Cat Energy в Instagram</span>
-          <svg class="social-icon social-icon--insta" width="16" height="16" role="img" aria-label="Cat Energy в Instagram">
-            <use xlink:href="img/sprite.svg#icon-insta"></use>
-          </svg>
-        </a></li>
-        <li><a class="socials__link" href="https://facebook.com" rel="noopener nofollow" target="_blank" title="Facebook">
-          <span class="visually-hidden">Cat Energy в Facebook</span>
-          <svg class="social-icon social-icon--fb" width="9" height="18" role="img" aria-label="Cat Energy в Facebook">
-            <use xlink:href="img/sprite.svg#icon-fb"></use>
-          </svg>
-        </a></li>
-      </ul>
-      <a class="page-footer__copyright copyright"
-        href="https://htmlacademy.ru/intensive/adaptive"
-        rel="noopener nofollow"
-        target="_blank">HTML Academy
-        <svg width="27" height="34" role="img" aria-label="Логотип HTML Academy">
-          <use xlink:href="img/sprite.svg#logo-html"></use>
-        </svg>
-      </a>
-    </div>
-  </footer>
-  <script src="js/main.js"></script>
+  <include src="html/footer.html" locals='{
+    "modifier": "contacts--index"
+  }'></include>
+  <script src="js/main.min.js" async></script>
 </body>
 </html>

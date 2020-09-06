@@ -1,0 +1,37 @@
+<li class="products__card product">
+  <a class="product__picture" href="#">
+    <picture>
+      <source type="image/webp"
+        srcset="img/webp/{{ image }}-desktop@1x.webp 1x, img/webp/{{ image }}-desktop@2x.webp 2x"
+        media="(min-width: 1300px)">
+      <source type="image/webp"
+        srcset="img/webp/{{ image }}-tablet@1x.webp 1x, img/webp/{{ image }}-tablet@2x.webp 2x"
+        media="(min-width: 768px)">
+      <source type="image/webp"
+        srcset="img/webp/{{ image }}-mobile@1x.webp 1x, img/webp/{{ image }}-mobile@2x.webp 2x">
+      <source srcset="img/{{ image }}-desktop@1x.png 1x, img/{{ image }}-desktop@2x.png 2x" media="(min-width: 1300px)">
+      <source srcset="img/{{ image }}-tablet@1x.png 1x, img/{{ image }}-tablet@2x.png 2x" media="(min-width: 768px)">
+      <img src="img/{{ image }}-mobile@1x.jpg"
+        srcset="img/{{ image }}-mobile@2x.jpg 2x"
+        alt="{{ alt }}">
+    </picture>
+  </a>
+  <div class="product__wrap">
+    <h3 class="product__title title title--card"><a href="#">Cat Energy {{ line }} {{ weight }} г</a></h3>
+    <dl class="product__info info">
+      <div class="info__item">
+        <dt>Масса</dt>
+        <dd>{{ weight }} г</dd>
+      </div>
+      <div class="info__item">
+        <dt>Вкус</dt>
+        <dd>{{ flavor }}</dd>
+      </div>
+      <div class="info__item">
+        <dt>Цена</dt>
+        <dd>{{ price }} Р.</dd>
+      </div>
+    </dl>
+  </div>
+  <a href="#" class="product__buy">Заказать</a>
+</li>
