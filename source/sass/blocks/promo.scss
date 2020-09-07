@@ -6,7 +6,7 @@
   position: relative;
   color: $basic-light;
   background-position: center top;
-  background-size: 320px 305px;
+  background-size: 320px 305px, 100% 305px;
 
   @media (min-resolution: 2dppx) {
     background-image:
@@ -25,7 +25,7 @@
       $bg-promo-top,
       linear-gradient(to bottom, $basic-green 0, $basic-green 100%);
     background-position: 50vw top;
-    background-size: 720px 694px;
+    background-size: 720px 694px, 100% 694px;
   }
 
   @media (min-width: $desktop-width) and (min-resolution: 2dppx) {
