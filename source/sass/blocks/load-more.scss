@@ -61,7 +61,7 @@
   }
 }
 
-.load-more__button {
+.load-more__link {
   @include text(primary, 16px, 20px, true);
   @include gray-link;
   width: 100%;
