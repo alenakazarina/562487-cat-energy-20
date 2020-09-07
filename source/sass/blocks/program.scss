@@ -123,11 +123,12 @@
 .program__description {
   position: relative;
   grid-area: text;
-  margin-top: 24px;
-  margin-bottom: 24px;
+  margin-top: 25px;
+  margin-bottom: 22px;
   color: $basic-dark-400;
 
   @media (min-width: $tablet-width) {
+    margin-bottom: 23px;
     color: $basic-dark;
     border-bottom: none;
   }
@@ -154,11 +155,11 @@
 
 .program__link {
   @include arrow-link;
-  @include text(primary, 16px, 16px, true);
+  @include text(primary, 16px, 18px, true);
   @include flex(row, auto, center, false);
   grid-area: link;
   padding-top: 20px;
-  padding-bottom: 21px;
+  padding-bottom: 20px;
   margin-right: auto;
 
   @media (min-width: $tablet-width) {

@@ -85,7 +85,7 @@
 
   &::before {
     @include pseudo-flex(32px, 14px);
-    @include absolute-top-right(calc(50% - 8px), 0, 0);
+    @include absolute-top-right(calc(50% - 6px), 0, 0);
     @include bg-norepeat($icon-arrow-long);
     background-position: left center;
     background-size: 32px 11px;
@@ -96,7 +96,7 @@
     }
 
     @media (min-width: $desktop-width) {
-      top: calc(50% - 6px);
+      top: calc(50% - 2px);
     }
   }
 
@@ -105,7 +105,7 @@
     @include bg-norepeat($icon-arrow);
     position: relative;
     top: 1px;
-    margin-left: 14px;
+    margin-left: 15px;
     background-position: left center;
     background-size: 24px 11px;
     opacity: 1;
