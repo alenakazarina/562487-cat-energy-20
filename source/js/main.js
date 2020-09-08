@@ -29,6 +29,31 @@
 
 'use strict';
 
+//  Media Query
+
+(function() {
+  window.MQ = {
+    MOBILE: `mobile`,
+    TABLET: `tablet`,
+    DESKTOP: `desktop`
+  };
+  window.getMQ = (mq) => {
+    switch(mq) {
+      case MQ.MOBILE:
+        return window.matchMedia(`(max-width: 767.9px)`);
+      case MQ.TABLET:
+        return window.matchMedia(`(min-width: 768px) and (max-width: 1299.9px)`);
+      case MQ.DESKTOP:
+        return window.matchMedia(`(min-width: 1300px)`);
+      default:
+        throw Error(`Unknown MQ`);
+    }
+  };
+})();
+
+
+'use strict';
+
 //  slider
 (function() {
   const sliderEl = document.querySelector(`.js-slider`);
@@ -53,23 +78,6 @@
     BEFORE: 100,
     TABLET: 49,
     DESKTOP: 53
-  };
-  const MQ = {
-    MOBILE: `mobile`,
-    TABLET: `tablet`,
-    DESKTOP: `desktop`
-  };
-  const getMQ = (mq) => {
-    switch(mq) {
-      case MQ.MOBILE:
-        return window.matchMedia(`(max-width: 767.9px)`);
-      case MQ.TABLET:
-        return window.matchMedia(`(min-width: 768px) and (max-width: 1299.9px)`);
-      case MQ.DESKTOP:
-        return window.matchMedia(`(min-width: 1300px)`);
-      default:
-        throw Error(`Unknown MQ`);
-    }
   };
 
   class Slider {
@@ -336,4 +344,89 @@
       catSlider.setSlider();
     }
   });
+})();
+
+'use strict';
+
+//  map
+
+(function() {
+  const MobileMapConfig = {
+    center: [59.93856105539892,30.32319017445357],
+    zoom: 14,
+    pinCoords: [59.938573989298526,30.323014794448802],
+    pinOffset: [-31, -40],
+    pinSize: [62, 53]
+  };
+
+  const TabletMapConfig = {
+    center: [59.93856105539892,30.323018513076594],
+    zoom: 15,
+    pinCoords: [59.938573989298526,30.323014794448802],
+    pinOffset: [-62, -53],
+    pinSize: [124, 106],
+  };
+
+  const DesktopMapConfig = {
+    center: [59.93881109336912,30.318137371788175],
+    zoom: 16,
+    pinCoords: [59.93897437321298,30.32328809868711],
+    pinOffset: [-62, -53],
+    pinSize: [124, 106],
+  };
+
+  const getMapConfig = () => {
+    if (getMQ(MQ.MOBILE).matches) {
+      return MobileMapConfig;
+    }
+
+    if (getMQ(MQ.TABLET).matches) {
+      return TabletMapConfig;
+    }
+
+    if (getMQ(MQ.DESKTOP).matches) {
+      return DesktopMapConfig;
+    }
+  };
+
+  const createMap = (config) => {
+    return new ymaps.Map('map', {
+      center: config.center,
+      zoom: config.zoom,
+      controls: []
+    });
+  }
+
+  const createPlacemark = (config) => {
+    return new ymaps.Placemark(config.pinCoords, {
+      hintContent: 'Cat Energy',
+      balloonContent: 'Cat Energy'
+    }, {
+      iconLayout: 'default#image',
+      iconImageHref: 'img/map-pin.png',
+      iconImageSize: config.pinSize,
+      iconImageOffset: config.pinOffset
+    });
+  };
+
+  const initMap = () => {
+    let mapConfig = getMapConfig();
+    let catMap = createMap(mapConfig);
+    let catPlacemark = createPlacemark(mapConfig);
+
+    const handleMQChange = () => {
+      catMap.destroy();
+      mapConfig = getMapConfig();
+      catMap = createMap(mapConfig);
+      catPlacemark = createPlacemark(mapConfig);
+      catMap.geoObjects.add(catPlacemark);
+    };
+
+    catMap.geoObjects.add(catPlacemark);
+    getMQ(MQ.MOBILE).addEventListener(`change`, handleMQChange);
+    getMQ(MQ.TABLET).addEventListener(`change`, handleMQChange);
+    getMQ(MQ.DESKTOP).addEventListener(`change`, handleMQChange);
+  }
+
+  ymaps.ready(initMap);
 })();
