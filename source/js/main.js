@@ -398,35 +398,34 @@
   }
 
   const createPlacemark = (config) => {
-    return new ymaps.Placemark(config.pinCoords, {
-      hintContent: 'Cat Energy',
-      balloonContent: 'Cat Energy'
-    }, {
-      iconLayout: 'default#image',
-      iconImageHref: 'img/map-pin.png',
+    return new ymaps.Placemark(config.pinCoords, {}, {
+      iconLayout: `default#image`,
+      iconImageHref: `img/map-pin.png`,
       iconImageSize: config.pinSize,
       iconImageOffset: config.pinOffset
     });
   };
 
-  const initMap = () => {
+  window.initMap = () => {
     let mapConfig = getMapConfig();
     let catMap = createMap(mapConfig);
-    let catPlacemark = createPlacemark(mapConfig);
+    if (catMap) {
+      ymaps.modules.require([`Placemark`], (Placemark) => {
+        ymaps.Placemark = Placemark;
+        let catPlacemark = createPlacemark(mapConfig);
+        catMap.geoObjects.add(catPlacemark);
 
-    const handleMQChange = () => {
-      catMap.destroy();
-      mapConfig = getMapConfig();
-      catMap = createMap(mapConfig);
-      catPlacemark = createPlacemark(mapConfig);
-      catMap.geoObjects.add(catPlacemark);
-    };
-
-    catMap.geoObjects.add(catPlacemark);
-    getMQ(MQ.MOBILE).addEventListener(`change`, handleMQChange);
-    getMQ(MQ.TABLET).addEventListener(`change`, handleMQChange);
-    getMQ(MQ.DESKTOP).addEventListener(`change`, handleMQChange);
-  }
-
-  ymaps.ready(initMap);
+        const handleMQChange = () => {
+          catMap.destroy();
+          mapConfig = getMapConfig();
+          catMap = createMap(mapConfig);
+          catPlacemark = createPlacemark(mapConfig);
+          catMap.geoObjects.add(catPlacemark);
+        };
+        getMQ(MQ.MOBILE).addEventListener(`change`, handleMQChange);
+        getMQ(MQ.TABLET).addEventListener(`change`, handleMQChange);
+        getMQ(MQ.DESKTOP).addEventListener(`change`, handleMQChange);
+      });
+    }
+  };
 })();
