@@ -3,9 +3,8 @@
   "private": true,
   "description": "Личный проект «Кэт энерджи» от HTML Academy",
   "devDependencies": {
-    "@htmlacademy/editorconfig-cli": "1.0.0",
     "autoprefixer": "9.8.4",
-    "browser-sync": "^2.26.12",
+    "browser-sync": "^2.26.14",
     "cross-env": "7.0.2",
     "del": "5.1.0",
     "gulp": "4.0.2",
@@ -28,9 +27,8 @@
     "stylelint-config-htmlacademy": "0.1.4"
   },
   "scripts": {
-    "editorconfig": "editorconfig-cli",
     "stylelint": "stylelint \"source/sass/**/*.scss\" --syntax scss",
-    "test": "npm run editorconfig && npm run stylelint",
+    "test": "npm run stylelint",
     "build": "gulp build",
     "start": "gulp start",
     "build:prod": "cross-env NODE_ENV=production gulp build",
